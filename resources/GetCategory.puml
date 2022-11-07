@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor Client
+participant WebsiteCategoryPage
+participant DynamoDBCategoryActivity
+database CategoryTable
+autonumber
+
+Client -> WebsiteCategoryPage: user requests categories destinationId
+WebsiteCategoryPage -> DynamoDBCategoryActivity: getCategory()
+
+DynamoDBCategoryActivity -> CategoryTable: get Category
+DynamoDBCategoryActivity <- CategoryTable: List<Category>
+DynamoDBCategoryActivity -> WebsiteCategoryPage: List<Category>
+Client<- WebsiteCategoryPage: List<Category>
+@enduml

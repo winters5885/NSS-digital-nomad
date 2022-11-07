@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor Client
+participant WebsiteDestinationsPage
+participant DynamoDBDestinationsActivity
+database DestinationsTable
+autonumber
+
+Client -> WebsiteDestinationsPage: selects and submits dropdown
+WebsiteDestinationsPage -> DynamoDBDestinationsActivity: getDestinations()
+
+DynamoDBDestinationsActivity -> DestinationsTable: get Destinations
+DynamoDBDestinationsActivity <- DestinationsTable: List<Destinations>
+DynamoDBDestinationsActivity -> WebsiteDestinationsPage: List<Destinations>
+Client<- WebsiteDestinationsPage: List<Destinations>
+
+@enduml
