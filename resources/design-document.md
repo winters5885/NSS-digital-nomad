@@ -12,7 +12,7 @@ Provide customers with a user experience that makes choosing where to travel eas
 
 ## 2. Top Questions to Resolve in Review
 
-Q. Where is our location data coming from? 
+Q. Where is our location data coming from?
 
 A. Data is gathered through web scraping.
 
@@ -33,16 +33,16 @@ U3. As a user, I want to select a set of favorite locations and retrieve the res
 ### 4.1. In Scope
 
 1. Generating travel recommendations filtered by user selected category.
-2. Allowing for the saving and retrieving of favorite destinations. 
+2. Allowing for the saving and retrieving of favorite destinations.
 
 ### 4.2. Out of Scope
 
 1. Sharing of information between users.
-2. User profile creation. 
+2. User profile creation.
 
 # 5. Proposed Architecture Overview
 
-Destination Objects. Category Objects. Favorite Objects. We will use an API gateway and Lambda to create these endpoints (GetDestination, GetCategory, CreateFavorites, and GetFavorites) We will store travel location reccommendations in a DynamoDB table. Favorite destinations will be stored in DynamoDB. We will provide a web interface for users to generate travel recommendations and/or view their favorite destinations. 
+Destination Objects. Category Objects. Favorite Objects. We will use an API gateway and Lambda to create these endpoints (GetDestination, GetCategory, CreateFavorites, and GetFavorites) We will store travel location reccommendations in a DynamoDB table. Favorite destinations will be stored in DynamoDB. We will provide a web interface for users to generate travel recommendations and/or view their favorite destinations.
 
 # 6. API
 
@@ -72,20 +72,20 @@ This endpoint will by default return a random list of destinations. Accepts GET 
 ## 6.3 Get Category
 Accepts a GET request to /categories with destinationId. This endpoint will return a list of categories a given destination fits into. If destinationId does not exist, throws InvalidDestinationIdException.
 
-## 6.4 Create Favorites 
-Accepts a POST request to /favorites. Then auto-generates UUID as the partition key. Saves favorites to a Dynamodb table. Then returns a secret URL for the user to keep and return their favorite destinations. 
+## 6.4 Create Favorites
+Accepts a POST request to /favorites. Then auto-generates UUID as the partition key. Saves favorites to a Dynamodb table. Then returns a secret URL for the user to keep and return their favorite destinations.
 
 ## 6.5 Get Favorites
-Accepts a GET request to /favorites with the provided URL. Returns the list of favorite destinations. Throws MalformedURLException if URL is not found. 
+Accepts a GET request to /favorites with the provided URL. Returns the list of favorite destinations. Throws MalformedURLException if URL is not found.
 
 # 7. Tables
 
 ## 7.1  Destinations table
 destinationId // partition key, string
 
-countryId // string 
+countryId // string
 
-locationId // string 
+locationId // string
 
 category // stringSet
 
@@ -107,5 +107,4 @@ destinationId // string
 <img width="928" alt="Screen Shot 2022-11-08 at 9 49 45 AM (1)" src="https://user-images.githubusercontent.com/66507929/200613551-790bccd2-451f-4a69-ac3a-0754595eb736.png">
 <img width="923" alt="Screen Shot 2022-11-08 at 9 50 58 AM" src="https://user-images.githubusercontent.com/66507929/200613862-92edfcdf-9d1f-46e2-9c13-add7da98e5a0.png">
 <img width="923" alt="Screen Shot 2022-11-08 at 9 50 58 AM" src="https://i.postimg.cc/vmxrdQDm/favorites-List.png">
-
 
