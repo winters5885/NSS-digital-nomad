@@ -94,10 +94,14 @@ cityId // string
 
 category // stringSet
 
+![image](https://user-images.githubusercontent.com/66507929/200614280-8850f6c8-3e92-44e5-afc7-c80478275595.png)
+
 ## 7.2 Categories table
 destinationId // partition key, string
 
 categoryId // string (Beaches, Mountains, Best for Tourism, Best for Foodies, Best Museums, Best Night Life, Most Walkable)
+
+![image](https://user-images.githubusercontent.com/66507929/200614095-b5ebf3ef-0cd5-412d-b187-c84ffc70bb24.png)
 
 ## 7.3 Itinerary "Favorites" table (Extension)
 userId // partition key, string
@@ -105,5 +109,9 @@ userId // partition key, string
 destinationId // sort key, string
 
 # 8. Pages
+<img width="928" alt="Screen Shot 2022-11-08 at 9 49 45 AM (1)" src="https://user-images.githubusercontent.com/66507929/200613551-790bccd2-451f-4a69-ac3a-0754595eb736.png">
+<img width="923" alt="Screen Shot 2022-11-08 at 9 50 58 AM" src="https://user-images.githubusercontent.com/66507929/200613862-92edfcdf-9d1f-46e2-9c13-add7da98e5a0.png">
 
-_Include mock-ups of the web pages you expect to build. These can be as sophisticated as mockups/wireframes using drawing software, or as simple as hand-drawn pictures that represent the key customer-facing components of the pages. It should be clear what the interactions will be on the page, especially where customers enter and submit data. You may want to accompany the mockups with some description of behaviors of the page (e.g. “When customer submits the submit-dog-photo button, the customer is sent to the doggie detail page”)_
+  
+
+
