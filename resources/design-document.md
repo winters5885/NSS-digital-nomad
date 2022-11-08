@@ -1,12 +1,9 @@
 # Design Document
 
-## Instructions
 
-_Replace italicized text (including this text!) with details of the design you are proposing for your team project. (Your replacement text shouldn't be in italics)._
-
-_You should take a look at the [example design document](example-design-document.md) in the same folder as this template for more guidance on the types of information to capture, and the level of detail to aim for._
-
-## _Project Title_ Design
+## _Digital Nomad_ Design
+## 0. Introduction
+The Digital Nomad website is a resource for travellers to discover new and exciting destinations to visit and explore.
 
 ## 1. Problem Statement
 
@@ -14,33 +11,40 @@ Provide customers with a user experience that makes choosing where to travel eas
 
 ## 2. Top Questions to Resolve in Review
 
-1. Where is our location data coming from?
-2. Will users be required to create a "profile"? Or will it be an optional feature that will unlock the ability to save results?
-3. How will we "stash" non-profile users data?
+Q. Where is our location data coming from? 
 
+A. Data is gathered through web scraping.
+
+Q. Will users be required to create a "profile"? Or will it be an optional feature that will unlock the ability to save results?
+
+A. Creating a profile will be optional.
+
+Q. How will we "stash" non-profile users data?
+
+A. Stored in a temporary table.
 ## 3. Use Cases
 
 U1. As a user, I want a curated list of popular travel destinations.
 
 U2. As a user, I want to be presented with travel destinations based off of my preferences.
 
-U3. As a user, I want to have a profile that stores my previous results. (Extension)
+U3. As a user, I want to have a profile that stores my previous results.
 
-U4. As a user, I want the ability to name my results. (Extension)
+U4. As a user, I want the ability to name my results.
 
 ## 4. Project Scope
 
 ### 4.1. In Scope
 
 1. Creating and retrieving a travel itinerary/travel options.
-2. Retrieving all itineraries a user has created. (Extension)
+2. Retrieving all favorites a user has created.
 
 ### 4.2. Out of Scope
 
 1. Sharing of information between users.
 
 # 5. Proposed Architecture Overview
-Destination Objects. Category Objects. User Objects (Extension). Itinerary Objects (Extension). We will use an API gateway and Lambda to create these endpoints (GetDestination, GetCategory, CreateUser and GetFavorites (Extension)) We will store travel location reccommendations in a DynamoDB table. Itineraries will be stored in DynamoDB. We will provide a web interface for users to generate travel recommendations and/or view their itineraries. 
+Destination Objects. Category Objects. User Objects. Favorite Objects. We will use an API gateway and Lambda to create these endpoints (GetDestination, GetCategory, CreateUser and GetFavorites) We will store travel location reccommendations in a DynamoDB table. Favorite destinations will be stored in DynamoDB. We will provide a web interface for users to generate travel recommendations and/or view their favorite destinations. 
 
 # 6. API
 
@@ -56,19 +60,18 @@ Destination Objects. Category Objects. User Objects (Extension). Itinerary Objec
 * Set<Category> categories;
 
 ### CategoryModel (Interface?)
+* String categoryId;
 * String category;
-### ItineraryModel (Extension)
+
+### FavoritesModel
 * List&lt;Destination&gt;;
 
 * String userId;
 
 * String name;
   
-### UserModel (Extension)
-
+### UserModel 
 * String userId;
-
-* String password;
 
 ## 6.2 GetDestination
 This endpoint will by default return a list of most popular destinations. Accepts GET request to /destinations. If unable to access database throws DatabaseInaccessibleException, notifies user that the database is unavailable.
@@ -77,10 +80,10 @@ This endpoint will by default return a list of most popular destinations. Accept
 ## 6.3 GetCategory
 Accepts a GET request to /categories with destinationId. This endpoint will return a list of categories a given destination fits into. If destinationId does not exist, throws InvalidDestinationIdException.
 
-## 6.4 GetItinerary (Extension)
-Accepts a GET request to user/itineraries. It will prompt for a username and if one is provided, it will return the users itineraries. If the user has no itineraries, a NoItinerariesFoundException will be thrown and it will prompt them to create one.
+## 6.4 GetFavorites 
+Accepts a GET request to user/favorites. It will prompt for a username and if one is provided, it will return the users favorite destinations. If the user has no favorites, a NoFavoritesFoundException will be thrown and it will prompt them to create one.
 
-## 6.5 CreateUser (Extension)
+## 6.5 CreateUser
 Accepts a POST request to /user. Accepts username and password. Returns the users information confirming creation of profile. Throws UserNameNotAvailableException. Throws InvalidUserNameException.
 
 # 7. Tables
@@ -97,13 +100,11 @@ category // stringSet
 ![image](https://user-images.githubusercontent.com/66507929/200614280-8850f6c8-3e92-44e5-afc7-c80478275595.png)
 
 ## 7.2 Categories table
-destinationId // partition key, string
-
-categoryId // string (Beaches, Mountains, Best for Tourism, Best for Foodies, Best Museums, Best Night Life, Most Walkable)
+categoryId // partition key, string (Beaches, Mountains, Best for Tourism, Best for Foodies, Best Museums, Best Night Life, Most Walkable)
 
 ![image](https://user-images.githubusercontent.com/66507929/200614095-b5ebf3ef-0cd5-412d-b187-c84ffc70bb24.png)
 
-## 7.3 Itinerary "Favorites" table (Extension)
+## 7.3 Favorites table
 userId // partition key, string
 
 destinationId // sort key, string
@@ -111,7 +112,6 @@ destinationId // sort key, string
 # 8. Pages
 <img width="928" alt="Screen Shot 2022-11-08 at 9 49 45 AM (1)" src="https://user-images.githubusercontent.com/66507929/200613551-790bccd2-451f-4a69-ac3a-0754595eb736.png">
 <img width="923" alt="Screen Shot 2022-11-08 at 9 50 58 AM" src="https://user-images.githubusercontent.com/66507929/200613862-92edfcdf-9d1f-46e2-9c13-add7da98e5a0.png">
-
-  
+<img width="923" alt="Screen Shot 2022-11-08 at 9 50 58 AM" src="https://i.postimg.cc/vmxrdQDm/favorites-List.png">
 
 

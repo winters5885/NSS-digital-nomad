@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor Client
+participant WebsiteFavoritesPage
+participant DynamoDBFavoritesActivity
+database FavoritesTable
+autonumber
+
+Client -> WebsiteFavoritesPage: requests saved favorites
+WebsiteFavoritesPage -> DynamoDBFavoritesActivity: getFavorites()
+
+DynamoDBFavoritesActivity -> FavoritesTable: get Favorites
+DynamoDBFavoritesActivity <- FavoritesTable: List<Favorites>
+DynamoDBFavoritesActivity -> WebsiteFavoritesPage: List<Favorites>
+Client<- WebsiteFavoritesPage: List<Favorites>
+@enduml
