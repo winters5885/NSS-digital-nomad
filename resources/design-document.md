@@ -22,11 +22,11 @@ A. By providing a secret URL.
 
 ## 3. Use Cases
 
-U1. As a user, I want a curated list of popular travel destinations.
+U1. As a user, I want a curated list of popular travel destinations to help me decide where to travel.
 
-U2. As a user, I want to be presented with travel destinations based off of my preferences.
+U2. As a user, I want to be presented with travel destinations based off of my preferences in order to automate narrowing my search. 
 
-U3. As a user, I want to select a set of favorite locations and retrieve the results.
+U3. As a user, I want to select a set of favorite locations and retrieve the results. I want my results saved for later viewing. 
 
 ## 4. Project Scope
 
@@ -69,14 +69,11 @@ Destination Objects. Category Objects. Favorite Objects. We will use an API gate
 ## 6.2 Get Destination
 This endpoint will by default return a random list of destinations. Accepts GET request to /destinations. If unable to access database throws DatabaseInaccessibleException, notifies user that the database is unavailable.
 
-## 6.3 Get Category
-Accepts a GET request to /categories with destinationId. This endpoint will return a list of categories a given destination fits into. If destinationId does not exist, throws InvalidDestinationIdException.
-
-## 6.4 Create Favorites
+## 6.3 Create Favorites
 Accepts a POST request to /favorites. Then auto-generates UUID as the partition key. Saves favorites to a Dynamodb table. Then returns a secret URL for the user to keep and return their favorite destinations.
 
-## 6.5 Get Favorites
-Accepts a GET request to /favorites with the provided URL. Returns the list of favorite destinations. Throws MalformedURLException if URL is not found.
+## 6.4 Get Favorites
+Accepts a GET request to /favorites with UUID. Returns the list of favorite destinations. Throws UUIDNotFoundException if UUID is not found.
 
 # 7. Tables
 
