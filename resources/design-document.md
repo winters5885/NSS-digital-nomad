@@ -101,7 +101,9 @@ userId // partition key, string
 
 destinationId // string
 
-![image](https://user-images.githubusercontent.com/66507929/200637784-a9a327ac-52f9-4f8d-a40a-4c431d2c1ae2.png)
+![image](https://user-images.githubusercontent.com/66507929/200665207-2c9b78d6-877c-4dd3-92dc-43a25cd051aa.png)
+![image](https://user-images.githubusercontent.com/66507929/200665320-de825f98-a6bd-41a2-805a-ee6c92cdc86a.png)
+
 
 # 8. Pages
 <img width="928" alt="Screen Shot 2022-11-08 at 9 49 45 AM (1)" src="https://user-images.githubusercontent.com/66507929/200613551-790bccd2-451f-4a69-ac3a-0754595eb736.png">
