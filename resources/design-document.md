@@ -86,7 +86,7 @@ country // string
 
 destinationID (UUID) // string
 
-![image](https://user-images.githubusercontent.com/66507929/200614280-8850f6c8-3e92-44e5-afc7-c80478275595.png)
+![image](https://user-images.githubusercontent.com/66507929/200938324-8b365fa3-2d00-4bdc-af40-2fdf53019278.png)
 
 ## 7.2 Categories table
 category // partition key, string (Beaches, Mountains, Best for Tourism, Best for Foodies, Best Museums, Best Night Life, Most Walkable)
@@ -106,8 +106,9 @@ country // string
 
 category // string
 
-# 8. Pages
-<img width="928" alt="Screen Shot 2022-11-08 at 9 49 45 AM (1)" src="https://user-images.githubusercontent.com/66507929/200613551-790bccd2-451f-4a69-ac3a-0754595eb736.png">
-<img width="923" alt="Screen Shot 2022-11-08 at 9 50 58 AM" src="https://user-images.githubusercontent.com/66507929/200613862-92edfcdf-9d1f-46e2-9c13-add7da98e5a0.png">
-<img width="923" alt="Screen Shot 2022-11-08 at 9 50 58 AM" src="https://i.postimg.cc/vmxrdQDm/favorites-List.png">
+![image](https://user-images.githubusercontent.com/66507929/200937989-85dad107-75ac-4772-9785-ab08309007f8.png)
 
+# 8. Pages
+![Screenshot (2)](https://user-images.githubusercontent.com/66507929/200938993-e4ca09d2-21d7-4ed3-9f69-855c108bd0a1.png)
+![Screenshot (3)](https://user-images.githubusercontent.com/66507929/200939075-4759b2e9-2939-447b-8ab2-b3eeb11f6358.png)
+![Screenshot (4)](https://user-images.githubusercontent.com/66507929/200939130-b6cb2f75-4d16-4fd0-96eb-4fa4f3ad8c89.png)
