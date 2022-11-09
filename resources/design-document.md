@@ -51,9 +51,9 @@ Destination Objects. Category Objects. Favorite Objects. We will use an API gate
 ### DestinationModel
 * String destinationId;
 
-* String countryId;
+* String country;
 
-* String locationId;
+* String category;
 
 * Set&lt;Category&gt; categories;
 
@@ -78,29 +78,33 @@ Accepts a GET request to /favorites with UUID. Returns the list of favorite dest
 # 7. Tables
 
 ## 7.1  Destinations table
-destinationId // partition key, string
+category // partition key, string
 
-countryId // string
+cityName // sort key, string
 
-locationId // string
+country // string
 
-category // stringSet
+destinationID (UUID) // string
 
 ![image](https://user-images.githubusercontent.com/66507929/200614280-8850f6c8-3e92-44e5-afc7-c80478275595.png)
 
 ## 7.2 Categories table
-categoryId // partition key, string (Beaches, Mountains, Best for Tourism, Best for Foodies, Best Museums, Best Night Life, Most Walkable)
-
-![image](https://user-images.githubusercontent.com/66507929/200614095-b5ebf3ef-0cd5-412d-b187-c84ffc70bb24.png)
+category // partition key, string (Beaches, Mountains, Best for Tourism, Best for Foodies, Best Museums, Best Night Life, Most Walkable)
 
 ## 7.3 Favorites table
-userId // partition key, string
+userId (UUID) // partition key, string
 
-destinationId // string
+cityNameSet //  string set
 
 ![image](https://user-images.githubusercontent.com/66507929/200665207-2c9b78d6-877c-4dd3-92dc-43a25cd051aa.png)
 ![image](https://user-images.githubusercontent.com/66507929/200665320-de825f98-a6bd-41a2-805a-ee6c92cdc86a.png)
 
+## 7.4 All Categories for Destination Index (GSI)
+cityName // partition key, string
+
+country // string
+
+category // string
 
 # 8. Pages
 <img width="928" alt="Screen Shot 2022-11-08 at 9 49 45 AM (1)" src="https://user-images.githubusercontent.com/66507929/200613551-790bccd2-451f-4a69-ac3a-0754595eb736.png">

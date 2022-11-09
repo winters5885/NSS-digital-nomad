@@ -6,8 +6,8 @@ participant DynamoDBDestinationsActivity
 database DestinationsTable
 autonumber
 
-Client -> WebsiteDestinationsPage: selects and submits dropdown
-WebsiteDestinationsPage -> DynamoDBDestinationsActivity: getDestinations()
+Client -> WebsiteDestinationsPage: selects a category in the dropdown menu
+WebsiteDestinationsPage -> DynamoDBDestinationsActivity: getDestinations(category)
 
 DynamoDBDestinationsActivity -> DestinationsTable: get Destinations
 DynamoDBDestinationsActivity <- DestinationsTable: List<Destinations>
