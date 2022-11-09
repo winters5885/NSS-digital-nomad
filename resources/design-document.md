@@ -53,12 +53,11 @@ Destination Objects. Category Objects. Favorite Objects. We will use an API gate
 
 * String country;
 
-* String category;
+* String cityName;
 
-* Set&lt;Category&gt; categories;
+* Category category
 
 ### CategoryModel (Interface?)
-* String categoryId;
 * String category;
 
 ### FavoritesModel
@@ -66,8 +65,9 @@ Destination Objects. Category Objects. Favorite Objects. We will use an API gate
 
 * String userId (UUID);
 
-## 6.2 Get Destination
-This endpoint will by default return a random list of destinations. Accepts GET request to /destinations. If unable to access database throws DatabaseInaccessibleException, notifies user that the database is unavailable.
+
+## 6.2 Get Destinations
+This endpoint will by default return a random list of destinations. This endpoint will also returns a list of destinations based on category selection within the query.  Accepts GET request to /destinations. If unable to access database throws DatabaseInaccessibleException, notifies user that the database is unavailable.
 
 ## 6.3 Create Favorites
 Accepts a POST request to /favorites. Then auto-generates UUID as the partition key. Saves favorites to a Dynamodb table. Then returns a secret URL for the user to keep and return their favorite destinations.
@@ -75,16 +75,21 @@ Accepts a POST request to /favorites. Then auto-generates UUID as the partition 
 ## 6.4 Get Favorites
 Accepts a GET request to /favorites with UUID. Returns the list of favorite destinations. Throws UUIDNotFoundException if UUID is not found.
 
+## 6.5 Get Single Destination
+Accepts a GET request to /destinations. A single destination is returned. If unable to access database DatabaseInaccessibleException is thrown, notifies user tha the database is unavailable.
+
 # 7. Tables
 
 ## 7.1  Destinations table
 category // partition key, string
 
-cityName // sort key, string
+destinationID (UUID) // sort key, string
+
+cityName // string
 
 country // string
 
-destinationID (UUID) // string
+
 
 ![image](https://user-images.githubusercontent.com/66507929/200938324-8b365fa3-2d00-4bdc-af40-2fdf53019278.png)
 
@@ -94,13 +99,15 @@ category // partition key, string (Beaches, Mountains, Best for Tourism, Best fo
 ## 7.3 Favorites table
 userId (UUID) // partition key, string
 
-cityNameSet //  string set
+destinations //  string set
 
 ![image](https://user-images.githubusercontent.com/66507929/200665207-2c9b78d6-877c-4dd3-92dc-43a25cd051aa.png)
 ![image](https://user-images.githubusercontent.com/66507929/200665320-de825f98-a6bd-41a2-805a-ee6c92cdc86a.png)
 
 ## 7.4 All Categories for Destination Index (GSI)
-cityName // partition key, string
+destinationId (UUID) // partition key, string
+
+citName // string
 
 country // string
 
