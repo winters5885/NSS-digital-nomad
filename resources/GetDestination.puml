@@ -6,7 +6,7 @@ participant DynamoDBDestinationsActivity
 database DestinationsTable
 autonumber
 
-Client -> WebsiteDestinationsPage: selects a category in the dropdown menu
+Client -> WebsiteDestinationsPage: selects a category and number of destinations to return (1, 5, whole list) in the dropdown menu
 WebsiteDestinationsPage -> DynamoDBDestinationsActivity: getDestinations(category)
 
 DynamoDBDestinationsActivity -> DestinationsTable: get Destinations

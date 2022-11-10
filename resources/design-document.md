@@ -89,8 +89,6 @@ cityName // string
 
 country // string
 
-
-
 ![image](https://user-images.githubusercontent.com/66507929/200938324-8b365fa3-2d00-4bdc-af40-2fdf53019278.png)
 
 ## 7.2 Categories table
