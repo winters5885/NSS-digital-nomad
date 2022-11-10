@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor Client
+participant AllCategoriesForDestinationPage
+participant DynamoDBCategoriesActivity
+database AllCategoriesForDestinationIndex
+autonumber
+
+Client -> AllCategoriesForDestinationPage: requests all categories with cityName
+AllCategoriesForDestinationPage -> DynamoDBCategoriesActivity: getAllCategories(cityName)
+
+DynamoDBCategoriesActivity -> AllCategoriesForDestinationIndex: get All Categories with cityName
+DynamoDBCategoriesActivity <- AllCategoriesForDestinationIndex: List<Categories>
+DynamoDBCategoriesActivity -> AllCategoriesForDestinationPage: List<Categories>
+Client<- AllCategoriesForDestinationPage: List<Categories>
+@enduml
