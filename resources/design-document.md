@@ -89,7 +89,7 @@ cityName // string
 
 country // string
 
-![image](https://user-images.githubusercontent.com/66507929/200938324-8b365fa3-2d00-4bdc-af40-2fdf53019278.png)
+![image](https://user-images.githubusercontent.com/66507929/201133521-f7fb22b7-b193-411b-8bae-d7bb78e79682.png)
 
 ## 7.2 Categories table
 category // partition key, string (Beaches, Mountains, Best for Tourism, Best for Foodies, Best Museums, Best Night Life, Most Walkable)
