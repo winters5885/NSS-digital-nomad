@@ -1,97 +1,119 @@
 # Design Document
 
-## Instructions
 
-_Replace italicized text (including this text!) with details of the design you are proposing for your team project. (Your replacement text shouldn't be in italics)._
+## _Digital Nomad_ Design
+## 0. Introduction
 
-_You should take a look at the [example design document](example-design-document.md) in the same folder as this template for more guidance on the types of information to capture, and the level of detail to aim for._
-
-## _Project Title_ Design
+The Digital Nomad website is a resource for travellers to discover new and exciting destinations to visit and explore.
 
 ## 1. Problem Statement
 
-Provide customers with a user experience that makes choosing where to travel easy. Our application will reccommend destinations based on user input, gathering data from a variety of categories that the user will select. Users can save their travel options and view them at a later time.
+Provide customers with a user experience that makes choosing where to travel easy. Our application will recommend destinations based on user input, gathering data from a variety of categories that the user will select. Users can favorite their results and our application will provide a link for later access.
 
 ## 2. Top Questions to Resolve in Review
 
-_List the most important questions you have about your design, or things that you are still debating internally that you might like help working through._
+Q. Where is our location data coming from?
 
-1. Where is our location data coming from?
-2. Will users be required to create a "profile"? Or will it be an optional feature that will unlock the ability to save results?
-3. How will we "stash" non-profile users data?
+A. Data is gathered through web scraping.
+
+Q. How will we provide a way for users to save their favorite destinations?
+
+A. By providing a secret URL.
 
 ## 3. Use Cases
 
-_This is where we work backwards from the customer and define what our customers would like to do (and why). You may also include use cases for yourselves (as developers), or for the organization providing the product to customers._
+U1. As a user, I want a curated list of popular travel destinations to help me decide where to travel.
 
-U1. As a user, I want a curated list of popular travel destinations.
+U2. As a user, I want to be presented with travel destinations based off of my preferences in order to automate narrowing my search. 
 
-U2. As a user, I want to be presented with travel destinations based off of my preferences.
-
-U3. As a user, I want to have a profile that stores my previous results.
-
-U4. As a user, I want the ability to name my results.
+U3. As a user, I want to select a set of favorite locations and retrieve the results. I want my results saved for later viewing. 
 
 ## 4. Project Scope
 
-_Clarify which parts of the problem you intend to solve. It helps reviewers know what questions to ask to make sure you are solving for what you say and stops discussions from getting sidetracked by aspects you do not intend to handle in your design._
-
 ### 4.1. In Scope
 
-1. Creating and retrieving a travel itinerary/travel options.
-2. Retrieving all itineraries a user has created.
-_The functionality described above should be what your design is focused on. You do not need to include the design for any out of scope features or expansions._
+1. Generating travel recommendations filtered by user selected category.
+2. Allowing for the saving and retrieving of favorite destinations.
 
 ### 4.2. Out of Scope
 
 1. Sharing of information between users.
-
-_The functionality here does not need to be accounted for in your design._
+2. User profile creation.
 
 # 5. Proposed Architecture Overview
 
-_Describe broadly how you are proposing to solve for the requirements you described in Section 2. This may include class diagram(s) showing what components you are planning to build. You should argue why this architecture (organization of components) is reasonable. That is, why it represents a good data flow and a good separation of concerns. Where applicable, argue why this architecture satisfies the stated requirements._
-Destination Objects. User Objects. Itinerary Objects. We will use an API gateway and Lambda to create these endpoints (GetItinerary, CreateItinerary, CreateUser) We will store travel location reccommendations in a DynamoDB table. Itineraries will be stored in DynamoDB. We will provide a web interface for users to generate travel recommendations and/or view their itineraries. 
+Destination Objects. Category Objects. Favorite Objects. We will use an API gateway and Lambda to create these endpoints (GetDestination, GetCategory, CreateFavorites, and GetFavorites) We will store travel location reccommendations in a DynamoDB table. Favorite destinations will be stored in DynamoDB. We will provide a web interface for users to generate travel recommendations and/or view their favorite destinations.
 
 # 6. API
 
 ## 6.1. Public Models
 
-//DestinationModel
+### DestinationModel
+* String destinationId;
 
-//ItineraryModel
+* String country;
 
-List<Destination>
-String name;
-  
-//UserModel
-  
-String id;
-String userName;
-String password?;
-List<Itinerary>;
-  
- 
+* String cityName;
 
-## 6.2.GetItinerary.
-Accepts a GET request to user/itinieraries. It will prompt for a username and if one is provided, it will return the users itineraries. If the user has no itineraries, a NoItinerariesFoundException will be thrown and it will prompt them to create one.  
+* Category category
 
-  _Describe the behavior of the first endpoint you will build into your service API. This should include what data it requires, what data it returns, and how it will handle any known failure cases. You should also include a sequence diagram showing how a user interaction goes from user to website to service to database, and back. This first endpoint can serve as a template for subsequent endpoints. (If there is a significant difference on a subsequent endpoint, review that with your team before building it!)_
+### CategoryModel (Interface?)
+* String category;
 
-_(You should have a separate section for each of the endpoints you are expecting to build...)_
+### FavoritesModel
+* Set&lt;Destination&gt; destinations;
 
-## 6.3 CreateUser.
-  Accepts a POST request to /user. Accepts username and password. Returns the users information confirming creation of profile. Throws UserNameNotAvailableException. Throws InvalidUserNameException. 
-  
-## 6.4 GetDestination.
-  This endpoint will by default return a list of most popular destinations. Accepts GET request to /destinations.
+* String userId (UUID);
 
-_(repeat, but you can use shorthand here, indicating what is different, likely primarily the data in/out and error conditions. If the sequence diagram is nearly identical, you can say in a few words how it is the same/different from the first endpoint)_
+
+## 6.2 Get Destinations
+This endpoint will by default return a random list of destinations. This endpoint will also returns a list of destinations based on category selection within the query.  Accepts GET request to /destinations. If unable to access database throws DatabaseInaccessibleException, notifies user that the database is unavailable.
+
+## 6.3 Create Favorites
+Accepts a POST request to /favorites. Then auto-generates UUID as the partition key. Saves favorites to a Dynamodb table. Then returns a secret URL for the user to keep and return their favorite destinations.
+
+## 6.4 Get Favorites
+Accepts a GET request to /favorites with UUID. Returns the list of favorite destinations. Throws UUIDNotFoundException if UUID is not found.
+
+## 6.5 Get Single Destination
+Accepts a GET request to /destinations. A single destination is returned. If unable to access database DatabaseInaccessibleException is thrown, notifies user tha the database is unavailable.
 
 # 7. Tables
-Destinations table. User table. Possibly an itinerary table.
-_Define the DynamoDB tables you will need for the data your service will use. It may be helpful to first think of what objects your service will need, then translate that to a table structure, like with the *`Playlist` POJO* versus the `playlists` table in the Unit 3 project._
+
+## 7.1  Destinations table
+category // partition key, string
+
+destinationID (UUID) // sort key, string
+
+cityName // string
+
+country // string
+
+![image](https://user-images.githubusercontent.com/66507929/201133521-f7fb22b7-b193-411b-8bae-d7bb78e79682.png)
+
+## 7.2 Categories table
+category // partition key, string (Beaches, Mountains, Best for Tourism, Best for Foodies, Best Museums, Best Night Life, Most Walkable)
+
+## 7.3 Favorites table
+userId (UUID) // partition key, string
+
+destinations //  string set
+
+![image](https://user-images.githubusercontent.com/66507929/200665207-2c9b78d6-877c-4dd3-92dc-43a25cd051aa.png)
+![image](https://user-images.githubusercontent.com/66507929/200665320-de825f98-a6bd-41a2-805a-ee6c92cdc86a.png)
+
+## 7.4 All Categories for Destination Index (GSI)
+destinationId (UUID) // partition key, string
+
+citName // string
+
+country // string
+
+category // string
+
+![image](https://user-images.githubusercontent.com/66507929/200937989-85dad107-75ac-4772-9785-ab08309007f8.png)
 
 # 8. Pages
-
-_Include mock-ups of the web pages you expect to build. These can be as sophisticated as mockups/wireframes using drawing software, or as simple as hand-drawn pictures that represent the key customer-facing components of the pages. It should be clear what the interactions will be on the page, especially where customers enter and submit data. You may want to accompany the mockups with some description of behaviors of the page (e.g. “When customer submits the submit-dog-photo button, the customer is sent to the doggie detail page”)_
+![Screenshot (2)](https://user-images.githubusercontent.com/66507929/200938993-e4ca09d2-21d7-4ed3-9f69-855c108bd0a1.png)
+![Screenshot (3)](https://user-images.githubusercontent.com/66507929/200939075-4759b2e9-2939-447b-8ab2-b3eeb11f6358.png)
+![Screenshot (4)](https://user-images.githubusercontent.com/66507929/200939130-b6cb2f75-4d16-4fd0-96eb-4fa4f3ad8c89.png)

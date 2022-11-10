@@ -1,0 +1,18 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+actor Client
+participant WebsiteFavoritesPage
+participant DynamoDBFavoritesActivity
+database FavoritesTable
+autonumber
+
+Client -> WebsiteFavoritesPage: user selects favorites
+WebsiteFavoritesPage -> DynamoDBFavoritesActivity: saveFavorites()
+
+DynamoDBFavoritesActivity -> DynamoDBFavoritesActivity: generates UUID
+DynamoDBFavoritesActivity -> FavoritesTable: saveFavorites (UUID)
+DynamoDBFavoritesActivity <- FavoritesTable: List<Favorites>
+DynamoDBFavoritesActivity -> DynamoDBFavoritesActivity: creates URL
+DynamoDBFavoritesActivity -> WebsiteFavoritesPage: returns URL
+Client<- WebsiteFavoritesPage: returns URL
+@enduml
