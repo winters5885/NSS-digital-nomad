@@ -21,6 +21,7 @@ public class MountainCrawler {
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<Destination> mountainList = new ArrayList<>();
+        String serializedDestinations = "";
 
         Document doc = Jsoup
                 .connect("https://wanderlustphotosblog.com/2020/05/16/the-top-20-mountain-travel-destinations-in-the-world/")
@@ -41,7 +42,7 @@ public class MountainCrawler {
                     mountainName = mountainName.substring(index+1);
                 }
             }
-            String city = null;
+
             String country = locationList.get(i-1).html();
 
             UUID uuid = UUID.randomUUID();
@@ -51,13 +52,15 @@ public class MountainCrawler {
             mountainList.add(mountainDest);
         }
 
-        String jsonString = jsonObj.convertToJson(mountainList);
-        System.out.println(jsonString);
-        jsonObj.writeJsonToFile("cityDestinations", jsonString);
+        serializedDestinations = objectMapper.writeValueAsString(mountainList);
+        jsonObj.writeJsonToFile("mountainDestinations", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>() {
+        });
 
-        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
-        mapper.save(deserializedDestObjects);
+        for (Destination dest : deserializedDestObjects) {
+            DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+            mapper.save(dest);
+        }
     }
 }

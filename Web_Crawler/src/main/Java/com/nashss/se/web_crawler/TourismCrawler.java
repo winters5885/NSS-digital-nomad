@@ -22,6 +22,7 @@ public class TourismCrawler {
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<Destination> tourismList = new ArrayList<>();
+        String serializedDestinations = "";
 
         Document doc = Jsoup
                 .connect("https://www.planetware.com/world/top-rated-tourist-attractions-in-the-world-cam-1-40.htm")
@@ -30,7 +31,6 @@ public class TourismCrawler {
         Elements tourismNameList = doc.getElementsByClass("sitename");
 
         String locationName;
-        String city = null;
         String country;
 
         for(Element element : tourismNameList) {
@@ -49,13 +49,15 @@ public class TourismCrawler {
             }
         }
 
-        String jsonString = jsonObj.convertToJson(tourismList);
-        System.out.println(jsonString);
-        jsonObj.writeJsonToFile("cityDestinations", jsonString);
+        serializedDestinations = objectMapper.writeValueAsString(tourismList);
+        jsonObj.writeJsonToFile("tourismDestinations", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>() {
+        });
 
-        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
-        mapper.save(deserializedDestObjects);
+        for (Destination dest : deserializedDestObjects) {
+            DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+            mapper.save(dest);
+        }
     }
 }

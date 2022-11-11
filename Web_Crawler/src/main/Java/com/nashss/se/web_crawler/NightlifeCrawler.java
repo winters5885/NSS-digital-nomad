@@ -21,6 +21,7 @@ public class NightlifeCrawler {
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<Destination> nightLifeList = new ArrayList<>();
+        String serializedDestinations = "";
 
         Document doc = Jsoup
                 .connect("https://www.nomadicmatt.com/travel-blogs/the-saturday-city-top-ten-cities-for-partying/")
@@ -30,7 +31,6 @@ public class NightlifeCrawler {
 
         String city;
         String country;
-        String locationName = null;
 
         for(int i = 0; i < 10; i++) {
             String location = nightLifeNameList.get(i).html();
@@ -50,13 +50,15 @@ public class NightlifeCrawler {
             }
         }
 
-        String jsonString = jsonObj.convertToJson(nightLifeList);
-        System.out.println(jsonString);
-        jsonObj.writeJsonToFile("cityDestinations", jsonString);
+        serializedDestinations = objectMapper.writeValueAsString(nightLifeList);
+        jsonObj.writeJsonToFile("nightlifeDestination", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>() {
+        });
 
-        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
-        mapper.save(deserializedDestObjects);
+        for (Destination dest : deserializedDestObjects) {
+            DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+            mapper.save(dest);
+        }
     }
 }

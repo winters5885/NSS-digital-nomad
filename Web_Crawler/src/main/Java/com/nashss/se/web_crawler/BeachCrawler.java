@@ -17,7 +17,7 @@ import java.util.UUID;
 public class BeachCrawler {
 
     public static void main(String[] args) throws IOException {
-        CreateJsonObject jsonObj =  new CreateJsonObject();
+        CreateJsonObject jsonObj = new CreateJsonObject();
         ObjectMapper objectMapper = new ObjectMapper();
 
         Destination destination = new Destination();
@@ -30,16 +30,15 @@ public class BeachCrawler {
 
         Elements list = doc.getElementsByTag("h3");
 
-        for(Element element : list) {
-            if(element.html().contains(".")) {
+        for (Element element : list) {
+            if (element.html().contains(".")) {
 
                 int beachStartIndex = element.html().indexOf(".");
                 int beachEndIndex = element.html().indexOf(",");
                 int locationEndIndex = element.html().indexOf("</");
 
-                String city = null;
-                String locationName = element.html().substring(beachStartIndex+2, beachEndIndex);
-                String country = element.html().substring(beachEndIndex+1, locationEndIndex);
+                String locationName = element.html().substring(beachStartIndex + 2, beachEndIndex);
+                String country = element.html().substring(beachEndIndex + 1, locationEndIndex);
 
                 String uuid = UUID.randomUUID().toString();
 
@@ -48,15 +47,15 @@ public class BeachCrawler {
             }
         }
 
-        String jsonString = jsonObj.convertToJson(destinationList);
         serializedDestinations = objectMapper.writeValueAsString(destinationList);
+        jsonObj.writeJsonToFile("beachDestinations", serializedDestinations);
 
-        System.out.println(serializedDestinations);
-        jsonObj.writeJsonToFile("beachDestination", jsonString);
+        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>() {
+        });
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>(){});
-
-        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
-        mapper.save(deserializedDestObjects);
+        for (Destination dest : deserializedDestObjects) {
+            DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+            mapper.save(dest);
+        }
     }
 }

@@ -22,6 +22,7 @@ public class WalkableCrawler {
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<Destination> walkableList = new ArrayList<>();
+        String serializedDestinations = "";
 
         Document doc = Jsoup
                 .connect("https://www.tripstodiscover.com/travel-by-foot-most-walkable-cities-around-the-world/")
@@ -32,7 +33,6 @@ public class WalkableCrawler {
 
         String city;
         String country;
-        String locationName = null;
 
         for(Element element : pList) {
             int cityStartIndex = element.html().indexOf(">");
@@ -49,13 +49,15 @@ public class WalkableCrawler {
             walkableList.add(walkableDestination);
         }
 
-        String jsonString = jsonObj.convertToJson(walkableList);
-        System.out.println(jsonString);
-        jsonObj.writeJsonToFile("cityDestinations", jsonString);
+        serializedDestinations = objectMapper.writeValueAsString(walkableList);
+        jsonObj.writeJsonToFile("walkableDestinations", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>() {
+        });
 
-        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
-        mapper.save(deserializedDestObjects);
+        for (Destination dest : deserializedDestObjects) {
+            DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+            mapper.save(dest);
+        }
     }
 }

@@ -17,11 +17,11 @@ public class MostPopularCitiesCrawler {
 
     public static void main(String[] args) throws IOException {
 
-        CreateJsonObject jsonObj =  new CreateJsonObject();
+        CreateJsonObject jsonObj = new CreateJsonObject();
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<Destination> mostPopularList = new ArrayList<>();
-
+        String serializedDestinations = "";
 
         Document doc = Jsoup
                 .connect("https://govisity.com/most-visited-cities-in-the-world/")
@@ -31,15 +31,14 @@ public class MostPopularCitiesCrawler {
 
         String city;
         String country;
-        String locationName = null;
 
-        for(int i = 2; i < 52; i++) {
+        for (int i = 2; i < 52; i++) {
             int cityStartIndex = popularNameList.get(i).html().indexOf(". ");
             int cityEndIndex = popularNameList.get(i).html().indexOf(",");
             int countryStartIndex = popularNameList.get(i).html().indexOf(", ");
 
-            city = popularNameList.get(i).html().substring(cityStartIndex+1, cityEndIndex);
-            country = popularNameList.get(i).html().substring(countryStartIndex+2);
+            city = popularNameList.get(i).html().substring(cityStartIndex + 1, cityEndIndex);
+            country = popularNameList.get(i).html().substring(countryStartIndex + 2);
 
             int countryEndIndex = country.indexOf("(");
             country = country.substring(0, countryEndIndex);
@@ -51,12 +50,15 @@ public class MostPopularCitiesCrawler {
             mostPopularList.add(popularDestination);
         }
 
-        String jsonString = jsonObj.convertToJson(mostPopularList);
-        jsonObj.writeJsonToFile("mostPopularDestinations", jsonString);
+        serializedDestinations = objectMapper.writeValueAsString(mostPopularList);
+        jsonObj.writeJsonToFile("mostPopularDestinations", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>() {
+        });
 
-        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
-        mapper.save(deserializedDestObjects);
+        for (Destination dest : deserializedDestObjects) {
+            DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+            mapper.save(dest);
+        }
     }
 }

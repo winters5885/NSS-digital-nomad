@@ -254,10 +254,6 @@ Resources:
           AttributeType: "S"
         - AttributeName: "destinationId"
           AttributeType: "S"
-        - AttributeName: "locationName"
-          AttributeType: "S"
-        - AttributeName: "country"
-          AttributeType: "S"
       KeySchema:
         - AttributeName: "category"
           KeyType: "HASH"
@@ -284,8 +280,6 @@ Resources:
       AttributeDefinitions:
         - AttributeName: "userId"
           AttributeType: "S"
-        - AttributeName: "destinations"
-          AttributeType: "SS"
       KeySchema:
         - AttributeName: "userId"
           KeyType: "HASH"

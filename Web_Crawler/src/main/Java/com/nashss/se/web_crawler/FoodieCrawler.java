@@ -21,6 +21,7 @@ public class FoodieCrawler {
         ObjectMapper objectMapper = new ObjectMapper();
 
         List<Destination> foodieList = new ArrayList<>();
+        String serializedDestinations = "";
 
         Document doc = Jsoup
                 .connect("https://www.savoredjourneys.com/worlds-best-foodie-vacations/")
@@ -47,19 +48,19 @@ public class FoodieCrawler {
 
             UUID uuid = UUID.randomUUID();
             String uuidAsString = uuid.toString();
-            String locationName = null;
 
             Destination foodieDestination = new Destination(city, country, null, "best_food", uuidAsString);
             foodieList.add(foodieDestination);
         }
 
-        String jsonString = jsonObj.convertToJson(foodieList);
-        System.out.println(jsonString);
-        jsonObj.writeJsonToFile("foodieDestinations", jsonString);
+        serializedDestinations = objectMapper.writeValueAsString(foodieList);
+        jsonObj.writeJsonToFile("FoodieDestination", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>(){});
 
-        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
-        mapper.save(deserializedDestObjects);
+        for(Destination dest : deserializedDestObjects) {
+            DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+            mapper.save(dest);
+        }
     }
 }
