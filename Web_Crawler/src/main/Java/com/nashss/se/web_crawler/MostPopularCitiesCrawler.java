@@ -1,5 +1,9 @@
-package WebCrawler;
+package com.nashss.se.web_crawler;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nashss.se.aws.dynamodb.DynamoDbClientProvider;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -14,6 +18,7 @@ public class MostPopularCitiesCrawler {
     public static void main(String[] args) throws IOException {
 
         CreateJsonObject jsonObj =  new CreateJsonObject();
+        ObjectMapper objectMapper = new ObjectMapper();
 
         List<Destination> mostPopularList = new ArrayList<>();
 
@@ -26,6 +31,7 @@ public class MostPopularCitiesCrawler {
 
         String city;
         String country;
+        String locationName = null;
 
         for(int i = 2; i < 52; i++) {
             int cityStartIndex = popularNameList.get(i).html().indexOf(". ");
@@ -41,11 +47,16 @@ public class MostPopularCitiesCrawler {
             UUID uuid = UUID.randomUUID();
             String uuidAsString = uuid.toString();
 
-            Destination popularDestination = new Destination(city, country, "most_popular", uuidAsString);
+            Destination popularDestination = new Destination(city, country, null, "most_popular", uuidAsString);
             mostPopularList.add(popularDestination);
         }
 
         String jsonString = jsonObj.convertToJson(mostPopularList);
         jsonObj.writeJsonToFile("mostPopularDestinations", jsonString);
+
+        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+
+        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+        mapper.save(deserializedDestObjects);
     }
 }

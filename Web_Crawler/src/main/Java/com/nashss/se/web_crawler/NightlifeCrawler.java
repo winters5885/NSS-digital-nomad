@@ -1,5 +1,9 @@
-package WebCrawler;
+package com.nashss.se.web_crawler;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nashss.se.aws.dynamodb.DynamoDbClientProvider;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -14,6 +18,7 @@ public class NightlifeCrawler {
     public static void main(String[] args) throws IOException {
 
         CreateJsonObject jsonObj = new CreateJsonObject();
+        ObjectMapper objectMapper = new ObjectMapper();
 
         List<Destination> nightLifeList = new ArrayList<>();
 
@@ -25,6 +30,7 @@ public class NightlifeCrawler {
 
         String city;
         String country;
+        String locationName = null;
 
         for(int i = 0; i < 10; i++) {
             String location = nightLifeNameList.get(i).html();
@@ -39,12 +45,18 @@ public class NightlifeCrawler {
                 UUID uuid = UUID.randomUUID();
                 String uuidAsString = uuid.toString();
 
-                Destination nightlifeDestination = new Destination(city, country, "nightlife", uuidAsString);
+                Destination nightlifeDestination = new Destination(city, country, null, "nightlife", uuidAsString);
                 nightLifeList.add(nightlifeDestination);
             }
         }
 
         String jsonString = jsonObj.convertToJson(nightLifeList);
+        System.out.println(jsonString);
         jsonObj.writeJsonToFile("cityDestinations", jsonString);
+
+        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+
+        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+        mapper.save(deserializedDestObjects);
     }
 }

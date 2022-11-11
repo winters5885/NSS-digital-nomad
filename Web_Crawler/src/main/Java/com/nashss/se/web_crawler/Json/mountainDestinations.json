@@ -1,0 +1,121 @@
+[ {
+  "city" : "null",
+  "country" : "South Africa",
+  "locationName" : " Table Mountain",
+  "type" : "mountain",
+  "destinationID" : "202afb2f-044b-4d3b-9c41-d68f53cc2ac6"
+}, {
+  "city" : "null",
+  "country" : "France\\Spain",
+  "locationName" : " The Pyrenees",
+  "type" : "mountain",
+  "destinationID" : "f20bb79b-7c00-451e-a96b-1eaa24380121"
+}, {
+  "city" : "null",
+  "country" : "Peru",
+  "locationName" : " Vinicunca",
+  "type" : "mountain",
+  "destinationID" : "95b008fe-4ede-45dc-b852-02c2eee2fefb"
+}, {
+  "city" : "null",
+  "country" : "United States",
+  "locationName" : " Grand Teton National Park",
+  "type" : "mountain",
+  "destinationID" : "25343371-5967-4861-aef3-02f699112a13"
+}, {
+  "city" : "null",
+  "country" : "Bhutan",
+  "locationName" : " Tiger’s Nest",
+  "type" : "mountain",
+  "destinationID" : "32a6d2a0-355f-4774-8453-82dae4d72dd6"
+}, {
+  "city" : "null",
+  "country" : "Switzerland",
+  "locationName" : " Grindelwald",
+  "type" : "mountain",
+  "destinationID" : "8d8aa517-01f9-462c-9ab8-ea288ef6a4f9"
+}, {
+  "city" : "null",
+  "country" : "Italy",
+  "locationName" : " The Dolomites",
+  "type" : "mountain",
+  "destinationID" : "887250d1-55a6-46dd-ab59-f9d6fb94a5a1"
+}, {
+  "city" : "null",
+  "country" : "New Zealand",
+  "locationName" : " Aoraki/Mount Cook National Park",
+  "type" : "mountain",
+  "destinationID" : "8dc8ff89-abe7-41fb-831e-84ebe86d0ef8"
+}, {
+  "city" : "null",
+  "country" : "India",
+  "locationName" : " Manali",
+  "type" : "mountain",
+  "destinationID" : "02565b9a-b445-4bae-b920-d965121e1465"
+}, {
+  "city" : "null",
+  "country" : "Iceland",
+  "locationName" : " Kirkjufell",
+  "type" : "mountain",
+  "destinationID" : "d83600d0-9e67-4d51-8002-c9cbd405eebf"
+}, {
+  "city" : "null",
+  "country" : "United States",
+  "locationName" : " Denali National Park",
+  "type" : "mountain",
+  "destinationID" : "bdaff3ac-9c35-44f3-8f5a-09eeeb04cca7"
+}, {
+  "city" : "null",
+  "country" : "Japan",
+  "locationName" : " Mount Fuji",
+  "type" : "mountain",
+  "destinationID" : "577ffedc-722e-4273-804d-ce0f7c6a01ec"
+}, {
+  "city" : "null",
+  "country" : "Norway",
+  "locationName" : " Jotunheimen Mountains",
+  "type" : "mountain",
+  "destinationID" : "c364e7e0-ab3b-4483-a0a8-4ce3c9f74f70"
+}, {
+  "city" : "null",
+  "country" : "Tanzania",
+  "locationName" : " Mount Kilimanjaro",
+  "type" : "mountain",
+  "destinationID" : "bca88fab-d2a9-420c-9f61-98dc48f3417a"
+}, {
+  "city" : "null",
+  "country" : "Argentinian Patagonia",
+  "locationName" : " El Chalten",
+  "type" : "mountain",
+  "destinationID" : "86910983-db0d-4377-b103-48842964ffba"
+}, {
+  "city" : "null",
+  "country" : "Canada",
+  "locationName" : " Banff\\Jasper National Parks",
+  "type" : "mountain",
+  "destinationID" : "148c8ac2-5bca-49b8-b058-571d8be3d249"
+}, {
+  "city" : "null",
+  "country" : "Switzerland",
+  "locationName" : " Zermatt",
+  "type" : "mountain",
+  "destinationID" : "e3364a56-f407-4144-ac75-94752ef3b470"
+}, {
+  "city" : "null",
+  "country" : "New Zealand",
+  "locationName" : " Queenstown",
+  "type" : "mountain",
+  "destinationID" : "8807837a-38ae-4fea-ae60-cd78ab736452"
+}, {
+  "city" : "null",
+  "country" : "Chilean Patagonia",
+  "locationName" : " Torres del Paine",
+  "type" : "mountain",
+  "destinationID" : "f3bea4d4-3bbd-4453-bca3-00ac8571a37b"
+}, {
+  "city" : "null",
+  "country" : "Nepal",
+  "locationName" : " Mount Everest Base Camp",
+  "type" : "mountain",
+  "destinationID" : "4fdb3ce8-d593-49cc-96d2-29e90fddd4eb"
+} ]

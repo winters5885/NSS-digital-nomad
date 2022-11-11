@@ -1,0 +1,67 @@
+[ {
+  "city" : "Amsterdam",
+  "country" : "Netherlands",
+  "locationName" : "null",
+  "type" : "most_walkable",
+  "destinationID" : "e78059c8-4675-42e0-9115-792c2ffd5110"
+}, {
+  "city" : "Antigua",
+  "country" : "Guatemala",
+  "locationName" : "null",
+  "type" : "most_walkable",
+  "destinationID" : "9da6b171-7469-4692-a766-acf944bf3c6d"
+}, {
+  "city" : "Edinburgh",
+  "country" : "Scotland",
+  "locationName" : "null",
+  "type" : "most_walkable",
+  "destinationID" : "fde915b2-28ba-4b23-bd4a-6d5c6418d3b9"
+}, {
+  "city" : "Munich",
+  "country" : "Germany",
+  "locationName" : "null",
+  "type" : "most_walkable",
+  "destinationID" : "150b0dd0-ab39-488e-97a4-164a47987cf0"
+}, {
+  "city" : "Montreal",
+  "country" : "Canada",
+  "locationName" : "null",
+  "type" : "most_walkable",
+  "destinationID" : "efef7620-231c-4102-9ed1-255401eff2ae"
+}, {
+  "city" : "New York City",
+  "country" : "New York",
+  "locationName" : "null",
+  "type" : "most_walkable",
+  "destinationID" : "cb84742b-1365-43b1-bdd1-4073d3d4061c"
+}, {
+  "city" : "Venice",
+  "country" : "Italy",
+  "locationName" : "null",
+  "type" : "most_walkable",
+  "destinationID" : "1a067566-c68f-4f7d-961e-56080445482a"
+}, {
+  "city" : "Florence",
+  "country" : "Italy",
+  "locationName" : "null",
+  "type" : "most_walkable",
+  "destinationID" : "01a854ca-6e1e-4ea2-82e7-b12fefbabc94"
+}, {
+  "city" : "Paris",
+  "country" : "France",
+  "locationName" : "null",
+  "type" : "most_walkable",
+  "destinationID" : "9e6bb009-cf06-4e8a-9468-f81dc5de1d15"
+}, {
+  "city" : "Marrakech",
+  "country" : "Morocco",
+  "locationName" : "null",
+  "type" : "most_walkable",
+  "destinationID" : "bcc1145a-f699-4648-95a3-a97dc62c8608"
+}, {
+  "city" : "Melbourne",
+  "country" : "Australia",
+  "locationName" : "null",
+  "type" : "most_walkable",
+  "destinationID" : "bf608815-7598-4487-a9ec-b46d80026e43"
+} ]

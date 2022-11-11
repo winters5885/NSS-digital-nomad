@@ -1,0 +1,55 @@
+[ {
+  "city" : " Bangkok",
+  "country" : "Thailand",
+  "locationName" : "null",
+  "type" : "nightlife",
+  "destinationID" : "8caf0888-849b-4c9d-98c8-9acfe00c2187"
+}, {
+  "city" : " Barcelona",
+  "country" : "Spain",
+  "locationName" : "null",
+  "type" : "nightlife",
+  "destinationID" : "323e309d-c623-42fc-8dc1-58c8bebb180a"
+}, {
+  "city" : " Rome",
+  "country" : "Italy",
+  "locationName" : "null",
+  "type" : "nightlife",
+  "destinationID" : "3ae717f8-d39a-4ca8-aa8b-76f775aac959"
+}, {
+  "city" : " Prague",
+  "country" : "Czechia",
+  "locationName" : "null",
+  "type" : "nightlife",
+  "destinationID" : "f3275959-7138-4750-92c5-0a79627b101b"
+}, {
+  "city" : " Miami",
+  "country" : "Florida",
+  "locationName" : "null",
+  "type" : "nightlife",
+  "destinationID" : "bd4cb410-9e6e-4af5-bd43-d33084da3ede"
+}, {
+  "city" : " Sydney",
+  "country" : "Australia",
+  "locationName" : "null",
+  "type" : "nightlife",
+  "destinationID" : "3b24fabf-9764-410c-9763-6fa996f8d304"
+}, {
+  "city" : " Ios",
+  "country" : "Greece",
+  "locationName" : "null",
+  "type" : "nightlife",
+  "destinationID" : "dac5f48c-3f40-4a4f-945c-db513b0b7d1b"
+}, {
+  "city" : " Bali (Kuta)",
+  "country" : "Indonesia",
+  "locationName" : "null",
+  "type" : "nightlife",
+  "destinationID" : "19a98e8d-da8e-434b-9e1a-1b6d13f4837d"
+}, {
+  "city" : " Florianopolis",
+  "country" : "Brazil",
+  "locationName" : "null",
+  "type" : "nightlife",
+  "destinationID" : "6add0d40-e3da-41fd-b912-28bf7901ea86"
+} ]

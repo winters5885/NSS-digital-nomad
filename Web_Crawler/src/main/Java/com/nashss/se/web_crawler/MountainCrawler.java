@@ -1,5 +1,9 @@
-package WebCrawler;
+package com.nashss.se.web_crawler;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nashss.se.aws.dynamodb.DynamoDbClientProvider;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -14,6 +18,7 @@ public class MountainCrawler {
     public static void main(String[] args) throws IOException {
 
         CreateJsonObject jsonObj = new CreateJsonObject();
+        ObjectMapper objectMapper = new ObjectMapper();
 
         List<Destination> mountainList = new ArrayList<>();
 
@@ -36,16 +41,23 @@ public class MountainCrawler {
                     mountainName = mountainName.substring(index+1);
                 }
             }
-            String location = locationList.get(i-1).html();
+            String city = null;
+            String country = locationList.get(i-1).html();
 
             UUID uuid = UUID.randomUUID();
             String uuidAsString = uuid.toString();
 
-            Destination mountainDest = new Destination(mountainName, location, "mountain", uuidAsString);
+            Destination mountainDest = new Destination(null, country, mountainName, "mountain", uuidAsString);
             mountainList.add(mountainDest);
         }
 
         String jsonString = jsonObj.convertToJson(mountainList);
+        System.out.println(jsonString);
         jsonObj.writeJsonToFile("cityDestinations", jsonString);
+
+        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+
+        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+        mapper.save(deserializedDestObjects);
     }
 }

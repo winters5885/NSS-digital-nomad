@@ -1,5 +1,9 @@
-package WebCrawler;
+package com.nashss.se.web_crawler;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nashss.se.aws.dynamodb.DynamoDbClientProvider;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
@@ -14,6 +18,7 @@ public class FoodieCrawler {
     public static void main(String[] args) throws IOException {
 
         CreateJsonObject jsonObj =  new CreateJsonObject();
+        ObjectMapper objectMapper = new ObjectMapper();
 
         List<Destination> foodieList = new ArrayList<>();
 
@@ -25,8 +30,6 @@ public class FoodieCrawler {
 
         List<String> places = new ArrayList<>();
         for(int i = 0; i < 23; i++){
-            System.out.println("Location: " + foodieNameList.get(i).html());
-
             if(foodieNameList.get(i).html().contains(".")) {
                 places.add(foodieNameList.get(i).html());
             }
@@ -44,14 +47,19 @@ public class FoodieCrawler {
 
             UUID uuid = UUID.randomUUID();
             String uuidAsString = uuid.toString();
+            String locationName = null;
 
-            Destination foodieDestination = new Destination(city, country, "best_food", uuidAsString);
+            Destination foodieDestination = new Destination(city, country, null, "best_food", uuidAsString);
             foodieList.add(foodieDestination);
         }
 
         String jsonString = jsonObj.convertToJson(foodieList);
-
         System.out.println(jsonString);
         jsonObj.writeJsonToFile("foodieDestinations", jsonString);
+
+        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+
+        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+        mapper.save(deserializedDestObjects);
     }
 }

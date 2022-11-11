@@ -1,0 +1,127 @@
+[ {
+  "city" : "null",
+  "country" : "Paris",
+  "locationName" : " Eiffel Tower",
+  "type" : "best_tourism",
+  "destinationID" : "5709ede5-e3b6-4ce5-937a-0008eb9d558f"
+}, {
+  "city" : "null",
+  "country" : "Rome",
+  "locationName" : " The Colosseum",
+  "type" : "best_tourism",
+  "destinationID" : "e0d928ad-39ff-4189-a811-6f3d4e377a02"
+}, {
+  "city" : "null",
+  "country" : "New York City",
+  "locationName" : " Statue of Liberty",
+  "type" : "best_tourism",
+  "destinationID" : "cf0e8469-6ab9-413e-94a5-a0e489f0c6e9"
+}, {
+  "city" : "null",
+  "country" : "Peru",
+  "locationName" : " Machu Picchu",
+  "type" : "best_tourism",
+  "destinationID" : "de07dfbf-32fe-4cf3-a04c-878201ff3f7d"
+}, {
+  "city" : "null",
+  "country" : "Athens",
+  "locationName" : " The Acropolis",
+  "type" : "best_tourism",
+  "destinationID" : "f9282eff-ea02-499b-b10b-d82ef14e9b76"
+}, {
+  "city" : "null",
+  "country" : "India",
+  "locationName" : " The Taj Mahal",
+  "type" : "best_tourism",
+  "destinationID" : "3ca8cb1e-0e24-4dc7-b8d3-a5f73b20653f"
+}, {
+  "city" : "null",
+  "country" : "Egypt",
+  "locationName" : " Pyramids of Giza",
+  "type" : "best_tourism",
+  "destinationID" : "79406152-3a10-401c-ad88-8bc81543fe46"
+}, {
+  "city" : "null",
+  "country" : "Cambodia",
+  "locationName" : " Angkor Wat",
+  "type" : "best_tourism",
+  "destinationID" : "00029a47-d414-4994-b178-d583762a93de"
+}, {
+  "city" : "null",
+  "country" : "Jordan",
+  "locationName" : " Petra",
+  "type" : "best_tourism",
+  "destinationID" : "0c5a69d0-23f6-4444-99e4-b49e0069dbe8"
+}, {
+  "city" : "null",
+  "country" : "USA",
+  "locationName" : " Grand Canyon",
+  "type" : "best_tourism",
+  "destinationID" : "51d0d553-1eda-4e95-9463-792bbc657185"
+}, {
+  "city" : "null",
+  "country" : "England",
+  "locationName" : " Stonehenge",
+  "type" : "best_tourism",
+  "destinationID" : "3545a0cf-d5dc-485a-be85-998158d8c296"
+}, {
+  "city" : "null",
+  "country" : "Indonesia",
+  "locationName" : " Borobudur",
+  "type" : "best_tourism",
+  "destinationID" : "8555629c-d29b-4eca-a012-10d52cb97bc2"
+}, {
+  "city" : "null",
+  "country" : "Canada &amp; USA",
+  "locationName" : " Niagara Falls",
+  "type" : "best_tourism",
+  "destinationID" : "739ff802-8795-481f-83a1-b48bd093bbcf"
+}, {
+  "city" : "null",
+  "country" : "Myanmar",
+  "locationName" : " Bagan",
+  "type" : "best_tourism",
+  "destinationID" : "24ff99b3-54dd-41ee-892f-865b66d3215d"
+}, {
+  "city" : "null",
+  "country" : "Paris",
+  "locationName" : " The Louvre",
+  "type" : "best_tourism",
+  "destinationID" : "915ba127-3f70-4880-965a-d2195116a214"
+}, {
+  "city" : "null",
+  "country" : "China",
+  "locationName" : " Forbidden City",
+  "type" : "best_tourism",
+  "destinationID" : "4a40d946-2f03-4ab7-90fe-68761e9509a8"
+}, {
+  "city" : "null",
+  "country" : "Czech Republic",
+  "locationName" : " Prague Castle",
+  "type" : "best_tourism",
+  "destinationID" : "9ad71a1b-dfd3-4ca7-859c-e72d007b0d60"
+}, {
+  "city" : "null",
+  "country" : "Mexico",
+  "locationName" : " Chichen Itza",
+  "type" : "best_tourism",
+  "destinationID" : "ac117215-2c79-4956-97da-a7924b17dbe8"
+}, {
+  "city" : "null",
+  "country" : "Rio de Janeiro",
+  "locationName" : " Corcovado and Cristo Redentor",
+  "type" : "best_tourism",
+  "destinationID" : "f67d0f57-59d4-4796-b010-92b4a47cf60f"
+}, {
+  "city" : "null",
+  "country" : "France",
+  "locationName" : " Château de Versailles",
+  "type" : "best_tourism",
+  "destinationID" : "4297c4a9-fdd0-4de9-a070-0f006b86c630"
+}, {
+  "city" : "null",
+  "country" : "New York City",
+  "locationName" : " Central Park",
+  "type" : "best_tourism",
+  "destinationID" : "ad011fa4-930b-423f-a610-dd5e0135cf91"
+} ]

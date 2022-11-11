@@ -1,5 +1,9 @@
-package WebCrawler;
+package com.nashss.se.web_crawler;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.nashss.se.aws.dynamodb.DynamoDbClientProvider;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -15,6 +19,7 @@ public class TourismCrawler {
     public static void main(String[] args) throws IOException {
 
         CreateJsonObject jsonObj = new CreateJsonObject();
+        ObjectMapper objectMapper = new ObjectMapper();
 
         List<Destination> tourismList = new ArrayList<>();
 
@@ -24,7 +29,8 @@ public class TourismCrawler {
 
         Elements tourismNameList = doc.getElementsByClass("sitename");
 
-        String place;
+        String locationName;
+        String city = null;
         String country;
 
         for(Element element : tourismNameList) {
@@ -32,18 +38,24 @@ public class TourismCrawler {
             int placeEndIndex = element.html().indexOf(",");
 
             if(element.html().contains(",")) {
-                place = element.html().substring(placeStartIndex+1, placeEndIndex);
+                locationName = element.html().substring(placeStartIndex+1, placeEndIndex);
                 country = element.html().substring(placeEndIndex+2);
 
                 UUID uuid = UUID.randomUUID();
                 String uuidAsString = uuid.toString();
 
-                Destination tourismDestination = new Destination(place, country, "best_tourism", uuidAsString);
+                Destination tourismDestination = new Destination(null, country, locationName,"best_tourism", uuidAsString);
                 tourismList.add(tourismDestination);
             }
         }
 
         String jsonString = jsonObj.convertToJson(tourismList);
+        System.out.println(jsonString);
         jsonObj.writeJsonToFile("cityDestinations", jsonString);
+
+        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+
+        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+        mapper.save(deserializedDestObjects);
     }
 }
