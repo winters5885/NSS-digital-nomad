@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: net.sourceforge.htmlunit:htmlunit-xpath:2.66.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit-xpath/2.66.0/7f5743163a74fb3669d5efe76f0d1f2c68662ca8/htmlunit-xpath-2.66.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.sourceforge.htmlunit/htmlunit-xpath/2.66.0/47dc733768d84dd117de10b4b585350a524f5b0/htmlunit-xpath-2.66.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
