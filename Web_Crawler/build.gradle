@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven {
+        url = uri("https://maven.pkg.github.com/NSS-Software-Engineering/shared-java")
+        credentials {
+            username = project.findProperty('GH_PACKAGE_REG_READ_USER') ?: System.getenv('GH_PACKAGE_REG_READ_USER')
+            password = project.findProperty('GH_PACKAGE_REG_READ_PASS') ?: System.getenv('GH_PACKAGE_REG_READ_PASS')
+        }
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation 'org.jsoup:jsoup:1.15.3'
+    implementation'net.sourceforge.htmlunit:htmlunit:2.66.0'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.14.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+    implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.12.340'
+    implementation 'com.nashss.se.shared-java:test-infrastructure:1.+'
+    implementation 'com.nashss.se.shared-java:nss-resources:1.+'
+    implementation 'com.nashss.se.shared-java:lesson-plan-resources:1.+'
+    implementation 'com.nashss.se.shared-java:java-project-resources:1.+'
+
+}
+
+test {
+    useJUnitPlatform()
+}
