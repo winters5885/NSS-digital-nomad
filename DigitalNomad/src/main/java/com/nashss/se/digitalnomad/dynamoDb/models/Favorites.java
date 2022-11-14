@@ -4,6 +4,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
+import java.util.Objects;
 import java.util.Set;
 
 public class Favorites {
@@ -41,5 +42,25 @@ public class Favorites {
             this.destinations = destinations;
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (!(o instanceof Favorite)) return false;
+            Favorite favorite = (Favorite) o;
+            return Objects.equals(userId, favorite.userId) && Objects.equals(destinations, favorite.destinations);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(userId, destinations);
+        }
+
+        @Override
+        public String toString() {
+            return "Favorite{" +
+                    "userId='" + userId + '\'' +
+                    ", destinations=" + destinations +
+                    '}';
+        }
     }
 }
