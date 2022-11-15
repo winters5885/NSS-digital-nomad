@@ -20,7 +20,7 @@ public class MostPopularCitiesCrawler {
         CreateJsonObject jsonObj = new CreateJsonObject();
         ObjectMapper objectMapper = new ObjectMapper();
 
-        List<Destination> mostPopularList = new ArrayList<>();
+        List<DestinationModel> mostPopularList = new ArrayList<>();
         String serializedDestinations = "";
 
         Document doc = Jsoup
@@ -46,17 +46,17 @@ public class MostPopularCitiesCrawler {
             UUID uuid = UUID.randomUUID();
             String uuidAsString = uuid.toString();
 
-            Destination popularDestination = new Destination(city, country, null, "most_popular", uuidAsString);
+            DestinationModel popularDestination = new DestinationModel(city, country, null, "most_popular", uuidAsString);
             mostPopularList.add(popularDestination);
         }
 
         serializedDestinations = objectMapper.writeValueAsString(mostPopularList);
         jsonObj.writeJsonToFile("mostPopularDestinations", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>() {
+        List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>() {
         });
 
-        for (Destination dest : deserializedDestObjects) {
+        for (DestinationModel dest : deserializedDestObjects) {
             DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
             mapper.save(dest);
         }

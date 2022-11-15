@@ -20,7 +20,7 @@ public class MountainCrawler {
         CreateJsonObject jsonObj = new CreateJsonObject();
         ObjectMapper objectMapper = new ObjectMapper();
 
-        List<Destination> mountainList = new ArrayList<>();
+        List<DestinationModel> mountainList = new ArrayList<>();
         String serializedDestinations = "";
 
         Document doc = Jsoup
@@ -48,17 +48,17 @@ public class MountainCrawler {
             UUID uuid = UUID.randomUUID();
             String uuidAsString = uuid.toString();
 
-            Destination mountainDest = new Destination(null, country, mountainName, "mountain", uuidAsString);
+            DestinationModel mountainDest = new DestinationModel(null, country, mountainName, "mountain", uuidAsString);
             mountainList.add(mountainDest);
         }
 
         serializedDestinations = objectMapper.writeValueAsString(mountainList);
         jsonObj.writeJsonToFile("mountainDestinations", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>() {
+        List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>() {
         });
 
-        for (Destination dest : deserializedDestObjects) {
+        for (DestinationModel dest : deserializedDestObjects) {
             DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
             mapper.save(dest);
         }

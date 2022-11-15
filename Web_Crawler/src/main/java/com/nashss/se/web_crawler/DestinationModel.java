@@ -8,15 +8,15 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 import java.io.Serializable;
 
 @DynamoDBTable(tableName = "destinations")
-public class Destination implements Serializable {
+public class DestinationModel implements Serializable {
     private String city;
     private String country;
     private String locationName;
     private String category;
     private String destinationID;
 
-    Destination() {}
-    Destination(String city, String country, String locationName, String category, String destinationID) {
+    DestinationModel() {}
+    DestinationModel(String city, String country, String locationName, String category, String destinationID) {
         this.city = city;
         this.country = country;
         this.locationName = locationName;
