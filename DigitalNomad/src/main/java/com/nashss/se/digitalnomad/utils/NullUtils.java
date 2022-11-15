@@ -2,9 +2,9 @@ package com.nashss.se.digitalnomad.utils;
 
 import java.util.function.Supplier;
 
-  /**
-  * Various utilities to deal with null.
-  */
+/**
+ *  Various utilities to deal with null.
+ */
   public class NullUtils {
 
       private NullUtils() { }

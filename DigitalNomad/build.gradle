@@ -21,15 +21,12 @@ repositories {
 }
 
 dependencies {
-<<<<<<< HEAD
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
 
     implementation 'com.fasterxml.jackson.core:jackson-core:2.14.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
 
-=======
->>>>>>> aa3e6f4e6f65c36f65e5d5fd400ba2d9f82bf13f
     implementation 'com.nashss.se.shared-java:test-infrastructure:1.+'
     implementation 'com.nashss.se.shared-java:nss-resources:1.+'
     implementation 'com.nashss.se.shared-java:lesson-plan-resources:1.+'
@@ -55,12 +52,9 @@ dependencies {
 
     implementation 'org.mockito:mockito-core:4.+'
     implementation "org.mockito:mockito-inline:4.+"
-<<<<<<< HEAD
-=======
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
->>>>>>> aa3e6f4e6f65c36f65e5d5fd400ba2d9f82bf13f
 }
 
 test {
@@ -93,7 +87,7 @@ checkstyle {
 
     def checkstyleDir = configFile.toPath().parent
     def suppressionFile = new File("$checkstyleDir/unit3/suppressions.xml")
-    configProperties.put('checkstyle.suppression.filter', suppressionFile) // This property is refereced in `checkstyle.xml`
+    configProperties.put('checkstyle.suppression.filter', suppressionFile) // This property is referenced in `checkstyle.xml`
 
     sourceSets = [sourceSets.main]
 }
