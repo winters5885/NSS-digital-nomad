@@ -161,7 +161,7 @@ Resources:
         MusicPlaylistService:
           Type: Api
           Properties:
-            Path: /playlists/{id}
+            Path: /category
             Method: get
 
   #-----------------------------------------------------------------
