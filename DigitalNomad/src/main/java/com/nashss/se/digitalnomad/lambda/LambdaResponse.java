@@ -12,6 +12,13 @@ import java.util.Map;
  * An APIGateway response from a lambda function.
  */
 public class LambdaResponse extends APIGatewayProxyResponseEvent {
+
+
+    public LambdaResponse() {
+        //this constructor was added just to get everything working. Can remove later.
+    }
+
+
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     private static final Logger log = LogManager.getLogger();

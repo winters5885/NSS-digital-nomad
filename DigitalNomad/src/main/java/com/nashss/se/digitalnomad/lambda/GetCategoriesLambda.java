@@ -15,15 +15,18 @@ public class GetCategoriesLambda
 
     @Override
     public LambdaResponse handleRequest(LambdaRequest<GetCategoriesRequest> input, Context context) {
-        log.info("handleRequest");
-        return super.runActivity(
-            () -> input.fromPath(path ->
-                    GetCategoriesRequest.builder()
-                            .withId(path.get("id"))
-                            .build()),
-            (request, serviceComponent) ->
-                    serviceComponent.provideGetCategoriesActivity().handleRequest(request)
-        );
+//        log.info("handleRequest");
+//        return super.runActivity(
+//            () -> input.fromPath(path ->
+//                    GetCategoriesRequest.builder()
+//                            .withId(path.get("id"))
+//                            .build()),
+//            (request, serviceComponent) ->
+//                    serviceComponent.provideGetCategoriesActivity().handleRequest(request)
+//        );
+
+        return new LambdaResponse();
+
     }
 }
 
