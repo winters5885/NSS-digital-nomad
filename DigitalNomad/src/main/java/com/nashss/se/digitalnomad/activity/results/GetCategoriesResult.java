@@ -1,22 +1,23 @@
 package com.nashss.se.digitalnomad.activity.results;
 
-import com.nashss.se.musicplaylistservice.models.PlaylistModel;
+import com.nashss.se.digitalnomad.dynamoDb.models.Category;
+import com.nashss.se.digitalnomad.models.CategoryModel;
 
 public class GetCategoriesResult {
-    private final PlaylistModel playlist;
+    private final CategoryModel category;
 
-    private GetCategoriesResult(PlaylistModel playlist) {
-        this.playlist = playlist;
+    private GetCategoriesResult(CategoryModel category) {
+        this.category = category;
     }
 
-    public PlaylistModel getPlaylist() {
-        return playlist;
+    public CategoryModel getCategory() {
+        return category;
     }
 
     @Override
     public String toString() {
         return "GetPlaylistResult{" +
-                "playlist=" + playlist +
+                "playlist=" + category +
                 '}';
     }
 
@@ -26,15 +27,15 @@ public class GetCategoriesResult {
     }
 
     public static class Builder {
-        private PlaylistModel playlist;
+        private CategoryModel category;
 
-        public Builder withPlaylist(PlaylistModel playlist) {
-            this.playlist = playlist;
+        public Builder withPlaylist(CategoryModel category) {
+            this.category = category;
             return this;
         }
 
         public GetCategoriesResult build() {
-            return new GetCategoriesResult(playlist);
+            return new GetCategoriesResult(category);
         }
     }
 }

@@ -1,13 +1,9 @@
-package com.nashss.se.musicplaylistservice.activity;
+package com.nashss.se.digitalnomad.activity;
 
+import com.nashss.se.digitalnomad.activity.requests.GetCategoriesRequest;
+import com.nashss.se.digitalnomad.activity.results.GetCategoriesResult;
 import com.nashss.se.digitalnomad.dynamoDb.CategoryDao;
-//import com.nashss.se.digitalnomad.activity.requests.GetCategoryRequest;
-//import com.nashss.se.digitalnomad.activity.results.GetPlaylistResult;
-//import com.nashss.se.digitalnomad.converters.ModelConverter;
-//import com.nashss.se.digitalnomad.dynamodb.PlaylistDao;
-//import com.nashss.se.digitalnomad.dynamodb.models.Playlist;
-//import com.nashss.se.digitalnomad.dynamoDb.models.Category;
-
+import com.nashss.se.digitalnomad.dynamoDb.models.Category;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -18,7 +14,7 @@ import javax.inject.Inject;
  *
  * This API allows the customer to get one of their saved playlists.
  */
-public class GetPlaylistActivity {
+public class GetCategoriesActivity {
     private final Logger log = LogManager.getLogger();
     private final CategoryDao categoryDao;
 
@@ -39,17 +35,17 @@ public class GetPlaylistActivity {
      * <p>
      * If the playlist does not exist, this should throw a PlaylistNotFoundException.
      *
-     * @param getPlaylistRequest request object containing the playlist ID
-     * @return getPlaylistResult result object containing the API defined {@link PlaylistModel}
+//     * @param getPlaylistRequest request object containing the playlist ID
+//     * @return getPlaylistResult result object containing the API defined
      */
-    public GetCategoryResult handleRequest(final GetCategoryRequest getPlaylistRequest) {
-        log.info("Received GetPlaylistRequest {}", getCategoryRequest);
-        String requestedId = getPlaylistRequest.getId();
-        Playlist playlist = categoryDao.getPlaylist(requestedId);
-        PlaylistModel playlistModel = new ModelConverter().toPlaylistModel(playlist);
+    public GetCategoriesResult handleRequest(final GetCategoriesRequest getCategoriesRequest) {
+        log.info("Received GetPlaylistRequest {}", getCategoriesRequest);
+        String requestedId = getCategoriesRequest.getId();
+        Category category = categoryDao.getCategories(requestedId);
+        //CategoryModel playlistModel = new ModelConverter().toPlaylistModel(category);
 
-        return GetPlaylistResult.builder()
-                .withPlaylist(playlistModel)
+        return GetCategoriesResult.builder()
+                //.withCategory(categoryModel)
                 .build();
     }
 }
