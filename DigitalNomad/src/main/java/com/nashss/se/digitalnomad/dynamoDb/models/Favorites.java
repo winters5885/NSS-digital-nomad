@@ -16,7 +16,7 @@ public class Favorites {
         private Set<Destination> destinations;
 
         /**
-         * Empty constructor for Favorite POJO.
+         * Empty constructor for Category POJO.
          */
         public Favorite() {
         }
@@ -27,7 +27,7 @@ public class Favorites {
          * @param destinations A set of destinations for this specific Favorite instance
          */
         public Favorite(String userId, Set<Destination> destinations) {
-            this.userId = userId;
+                this.userId = userId;
             this.destinations = destinations;
         }
 
