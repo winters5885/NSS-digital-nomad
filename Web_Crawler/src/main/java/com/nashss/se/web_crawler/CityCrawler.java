@@ -55,9 +55,15 @@ public class CityCrawler {
 
         List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>(){});
 
-        for(DestinationModel dest : deserializedDestObjects) {
+//        for(DestinationModel dest : deserializedDestObjects) {
+//        jsonObj.writeJsonToFile("cityDestinations", serializedDestinations);
+
+        //List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>(){});
+
+        for(DestinationModel desty : deserializedDestObjects) {
             DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
-            mapper.save(dest);
+            mapper.save(desty);
         }
     }
+
 }
