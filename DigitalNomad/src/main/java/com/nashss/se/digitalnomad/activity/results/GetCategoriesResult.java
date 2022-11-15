@@ -10,6 +10,7 @@ public class GetCategoriesResult {
     }
 
     public CategoryModel getCategory() {
+
         return category;
     }
 
@@ -22,6 +23,7 @@ public class GetCategoriesResult {
 
     //CHECKSTYLE:OFF:Builder
     public static Builder builder() {
+
         return new Builder();
     }
 
@@ -34,6 +36,7 @@ public class GetCategoriesResult {
         }
 
         public GetCategoriesResult build() {
+
             return new GetCategoriesResult(category);
         }
     }
