@@ -22,7 +22,7 @@ public class CategoryDao {
 
     /**
      * Retrieves a category by category name.
-     *
+     * <p>
      * If not found, throws CategoryNotFoundException.
      *
      * @param category The category to look up
@@ -37,6 +37,5 @@ public class CategoryDao {
 
         return destinationCategory;
     }
-
 }
 

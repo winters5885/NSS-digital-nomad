@@ -4,6 +4,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
+import java.util.Objects;
 import java.util.Set;
 
 public class Favorites {
@@ -14,12 +15,19 @@ public class Favorites {
         private String userId;
         private Set<Destination> destinations;
 
-
+        /**
+         * Empty constructor for Category POJO.
+         */
         public Favorite() {
         }
 
+        /**
+         * Constructor with parameters for Category POJO.
+         * @param userId for user ID
+         * @param destinations A set of destinations for this specific Favorite instance
+         */
         public Favorite(String userId, Set<Destination> destinations) {
-            this.userId = userId;
+                this.userId = userId;
             this.destinations = destinations;
         }
 
@@ -41,5 +49,29 @@ public class Favorites {
             this.destinations = destinations;
         }
 
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof Favorite)) {
+                return false;
+            }
+            Favorite favorite = (Favorite) o;
+            return Objects.equals(userId, favorite.userId) && Objects.equals(destinations, favorite.destinations);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(userId, destinations);
+        }
+
+        @Override
+        public String toString() {
+            return "Favorite{" +
+                    "userId='" + userId + '\'' +
+                    ", destinations=" + destinations +
+                    '}';
+        }
     }
 }

@@ -1,11 +1,12 @@
 package com.nashss.se.digitalnomad.dynamoDb.models;
 
-import java.io.Serializable;
-
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+
+import java.io.Serializable;
+import java.util.Objects;
 
 @DynamoDBTable(tableName = "destinations")
 public class Destination implements Serializable {
@@ -15,7 +16,19 @@ public class Destination implements Serializable {
     private String category;
     private String destinationID;
 
+    /**
+     * Empty constructor for Destination POJO.
+     */
     Destination() {}
+
+    /**
+     *  Constructor with parameters for Category POJO.
+     * @param city for city name
+     * @param country for country
+     * @param locationName for specific location information (Eiffel tower)
+     * @param category for category (beach, nightlife, etc)
+     * @param destinationID UUID for specific destination instance
+     */
 
     Destination(String city, String country, String locationName, String category, String destinationID) {
         this.city = city;
@@ -62,5 +75,37 @@ public class Destination implements Serializable {
     public String getDestinationID() {
             return destinationID;
         }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Destination)) {
+            return false;
+        }
+        Destination that = (Destination) o;
+        return Objects.equals(city, that.city) &&
+                Objects.equals(country, that.country) &&
+                Objects.equals(locationName, that.locationName) &&
+                Objects.equals(category, that.category) &&
+                Objects.equals(destinationID, that.destinationID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(city, country, locationName, category, destinationID);
+    }
+
+    @Override
+    public String toString() {
+        return "Destination{" +
+                "city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", locationName='" + locationName + '\'' +
+                ", category='" + category + '\'' +
+                ", destinationID='" + destinationID + '\'' +
+                '}';
+    }
 }
 

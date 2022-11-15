@@ -1,21 +1,21 @@
-package com.nashss.se.digitalnomad.dynamoDb.models;
-
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
+package com.nashss.se.digitalnomad.models;
+import com.nashss.se.digitalnomad.dynamoDb.models.Category;
 
 import java.util.Objects;
 
-@DynamoDBTable(tableName = "categories")
-public class Category {
+public class CategoryModel {
     private String category;
 
     /**
      * Empty constructor for Category POJO.
      */
-    public Category(String category) {
+    public CategoryModel() {
     }
 
-    @DynamoDBHashKey(attributeName = "category")
+    public CategoryModel(String category) {
+        this.category = category;
+    }
+
     public String getCategory() {
         return category;
     }
@@ -33,7 +33,7 @@ public class Category {
             return false;
         }
         Category category1 = (Category) o;
-        return Objects.equals(category, category1.category);
+        return Objects.equals(category, category1.getCategory());
     }
 
     @Override
@@ -46,5 +46,25 @@ public class Category {
         return "Category{" +
                 "category='" + category + '\'' +
                 '}';
+    }
+
+    //CHECKSTYLE:OFF:Builder
+    public static Builder builder() {
+
+        return new Builder();
+    }
+
+    public static class Builder {
+        private String category;
+
+        public Builder withCategory(String category) {
+            this.category = category;
+            return this;
+        }
+
+        public CategoryModel build() {
+
+            return new CategoryModel(category);
+        }
     }
 }
