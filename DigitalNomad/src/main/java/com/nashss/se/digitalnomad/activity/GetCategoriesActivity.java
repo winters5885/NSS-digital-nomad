@@ -4,6 +4,7 @@ import com.nashss.se.digitalnomad.activity.requests.GetCategoriesRequest;
 import com.nashss.se.digitalnomad.activity.results.GetCategoriesResult;
 import com.nashss.se.digitalnomad.dynamoDb.CategoryDao;
 import com.nashss.se.digitalnomad.dynamoDb.models.Category;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -35,8 +36,8 @@ public class GetCategoriesActivity {
      * <p>
      * If the playlist does not exist, this should throw a PlaylistNotFoundException.
      *
-//     * @param getPlaylistRequest request object containing the playlist ID
-//     * @return getPlaylistResult result object containing the API defined
+     * @param getCategoriesRequest request object
+     * @return GetCategoriesResult result object
      */
     public GetCategoriesResult handleRequest(final GetCategoriesRequest getCategoriesRequest) {
         log.info("Received GetPlaylistRequest {}", getCategoriesRequest);

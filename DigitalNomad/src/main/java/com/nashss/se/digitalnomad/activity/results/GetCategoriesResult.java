@@ -1,6 +1,5 @@
 package com.nashss.se.digitalnomad.activity.results;
 
-import com.nashss.se.digitalnomad.dynamoDb.models.Category;
 import com.nashss.se.digitalnomad.models.CategoryModel;
 
 public class GetCategoriesResult {
