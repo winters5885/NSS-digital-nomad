@@ -25,7 +25,7 @@ public class GetCategoriesLambda
 //                    serviceComponent.provideGetCategoriesActivity().handleRequest(request)
 //        );
 
-        return new LambdaResponse();
+        return LambdaResponse.success();
 
     }
 }

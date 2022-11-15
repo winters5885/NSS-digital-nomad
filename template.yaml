@@ -144,7 +144,7 @@ Resources:
                     - !Ref 'AWS::AccountId'
                     - ':table/album_tracks'
 
-  GetPlaylistLambda:
+  GetCategoriesLambda:
     Type: AWS::Serverless::Function
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
@@ -158,7 +158,7 @@ Resources:
         Variables:
           JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
       Events:
-        MusicPlaylistService:
+        DigitalNomad:
           Type: Api
           Properties:
             Path: /category
