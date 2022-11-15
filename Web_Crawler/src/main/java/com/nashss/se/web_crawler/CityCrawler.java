@@ -23,7 +23,7 @@ public class CityCrawler {
         String cityName;
         String countryName;
 
-        List<Destination> cityList = new ArrayList<>();
+        List<DestinationModel> cityList = new ArrayList<>();
         String serializedDestinations = "";
 
         Document doc = Jsoup
@@ -45,19 +45,24 @@ public class CityCrawler {
                 UUID uuid = UUID.randomUUID();
                 String uuidAsString = uuid.toString();
 
-                Destination cityDestination = new Destination(cityName, countryName, null, "city", uuidAsString);
+                DestinationModel cityDestination = new DestinationModel(cityName, countryName, null, "city", uuidAsString);
                 cityList.add(cityDestination);
             }
         }
 
         serializedDestinations = objectMapper.writeValueAsString(cityList);
-        jsonObj.writeJsonToFile("cityDestinations", serializedDestinations);
+        jsonObj.writeJsonToFile("CityDestinations", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>(){});
+        List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>(){});
 
-        for(Destination dest : deserializedDestObjects) {
+//        for(DestinationModel dest : deserializedDestObjects) {
+//        jsonObj.writeJsonToFile("cityDestinations", serializedDestinations);
+
+        //List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>(){});
+
+        for(DestinationModel desty : deserializedDestObjects) {
             DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
-            mapper.save(dest);
+            mapper.save(desty);
         }
     }
 

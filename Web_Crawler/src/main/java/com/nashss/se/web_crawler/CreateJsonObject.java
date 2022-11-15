@@ -9,13 +9,13 @@ import java.io.IOException;
 import java.util.List;
 
 public class CreateJsonObject {
-    public String convertToJson(List<Destination> destinationList) throws JsonProcessingException {
+    public String convertToJson(List<DestinationModel> destinationList) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(destinationList);
     }
 
     public void writeJsonToFile(String filename, String jsonString) {
-        File myFile = new File("/Users/nss_student/workspace/u5-project-smashing-pumpkin-pie/Web_Crawler/src/main/Java/com/nashss/se/web_crawler/Json/"
+        File myFile = new File("/Users/nss_student/workspace/u5-project-smashing-pumpkin-pie/Web_Crawler/src/main/java/com/nashss/se/web_crawler/Json/"
                 + filename + ".json");
 
         try {

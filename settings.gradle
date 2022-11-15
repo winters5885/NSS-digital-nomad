@@ -1,3 +1,5 @@
 rootProject.name = 'u5-ProjectTemplate'
 include 'MusicPlaylistServiceLambda'
 include 'Web_Crawler'
+include 'DigitalNomad'
+

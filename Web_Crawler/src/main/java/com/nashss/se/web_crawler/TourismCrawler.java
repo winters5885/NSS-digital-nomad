@@ -21,7 +21,7 @@ public class TourismCrawler {
         CreateJsonObject jsonObj = new CreateJsonObject();
         ObjectMapper objectMapper = new ObjectMapper();
 
-        List<Destination> tourismList = new ArrayList<>();
+        List<DestinationModel> tourismList = new ArrayList<>();
         String serializedDestinations = "";
 
         Document doc = Jsoup
@@ -44,7 +44,7 @@ public class TourismCrawler {
                 UUID uuid = UUID.randomUUID();
                 String uuidAsString = uuid.toString();
 
-                Destination tourismDestination = new Destination(null, country, locationName,"best_tourism", uuidAsString);
+                DestinationModel tourismDestination = new DestinationModel(null, country, locationName,"best_tourism", uuidAsString);
                 tourismList.add(tourismDestination);
             }
         }
@@ -52,10 +52,10 @@ public class TourismCrawler {
         serializedDestinations = objectMapper.writeValueAsString(tourismList);
         jsonObj.writeJsonToFile("tourismDestinations", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>() {
+        List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>() {
         });
 
-        for (Destination dest : deserializedDestObjects) {
+        for (DestinationModel dest : deserializedDestObjects) {
             DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
             mapper.save(dest);
         }
