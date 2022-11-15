@@ -9,6 +9,9 @@ import java.util.Objects;
 public class Category {
     private String category;
 
+    /**
+     * Empty constructor for Category POJO.
+     */
     public Category() {
     }
 
@@ -23,8 +26,12 @@ public class Category {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Category)) return false;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Category)) {
+            return false;
+        }
         Category category1 = (Category) o;
         return Objects.equals(category, category1.category);
     }

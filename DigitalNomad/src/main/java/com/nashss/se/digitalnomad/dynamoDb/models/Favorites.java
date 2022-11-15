@@ -15,10 +15,17 @@ public class Favorites {
         private String userId;
         private Set<Destination> destinations;
 
-
+        /**
+         * Empty constructor for Favorite POJO.
+         */
         public Favorite() {
         }
 
+        /**
+         * Constructor with parameters for Category POJO.
+         * @param userId for user ID
+         * @param destinations A set of destinations for this specific Favorite instance
+         */
         public Favorite(String userId, Set<Destination> destinations) {
             this.userId = userId;
             this.destinations = destinations;
@@ -44,8 +51,12 @@ public class Favorites {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (!(o instanceof Favorite)) return false;
+            if (this == o) {
+                return true;
+            }
+            if (!(o instanceof Favorite)) {
+                return false;
+            }
             Favorite favorite = (Favorite) o;
             return Objects.equals(userId, favorite.userId) && Objects.equals(destinations, favorite.destinations);
         }
