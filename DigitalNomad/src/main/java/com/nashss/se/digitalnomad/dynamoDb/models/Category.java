@@ -11,6 +11,7 @@ public class Category {
 
     /**
      * Empty constructor for Category POJO.
+     * @param category category parameter
      */
     public Category(String category) {
     }

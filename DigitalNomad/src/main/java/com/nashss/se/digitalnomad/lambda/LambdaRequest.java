@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Map;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 import static com.nashss.se.digitalnomad.utils.NullUtils.ifNull;
@@ -41,11 +42,11 @@ public class LambdaRequest<T> extends APIGatewayProxyRequestEvent {
      * @param converter Contains the conversion code
      * @return A instance of T that contains data from the request's query string
      */
-//    public T fromQuery(Function<Map<String, String>, T> converter) {
-//        Map<String, String> query = ifNull(super.getQueryStringParameters(), Map.of());
-//        return converter.apply(query);
-//    }
-//
+    public T fromQuery(Function<Map<String, String>, T> converter) {
+        Map<String, String> query = ifNull(super.getQueryStringParameters(), Map.of());
+        return converter.apply(query);
+    }
+
     /**
      * Use the given converter to create an instance of T from the request's path parameters.
      * @param converter Contains the conversion code
@@ -57,17 +58,17 @@ public class LambdaRequest<T> extends APIGatewayProxyRequestEvent {
         return converter.apply(path);
     }
 
-//    /**
-//     * Use the given converter to create an instance of T from the request's path parameters
-//     * and query string parameters.
-//     * @param converter Contains the conversion code
-//     * @return A instance of T that contains data from the request's path parameters
-//    */
-//    public T fromPathAndQuery(BiFunction<Map<String, String>, Map<String, String>, T> converter) {
-//        log.info("fromPathAndQuery");
-//        Map<String, String> path = ifNull(super.getPathParameters(), Map.of());
-//        Map<String, String> query = ifNull(super.getQueryStringParameters(), Map.of());
-//        return converter.apply(path, query);
-//    }
+    /**
+     * Use the given converter to create an instance of T from the request's path parameters
+     * and query string parameters.
+     * @param converter Contains the conversion code
+     * @return A instance of T that contains data from the request's path parameters
+    */
+    public T fromPathAndQuery(BiFunction<Map<String, String>, Map<String, String>, T> converter) {
+        log.info("fromPathAndQuery");
+        Map<String, String> path = ifNull(super.getPathParameters(), Map.of());
+        Map<String, String> query = ifNull(super.getQueryStringParameters(), Map.of());
+        return converter.apply(path, query);
+    }
 }
 

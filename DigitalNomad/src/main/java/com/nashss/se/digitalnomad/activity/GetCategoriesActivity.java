@@ -7,6 +7,7 @@ import com.nashss.se.digitalnomad.dynamoDb.CategoryDao;
 import com.nashss.se.digitalnomad.dynamoDb.models.Category;
 
 import com.nashss.se.digitalnomad.models.CategoryModel;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

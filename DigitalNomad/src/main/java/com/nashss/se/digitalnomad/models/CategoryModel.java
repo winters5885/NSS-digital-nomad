@@ -12,6 +12,10 @@ public class CategoryModel {
     public CategoryModel() {
     }
 
+    /**
+     * Non-Empty constructor for Category POJO.
+     * @param category category parameter
+     */
     public CategoryModel(String category) {
         this.category = category;
     }

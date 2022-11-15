@@ -39,42 +39,50 @@ public class Destination implements Serializable {
     }
 
     public void setCity(String city) {
-            this.city = city;
-        }
+        this.city = city;
+    }
+
     @DynamoDBAttribute(attributeName = "cityName")
     public String getCity() {
-            return city;
-        }
+
+        return city;
+    }
+
     public void setCountry(String country) {
-            this.country = country;
-        }
+        this.country = country;
+    }
+
     @DynamoDBAttribute(attributeName = "country")
     public String getCountry() {
-            return country;
-        }
+        return country;
+    }
+
     public void setLocationName(String locationName) {
-            this.locationName = locationName;
-        }
+        this.locationName = locationName;
+    }
+
     @DynamoDBAttribute(attributeName = "locationName")
     public String getLocationName() {
-            return locationName;
-        }
+        return locationName;
+    }
 
     public void setCategory(String category) {
-            this.category = category;
-        }
+        this.category = category;
+    }
+
     @DynamoDBHashKey(attributeName = "category")
     public String getCategory() {
-            return category;
-        }
+        return category;
+    }
 
     public void setDestinationID(String destinationID) {
-            this.destinationID = destinationID;
-        }
+        this.destinationID = destinationID;
+    }
+
     @DynamoDBRangeKey(attributeName = "destinationId")
     public String getDestinationID() {
-            return destinationID;
-        }
+        return destinationID;
+    }
 
     @Override
     public boolean equals(Object o) {

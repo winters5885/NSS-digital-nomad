@@ -3,10 +3,6 @@ package com.nashss.se.digitalnomad.converter;
 import com.nashss.se.digitalnomad.dynamoDb.models.Category;
 import com.nashss.se.digitalnomad.models.CategoryModel;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 /**
  * Converts between Data and Coral models.
  */
@@ -29,12 +25,13 @@ public class ModelConverter {
             .build();
     }
 
-        /**
+    /**
          * Converts a provided AlbumTrack into a SongModel representation.
          * @param albumTrack the AlbumTrack to convert to SongModel
          * @return the converted SongModel with fields mapped from albumTrack
          */
-        /*
+
+    /**
     public CategoryModel toSongModel(AlbumTrack albumTrack) {
         return SongModel.builder()
             .withAsin(albumTrack.getAsin())
@@ -44,13 +41,15 @@ public class ModelConverter {
             .build();
 
     }
+     */
 
     /**
      * Converts a list of AlbumTracks to a list of SongModels.
      * @param albumTracks The AlbumTracks to convert to SongModels
      * @return The converted list of SongModels
-     */
-        /*
+    */
+
+    /**
     public List<SongModel> toSongModelList(List<AlbumTrack> albumTracks) {
         List<SongModel> songModels = new ArrayList<>();
         for (AlbumTrack albumTrack : albumTracks) {
@@ -59,5 +58,6 @@ public class ModelConverter {
 
         return null;
     }
-    */
+     */
+
 }
