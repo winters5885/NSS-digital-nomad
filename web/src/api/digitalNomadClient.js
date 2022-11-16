@@ -13,7 +13,7 @@ export default class MusicPlaylistClient extends BindingClass {
 
     constructor(props = {}){
         super();
-        const methodsToBind = ['clientLoaded', 'getIdentity', 'getCategories'];
+        const methodsToBind = ['clientLoaded', 'getCategories'];
         this.bindClassMethods(methodsToBind, this);
         this.props = props;
 
@@ -37,6 +37,8 @@ export default class MusicPlaylistClient extends BindingClass {
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The username and phonetool url for the current user.
      */
+
+    /** 
     async getIdentity(errorCallback) {
         try {
             // TODO auth?
@@ -48,6 +50,7 @@ export default class MusicPlaylistClient extends BindingClass {
             this.handleError(error, errorCallback)
         }
     }
+    */
 
 
     /**
@@ -56,9 +59,9 @@ export default class MusicPlaylistClient extends BindingClass {
      * @param errorCallback (Optional) A function to execute if the call fails.
      * @returns The playlist's metadata.
      */
-    async getCategories(id, errorCallback) {
+    async getCategories(errorCallback) {
         try {
-            const response = await this.client.get(`categories/${id}`);
+            const response = await this.client.get(`categories`);
             return response.data.playlist;
         } catch (error) {
             this.handleError(error, errorCallback)
