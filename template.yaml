@@ -161,7 +161,7 @@ Resources:
         DigitalNomad:
           Type: Api
           Properties:
-            Path: categories
+            Path: /categories
             Method: get
 
   #-----------------------------------------------------------------
