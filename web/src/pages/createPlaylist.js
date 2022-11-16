@@ -9,7 +9,7 @@ import DataStore from '../util/DataStore';
 class CreatePlaylist extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['mount', 'submit', 'redirectToViewPlaylist'], this);
+        this.bindClassMethods(['populateCityDropDown','populateCategoryDropDown', 'mount', 'submit', 'redirectToViewPlaylist'], this);
         this.dataStore = new DataStore();
         this.dataStore.addChangeListener(this.redirectToViewPlaylist);
         this.header = new Header(this.dataStore);
@@ -18,11 +18,14 @@ class CreatePlaylist extends BindingClass {
     /**
      * Add the header to the page and load the MusicPlaylistClient.
      */
+
     mount() {
-        document.getElementById('create').addEventListener('click', this.submit);
+        //document.getElementById('create').addEventListener('click', this.submit);
         this.header.addHeaderToPage();
         this.header.loadData();
         this.client = new MusicPlaylistClient();
+        this.populateCityDropDown();
+        this.populateCategoryDropDown();
     }
 
     /**
@@ -54,6 +57,32 @@ class CreatePlaylist extends BindingClass {
         if (playlist != null) {
             window.location.href = `/playlist.html?id=${playlist.id}`;
         }
+    }
+
+    populateCityDropDown() {
+        var cityList = ["Miami", 
+                        "Phoenix", 
+                        "Whitefish"
+                    ];
+        var html = [];
+
+        for (var i = 0; i < cityList.length; i++) {
+               html.push("<option>" + cityList[i] + "</option>");
+        }
+        document.getElementById("cityList").innerHTML = html.join("");
+    }
+
+    populateCategoryDropDown() {
+        var categoryList = ["Beach", 
+                        "Mountains", 
+                        "Nightlife"
+                    ];
+        var html = [];
+
+        for (var i = 0; i < categoryList.length; i++) {
+               html.push("<option>" + categoryList[i] + "</option>");
+        }
+        document.getElementById("categoryList").innerHTML = html.join("");
     }
 }
 

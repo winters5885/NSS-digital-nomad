@@ -91,6 +91,44 @@ button {
     flex: 80%;
 }
 
+.dropdowns {
+    font-size: 20px;
+    background-color: rgb(95, 95, 122);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    
+}
+.categorydropdown {
+    text-align: right;
+    display: inline-block;
+}
+
+.citydropdown {
+    text-align: left;
+    display: inline-block
+}
+
+select {
+    width: 150px;
+    margin: 10px;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+}
+ .select-selected {
+background-color: green;
+ }
+input {
+    height: 50px;
+    width: 300px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.spontaneousButton {
+    text-align: center;
+}
 /*
 Flexbox on a lists removes the numbers. We use a counter here to add them back.
 https://stackoverflow.com/a/34316093
