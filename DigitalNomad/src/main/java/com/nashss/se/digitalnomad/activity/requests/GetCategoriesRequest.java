@@ -13,7 +13,7 @@ public class GetCategoriesRequest {
 
     @Override
     public String toString() {
-        return "GetPlaylistRequest{" +
+        return "GetCategoriesRequest{" +
                 "id='" + id + '\'' +
                 '}';
     }

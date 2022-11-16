@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
+import java.util.List;
 
 /**
  * Implementation of the GetPlaylistActivity for the MusicPlaylistService's GetPlaylist API.
@@ -47,7 +48,7 @@ public class GetCategoriesActivity {
 
         String requestedId = getCategoriesRequest.getId();
         Category category = categoryDao.getCategory(requestedId);
-        CategoryModel categoryModel = new ModelConverter().toCategoryModel(category);
+        List<CategoryModel> categoryModel = new ModelConverter().toCategoryModel(category);
 
         return GetCategoriesResult.builder()
                 .withCategory(categoryModel)
