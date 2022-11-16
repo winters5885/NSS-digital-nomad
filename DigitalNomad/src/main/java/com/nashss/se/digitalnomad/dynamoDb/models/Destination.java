@@ -1,4 +1,4 @@
-package com.nashss.se.web_crawler;
+package com.nashss.se.digitalnomad.dynamoDb.models;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;

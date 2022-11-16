@@ -23,7 +23,8 @@ public class CityCrawler {
         String cityName;
         String countryName;
 
-        List<Destination> cityList = new ArrayList<>();
+        List<DestinationModel> cityList = new ArrayList<>();
+        String serializedDestinations = "";
 
         Document doc = Jsoup
                 .connect("https://www.holidify.com/pages/best-urban-city-experience-1534.html")
@@ -44,17 +45,25 @@ public class CityCrawler {
                 UUID uuid = UUID.randomUUID();
                 String uuidAsString = uuid.toString();
 
-                Destination cityDestination = new Destination(cityName, countryName, null, "city", uuidAsString);
+                DestinationModel cityDestination = new DestinationModel(cityName, countryName, null, "city", uuidAsString);
                 cityList.add(cityDestination);
             }
         }
 
-        String jsonString = jsonObj.convertToJson(cityList);
-        jsonObj.writeJsonToFile("cityDestinations", jsonString);
+        serializedDestinations = objectMapper.writeValueAsString(cityList);
+        jsonObj.writeJsonToFile("CityDestinations", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(jsonString, new TypeReference<List<Destination>>(){});
+        List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>(){});
 
-        DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
-        mapper.save(deserializedDestObjects);
+//        for(DestinationModel dest : deserializedDestObjects) {
+//        jsonObj.writeJsonToFile("cityDestinations", serializedDestinations);
+
+        //List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>(){});
+
+        for(DestinationModel desty : deserializedDestObjects) {
+            DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
+            mapper.save(desty);
+        }
     }
+
 }

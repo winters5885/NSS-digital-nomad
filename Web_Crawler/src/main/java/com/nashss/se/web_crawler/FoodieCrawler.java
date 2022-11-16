@@ -20,7 +20,7 @@ public class FoodieCrawler {
         CreateJsonObject jsonObj =  new CreateJsonObject();
         ObjectMapper objectMapper = new ObjectMapper();
 
-        List<Destination> foodieList = new ArrayList<>();
+        List<DestinationModel> foodieList = new ArrayList<>();
         String serializedDestinations = "";
 
         Document doc = Jsoup
@@ -49,16 +49,16 @@ public class FoodieCrawler {
             UUID uuid = UUID.randomUUID();
             String uuidAsString = uuid.toString();
 
-            Destination foodieDestination = new Destination(city, country, null, "best_food", uuidAsString);
+            DestinationModel foodieDestination = new DestinationModel(city, country, null, "best_food", uuidAsString);
             foodieList.add(foodieDestination);
         }
 
         serializedDestinations = objectMapper.writeValueAsString(foodieList);
         jsonObj.writeJsonToFile("FoodieDestination", serializedDestinations);
 
-        List<Destination> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<Destination>>(){});
+        List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>(){});
 
-        for(Destination dest : deserializedDestObjects) {
+        for(DestinationModel dest : deserializedDestObjects) {
             DynamoDBMapper mapper = new DynamoDBMapper(DynamoDbClientProvider.getDynamoDBClient());
             mapper.save(dest);
         }
