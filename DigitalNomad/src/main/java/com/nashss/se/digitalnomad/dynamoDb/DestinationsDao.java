@@ -1,9 +1,9 @@
 package com.nashss.se.digitalnomad.dynamoDb;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.nashss.se.digitalnomad.Exceptions.CategoryNotFoundException;
-import com.nashss.se.digitalnomad.dynamoDb.models.Category;
 import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
+
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 
 import javax.inject.Inject;
 

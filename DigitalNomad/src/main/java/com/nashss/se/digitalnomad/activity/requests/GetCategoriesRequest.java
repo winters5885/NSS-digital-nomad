@@ -1,22 +1,17 @@
 package com.nashss.se.digitalnomad.activity.requests;
 
 public class GetCategoriesRequest {
-    private final String id;
 
-    private GetCategoriesRequest(String id) {
-        this.id = id;
+    private GetCategoriesRequest() {
+
     }
 
-    public String getId() {
-        return id;
-    }
-
+    /*
     @Override
     public String toString() {
-        return "GetCategoriesRequest{" +
-                "id='" + id + '\'' +
-                '}';
+        return "GetCategoriesRequest{"'\'' + '}';
     }
+     */
 
     //CHECKSTYLE:OFF:Builder
     public static Builder builder() {
@@ -24,15 +19,15 @@ public class GetCategoriesRequest {
     }
 
     public static class Builder {
-        private String id;
-
+        /*
         public Builder withId(String id) {
             this.id = id;
             return this;
         }
+         */
 
         public GetCategoriesRequest build() {
-            return new GetCategoriesRequest(id);
+            return new GetCategoriesRequest();
         }
     }
 }

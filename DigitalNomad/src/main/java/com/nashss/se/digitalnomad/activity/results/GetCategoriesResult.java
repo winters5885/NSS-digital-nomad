@@ -1,21 +1,26 @@
 package com.nashss.se.digitalnomad.activity.results;
 
-import com.nashss.se.digitalnomad.models.CategoryModel;
-
 import java.util.List;
 
 public class GetCategoriesResult {
-    private final List<CategoryModel> categories;
+    private final List<String> categoryList;
 
-    public List<CategoryModel> getCategories() {
+    /**
+     * Constructor for GetCategoriesResult.
+     * @param categoryList the playlist to convert
+     */
+    public GetCategoriesResult(List<String> categoryList) {
+        this.categoryList = categoryList;
+    }
 
-        return categories;
+    public List<String> getCategoriesResult() {
+        return categoryList;
     }
 
     @Override
     public String toString() {
         return "GetCategoriesResult{" +
-                "categories=" + categories +
+                "categories=" + categoryList +
                 '}';
     }
 
@@ -26,16 +31,16 @@ public class GetCategoriesResult {
     }
 
     public static class Builder {
-        private List<CategoryModel> categories;
+        private List<String> categoryStringList;
 
-        public Builder withCategory(List<CategoryModel> categories) {
-            this.categories = categories;
+        public Builder withCategory(List<String> categories) {
+            categoryStringList = categories;
             return this;
         }
 
         public GetCategoriesResult build() {
 
-            return new GetCategoriesResult();
+            return new GetCategoriesResult(categoryStringList);
         }
     }
 }

@@ -18,6 +18,7 @@ public class Category {
 
     @DynamoDBHashKey(attributeName = "category")
     public String getCategory() {
+
         return category;
     }
 
@@ -45,7 +46,7 @@ public class Category {
     @Override
     public String toString() {
         return "Category{" +
-                "category='" + category + '\'' +
+                "categoryList=" + category +
                 '}';
     }
 }

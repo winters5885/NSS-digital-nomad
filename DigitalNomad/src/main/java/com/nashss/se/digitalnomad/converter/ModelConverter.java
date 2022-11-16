@@ -1,8 +1,5 @@
 package com.nashss.se.digitalnomad.converter;
 
-import com.nashss.se.digitalnomad.dynamoDb.models.Category;
-import com.nashss.se.digitalnomad.models.CategoryModel;
-
 /**
  * Converts between Data and Coral models.
  */
@@ -13,6 +10,7 @@ public class ModelConverter {
      * @param category the category to convert
      * @return the converted category
      */
+    /*
     public CategoryModel toCategoryModel(Category category) {
         String categoryType = null;
 
@@ -24,7 +22,7 @@ public class ModelConverter {
             .withCategory(categoryType)
             .build();
     }
-
+     */
     /**
          * Converts a provided AlbumTrack into a SongModel representation.
          * @param albumTrack the AlbumTrack to convert to SongModel
