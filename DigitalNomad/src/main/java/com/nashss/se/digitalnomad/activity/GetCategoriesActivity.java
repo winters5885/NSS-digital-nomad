@@ -41,7 +41,7 @@ public class GetCategoriesActivity {
      */
     public GetCategoriesResult handleRequest() {
         log.info("Inside GetCategoriesResult handleRequest");
-        List<Category> categories = categoryDao.getCategory();
+        List<Category> categories = categoryDao.getCategories();
         List<String> categoriesList = new ArrayList<>();
 
         for (Category category : categories) {

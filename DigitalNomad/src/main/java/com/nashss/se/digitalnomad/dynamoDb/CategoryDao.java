@@ -35,7 +35,7 @@ public class CategoryDao {
      *
      * @return All categories in categories table
      */
-    public List<Category> getCategory() {
+    public List<Category> getCategories() {
         log.info("Inside CategoryDao getCategory");
 
         DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
