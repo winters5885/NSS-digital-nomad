@@ -13,7 +13,7 @@ public class GetCategoriesResult {
         this.categoryList = categoryList;
     }
 
-    public List<String> getCategoriesResult() {
+    public List<String> getCategoriesList() {
         return categoryList;
     }
 
