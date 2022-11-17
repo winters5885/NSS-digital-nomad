@@ -20,6 +20,7 @@ public class Category {
      * @param category category parameter
      */
     public Category(String category) {
+        this.category = category;
     }
 
     @DynamoDBHashKey(attributeName = "category")
