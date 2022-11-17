@@ -1,16 +1,14 @@
 package com.nashss.se.digitalnomad.activity;
 
-import com.nashss.se.digitalnomad.activity.requests.GetCategoriesRequest;
 import com.nashss.se.digitalnomad.activity.results.GetCategoriesResult;
-import com.nashss.se.digitalnomad.converter.ModelConverter;
 import com.nashss.se.digitalnomad.dynamoDb.CategoryDao;
 import com.nashss.se.digitalnomad.dynamoDb.models.Category;
-
-import com.nashss.se.digitalnomad.models.CategoryModel;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.inject.Inject;
 
 /**
@@ -39,18 +37,18 @@ public class GetCategoriesActivity {
      * <p>
      * If the playlist does not exist, this should throw a PlaylistNotFoundException.
      *
-     * @param getCategoriesRequest request object
      * @return GetCategoriesResult result object
      */
-    public GetCategoriesResult handleRequest(final GetCategoriesRequest getCategoriesRequest) {
-        log.info("Received GetCategoriesRequest {}", getCategoriesRequest);
+    public GetCategoriesResult handleRequest() {
+        log.info("Inside GetCategoriesResult handleRequest");
+        List<Category> categories = categoryDao.getCategories();
+        List<String> categoriesList = new ArrayList<>();
 
-        String requestedId = getCategoriesRequest.getId();
-        Category category = categoryDao.getCategory(requestedId);
-        CategoryModel categoryModel = new ModelConverter().toCategoryModel(category);
-
+        for (Category category : categories) {
+            categoriesList.add(category.getCategory());
+        }
         return GetCategoriesResult.builder()
-                .withCategory(categoryModel)
+                .withCategory(categoriesList)
                 .build();
     }
 }

@@ -22,7 +22,7 @@ public class LambdaRequest<T> extends APIGatewayProxyRequestEvent {
     private final Logger log = LogManager.getLogger();
 
     /**
-     * Dserialize a T (aka 'requestClass`) from the body of the request.
+     * Deserialize a T (aka 'requestClass') from the body of the request.
      * @param requestClass The type that should be created from the body of this LambdaRequest
      * @return A new instance of T that contains data from the request body
      */
@@ -40,7 +40,7 @@ public class LambdaRequest<T> extends APIGatewayProxyRequestEvent {
     /**
      * Use the given converter to create an instance of T from the request's query string.
      * @param converter Contains the conversion code
-     * @return A instance of T that contains data from the request's query string
+     * @return An instance of T that contains data from the request's query string
      */
     public T fromQuery(Function<Map<String, String>, T> converter) {
         Map<String, String> query = ifNull(super.getQueryStringParameters(), Map.of());

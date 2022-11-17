@@ -1,10 +1,10 @@
 package com.nashss.se.digitalnomad.models;
-import com.nashss.se.digitalnomad.dynamoDb.models.Category;
 
+import java.util.List;
 import java.util.Objects;
 
 public class CategoryModel {
-    private String category;
+    private List<String> categoriesList;
 
     /**
      * Empty constructor for Category POJO.
@@ -14,18 +14,18 @@ public class CategoryModel {
 
     /**
      * Non-Empty constructor for Category POJO.
-     * @param category category parameter
+     * @param categoriesList categories parameter
      */
-    public CategoryModel(String category) {
-        this.category = category;
+    public CategoryModel(List<String> categoriesList) {
+        this.categoriesList = categoriesList;
     }
 
-    public String getCategory() {
-        return category;
+    public List<String> getCategories() {
+        return categoriesList;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategory(List<String> categories) {
+        this.categoriesList = categories;
     }
 
     @Override
@@ -33,22 +33,22 @@ public class CategoryModel {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Category)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Category category1 = (Category) o;
-        return Objects.equals(category, category1.getCategory());
+        CategoryModel that = (CategoryModel) o;
+        return Objects.equals(categoriesList, that.categoriesList);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(category);
+        return Objects.hash(categoriesList);
     }
 
     @Override
     public String toString() {
         return "Category{" +
-                "category='" + category + '\'' +
+                "category='" + categoriesList + '\'' +
                 '}';
     }
 
@@ -59,16 +59,16 @@ public class CategoryModel {
     }
 
     public static class Builder {
-        private String category;
+        private List<String> categoryList;
 
-        public Builder withCategory(String category) {
-            this.category = category;
+        public Builder withCategory(List<String> categoryList) {
+            this.categoryList = categoryList;
             return this;
         }
 
         public CategoryModel build() {
 
-            return new CategoryModel(category);
+            return new CategoryModel(categoryList);
         }
     }
 }
