@@ -27,9 +27,7 @@ module.exports = {
     usedExports: true
   },
   entry: {
-    createPlaylist: path.resolve(__dirname, 'src', 'pages', 'createPlaylist.js'),
-    viewPlaylist: path.resolve(__dirname, 'src', 'pages', 'viewPlaylist.js'),
-    test: path.resolve(__dirname, 'src', 'pages', 'test.js'),
+    searchCategories: path.resolve(__dirname, `src`, `pages`, `searchCategories.js`),
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),
@@ -45,10 +43,5 @@ module.exports = {
       // overlay shows a full-screen overlay in the browser when there are js compiler errors or warnings
       overlay: true,
     },
-  },
-        entry: {
-        createPlaylist: path.resolve(__dirname, 'src', 'pages', 'createPlaylist.js'),
-        viewPlaylist: path.resolve(__dirname, 'src', 'pages', 'viewPlaylist.js'),
-        test: path.resolve(__dirname, 'src', 'pages', 'test.js'),
-        },
+  }
 }
