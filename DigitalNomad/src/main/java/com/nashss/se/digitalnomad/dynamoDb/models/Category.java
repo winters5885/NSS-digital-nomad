@@ -11,13 +11,21 @@ public class Category {
 
     /**
      * Empty constructor for Category POJO.
+     */
+    public Category() {
+    }
+
+    /**
+     * Non-empty constructor for Category POJO.
      * @param category category parameter
      */
     public Category(String category) {
+        this.category = category;
     }
 
     @DynamoDBHashKey(attributeName = "category")
     public String getCategory() {
+
         return category;
     }
 
@@ -45,7 +53,7 @@ public class Category {
     @Override
     public String toString() {
         return "Category{" +
-                "category='" + category + '\'' +
+                "categoryList=" + category +
                 '}';
     }
 }
