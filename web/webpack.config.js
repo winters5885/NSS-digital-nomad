@@ -27,10 +27,7 @@ module.exports = {
     usedExports: true
   },
   entry: {
-    createPlaylist: path.resolve(__dirname, 'src', 'pages', 'createPlaylist.js'),
-    viewPlaylist: path.resolve(__dirname, 'src', 'pages', 'viewPlaylist.js'),
     searchCategories: path.resolve(__dirname, `src`, `pages`, `searchCategories.js`),
-    test: path.resolve(__dirname, 'src', 'pages', 'test.js'),
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),

@@ -13,10 +13,9 @@ export default class DigitalNomadClient extends BindingClass {
 
     constructor(props = {}){
         super();
-        const methodsToBind = ['clientLoaded','getCategory', 'getIdentity'];
+        const methodsToBind = ['clientLoaded','getCategories', 'getIdentity'];
         this.bindClassMethods(methodsToBind, this);
         this.props = props;
-
         axios.defaults.baseURL = INVOKE_URL;
         this.client = axios;
         this.clientLoaded(this.client);
@@ -40,19 +39,17 @@ export default class DigitalNomadClient extends BindingClass {
      async getIdentity(errorCallback) {
         try {
             // TODO auth?
-            //const response = await this.client.get(`identity`);
             const data = {'username': 'Nashville Software'};
-            //return response.data;
             return data;
         } catch(error) {
             this.handleError(error, errorCallback)
         }
     }
 
-    async getCategory(category, errorCallback) {
+    async getCategories(categories, errorCallback) {
         try {
-            const response = await this.client.get(`category/${category}`);
-            return response.data.playlist;
+            const response = await this.client.get(`category/${categories}`);
+            return response.data.categories;
         } catch (error) {
             this.handleError(error, errorCallback)
         }
