@@ -1,4 +1,4 @@
-import MusicPlaylistClient from '../api/musicPlaylistClient';
+import DigitalNomadClient from "../api/digitalNomadClient";
 import BindingClass from "../util/bindingClass";
 import DataStore from "../util/DataStore";
 
@@ -27,7 +27,7 @@ export default class Header extends BindingClass {
     }
 
     loadData() {
-        this.client = new MusicPlaylistClient({ onReady: this.clientLoaded });
+        this.client = new DigitalNomadClient({ onReady: this.clientLoaded });
     }
 
     /**

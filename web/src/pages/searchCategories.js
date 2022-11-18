@@ -18,13 +18,11 @@ class SearchCategories extends BindingClass {
         this.populateCategoryDropDown();
     }
 
-    populateCategoryDropDown() {
-        var categoryList = ["Beach", 
-                        "Mountains", 
-                        "Nightlife",
-                        "Food"
-                    ];
+    async populateCategoryDropDown() {
+    
         var html = [];
+
+        var categoryList = await this.client.getCategoriesList();
 
         for (var i = 0; i < categoryList.length; i++) {
                html.push("<option>" + categoryList[i] + "</option>");
