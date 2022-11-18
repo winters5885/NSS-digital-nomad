@@ -45,7 +45,7 @@ public class WalkableCrawler {
             UUID uuid = UUID.randomUUID();
             String uuidAsString = uuid.toString();
 
-            DestinationModel walkableDestination = new DestinationModel(city, country, null, "most_walkable", uuidAsString);
+            DestinationModel walkableDestination = new DestinationModel(city, country, null, "most walkable", uuidAsString);
             walkableList.add(walkableDestination);
         }
 

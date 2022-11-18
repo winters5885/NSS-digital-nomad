@@ -46,7 +46,7 @@ public class MostPopularCitiesCrawler {
             UUID uuid = UUID.randomUUID();
             String uuidAsString = uuid.toString();
 
-            DestinationModel popularDestination = new DestinationModel(city, country, null, "most_popular", uuidAsString);
+            DestinationModel popularDestination = new DestinationModel(city, country, null, "most popular", uuidAsString);
             mostPopularList.add(popularDestination);
         }
 
