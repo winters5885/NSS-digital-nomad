@@ -21,6 +21,14 @@ class SearchCategories extends BindingClass {
     async populateCategoryDropDown() {
     
         var html = [];
+        
+        var staticChoose = document.createElement("option");
+        staticChoose.value = "Choose";
+        staticChoose.text = "Category";
+        staticChoose.selected = true;
+        staticChoose.disabled = true;
+        staticChoose.hidden = true;
+       
 
         var categoryList = await this.client.getCategoriesList();
 
@@ -28,6 +36,7 @@ class SearchCategories extends BindingClass {
                html.push("<option>" + categoryList[i] + "</option>");
         }
         document.getElementById("categoryList").innerHTML = html.join("");
+        document.getElementById("categoryList").appendChild(staticChoose);
     }
 
 }

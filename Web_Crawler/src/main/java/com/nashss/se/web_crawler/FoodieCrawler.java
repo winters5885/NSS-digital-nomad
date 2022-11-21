@@ -49,7 +49,7 @@ public class FoodieCrawler {
             UUID uuid = UUID.randomUUID();
             String uuidAsString = uuid.toString();
 
-            DestinationModel foodieDestination = new DestinationModel(city, country, null, "best_food", uuidAsString);
+            DestinationModel foodieDestination = new DestinationModel(city, country, null, "best food", uuidAsString);
             foodieList.add(foodieDestination);
         }
 

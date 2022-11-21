@@ -44,7 +44,7 @@ public class TourismCrawler {
                 UUID uuid = UUID.randomUUID();
                 String uuidAsString = uuid.toString();
 
-                DestinationModel tourismDestination = new DestinationModel(null, country, locationName,"best_tourism", uuidAsString);
+                DestinationModel tourismDestination = new DestinationModel(null, country, locationName,"best tourism", uuidAsString);
                 tourismList.add(tourismDestination);
             }
         }

@@ -1,13 +1,13 @@
 :root {
     /* css variables: https://developer.mozilla.org/en-US/docs/Web/CSS/var */
-    --primary-color: #5D5E5E;
+    --primary-color: #449191;
     --secondary-color: #ffffff;
-    --tertiary-color: #F5881F;
-    --error-color: #EE3A23;
+    --tertiary-color: #3b791e;
+    --error-color: #000000;
 }
 
 .background {
-    background-color: #8A8C8F;
+    background-color: #5e372c;
     margin: 0;
     counter-reset: section;
     font-family: "Helvetica Neue",Helvetica,sans-serif;
@@ -93,10 +93,11 @@ button {
 
 .dropdowns {
     font-size: 20px;
-    background-color: rgb(95, 95, 122);
+    background-color: #5e372c;
     margin: 20px;
     padding: 20px;
     text-align: center;
+    color: #ffffff;
     
 }
 .categorydropdown {
