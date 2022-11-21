@@ -1,17 +1,17 @@
 package com.nashss.se.digitalnomad.dynamoDb;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
-import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 import com.nashss.se.digitalnomad.Exceptions.CategoryNotFoundException;
 import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
-import javax.inject.Inject;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.inject.Inject;
 
 public class DestinationsDao {
     private final DynamoDBMapper dynamoDbMapper;

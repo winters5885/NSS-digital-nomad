@@ -3,6 +3,7 @@ package com.nashss.se.digitalnomad.dependency;
 import com.nashss.se.digitalnomad.activity.GetCategoriesActivity;
 
 import com.nashss.se.digitalnomad.activity.GetDestinationsActivity;
+
 import dagger.Component;
 
 import javax.inject.Singleton;

@@ -1,9 +1,5 @@
 package com.nashss.se.digitalnomad.models;
 
-import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
-
-import java.util.List;
-
 public class DestinationModel {
     private String city;
     private String country;

@@ -1,56 +1,43 @@
 package com.nashss.se.digitalnomad.activity.results;
 
-import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
+import com.nashss.se.digitalnomad.models.DestinationModel;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GetDestinationsResult {
-    private final List<Destination> destinationList;
-    private final String category;
+    private final List<DestinationModel> destinationList;
 
-    /**
-     * Constructor for GetDestinationsResult.
-     *
-     * @param destinationList  the destination to convert
-     */
-    public GetDestinationsResult(List<Destination> destinationList, String category) {
+    private GetDestinationsResult(List<DestinationModel> destinationList) {
         this.destinationList = destinationList;
-        this.category = category;
     }
 
-    public List<Destination> getDestinationList() {
-        return destinationList;
-    }
-
-    public String getCategory() {
-        return category;
+    public List<DestinationModel> getDestinationList() {
+        return new ArrayList<>(destinationList);
     }
 
     @Override
     public String toString() {
-        return "getDestinationsList{" +
-                "destinations=" + destinationList +
+        return "GetDestinationsResult{" +
+                "destinationList=" + destinationList +
                 '}';
     }
 
     //CHECKSTYLE:OFF:Builder
-    public static GetDestinationsResult.Builder builder() {
-
-        return new GetDestinationsResult.Builder();
+    public static Builder builder() {
+        return new Builder();
     }
 
     public static class Builder {
-        private List<Destination> destinationList;
-        private String category;
+        private List<DestinationModel> destinationList;
 
-        public GetDestinationsResult.Builder withCategory(String category) {
-            this.category = category;
+        public Builder withDestinationList(List<DestinationModel> destinationList) {
+            this.destinationList = new ArrayList<>(destinationList);
             return this;
         }
 
         public GetDestinationsResult build() {
-
-            return new GetDestinationsResult(destinationList, category);
+            return new GetDestinationsResult(destinationList);
         }
     }
 }
