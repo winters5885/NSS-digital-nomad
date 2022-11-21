@@ -2,7 +2,7 @@
     /* css variables: https://developer.mozilla.org/en-US/docs/Web/CSS/var */
     --primary-color: #449191;
     --secondary-color: #ffffff;
-    --tertiary-color: #3b791e;
+    --tertiary-color: #000000;
     --error-color: #000000;
 }
 
@@ -129,6 +129,16 @@ input {
 
 .spontaneousButton {
     text-align: center;
+}
+
+.categoryTitle {
+    font-size: 50px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-weight: 3000;
+    font-family:'Times New Roman', Times, serif;
+    
+
 }
 /*
 Flexbox on a lists removes the numbers. We use a counter here to add them back.
