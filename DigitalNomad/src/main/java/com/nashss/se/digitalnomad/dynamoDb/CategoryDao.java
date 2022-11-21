@@ -39,14 +39,7 @@ public class CategoryDao {
         log.info("Inside CategoryDao getCategory");
 
         DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
-        PaginatedScanList<Category> categoryList = dynamoDbMapper.scan(Category.class, scanExpression);
-
-        if (null == categoryList) {
-            throw new CategoryNotFoundException(
-                    String.format("Could not find categories"));
-        }
-
-        return categoryList;
+        return dynamoDbMapper.scan(Category.class, scanExpression);
     }
 }
 

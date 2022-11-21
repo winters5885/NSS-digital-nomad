@@ -1,29 +1,27 @@
-package com.nashss.se.digitalnomad.dynamoDb;
+package com.nashss.se.digitalnomad.dynamoDbTest;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
 import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
+import com.nashss.se.digitalnomad.dynamoDb.CategoryDao;
 import com.nashss.se.digitalnomad.dynamoDb.models.Category;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class CategoryDaoTest {
     @Mock
     private DynamoDBMapper dynamoDBMapper;
-
     private CategoryDao categoryDao;
-
     @Mock
-    private PaginatedScanList paginatedScanList;
+    private PaginatedScanList<Category> scanResult;
+
 
     @BeforeEach
     public void setup() {
@@ -34,7 +32,6 @@ public class CategoryDaoTest {
     @Test
     void getCategory_scansDynamoDbCategories_returnsCategories() {
         // GIVEN
-        paginatedScanList = new PaginatedScanList<>(dynamoDBMapper, );
         Category category1 = new Category("beach");
         Category category2 = new Category("city");
         Category category3 = new Category("best food");
@@ -44,28 +41,31 @@ public class CategoryDaoTest {
         Category category7 = new Category("best tourism");
         Category category8 = new Category("most walkable");
 
-        categories.add(category1);
-        categories.add(category2);
-        categories.add(category3);
-        categories.add(category4);
-        categories.add(category5);
-        categories.add(category6);
-        categories.add(category7);
-        categories.add(category8);
+        scanResult.add(category1);
+        scanResult.add(category2);
+        scanResult.add(category3);
+        scanResult.add(category4);
+        scanResult.add(category5);
+        scanResult.add(category6);
+        scanResult.add(category7);
+        scanResult.add(category8);
+
 
         DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
 
-        when(dynamoDBMapper.scan(Category.class, scanExpression)).thenReturn(categories);
+        when(dynamoDBMapper.scan(Category.class, scanExpression)).thenReturn(scanResult);
+        when(categoryDao.getCategories()).thenReturn(scanResult);
 
         // WHEN
-        List<Category> result = categoryDao.getCategories();
+        List<Category> categories = categoryDao.getCategories();
 
         // THEN
         verify(dynamoDBMapper).scan(Category.class, scanExpression);
-        assertEquals(categories, result,
+
+        assertEquals(scanResult, categories,
                 String.format("Expected to receive categories returned by DDB (%s), but received %s",
-                        categories,
-                        result)
+                        scanResult,
+                        categories)
         );
     }
 }
