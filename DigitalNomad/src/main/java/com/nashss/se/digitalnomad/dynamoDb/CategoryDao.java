@@ -1,11 +1,10 @@
 package com.nashss.se.digitalnomad.dynamoDb;
 
-import com.nashss.se.digitalnomad.Exceptions.CategoryNotFoundException;
 import com.nashss.se.digitalnomad.dynamoDb.models.Category;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
-import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -39,14 +38,7 @@ public class CategoryDao {
         log.info("Inside CategoryDao getCategory");
 
         DynamoDBScanExpression scanExpression = new DynamoDBScanExpression();
-        PaginatedScanList<Category> categoryList = dynamoDbMapper.scan(Category.class, scanExpression);
-
-        if (null == categoryList) {
-            throw new CategoryNotFoundException(
-                    String.format("Could not find categories"));
-        }
-
-        return categoryList;
+        return dynamoDbMapper.scan(Category.class, scanExpression);
     }
 }
 

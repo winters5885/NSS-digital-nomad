@@ -2,6 +2,8 @@ package com.nashss.se.digitalnomad.dependency;
 
 import com.nashss.se.digitalnomad.activity.GetCategoriesActivity;
 
+import com.nashss.se.digitalnomad.activity.GetDestinationsActivity;
+
 import dagger.Component;
 
 import javax.inject.Singleton;
@@ -41,7 +43,7 @@ public interface ServiceComponent {
      * Provides the relevant activity.
      * @return GetPlaylistSongsActivity
      */
-    //GetPlaylistSongsActivity provideGetPlaylistSongsActivity();
+    GetDestinationsActivity provideGetDestinationsActivity();
 
     /**
      * Provides the relevant activity.
