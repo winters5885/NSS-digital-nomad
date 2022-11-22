@@ -19,7 +19,7 @@ public class Destination implements Serializable {
     /**
      * Empty constructor for Destination POJO.
      */
-    Destination() {}
+    public Destination() {}
 
     /**
      *  Constructor with parameters for Category POJO.
@@ -30,7 +30,7 @@ public class Destination implements Serializable {
      * @param destinationID UUID for specific destination instance
      */
 
-    Destination(String city, String country, String locationName, String category, String destinationID) {
+    public Destination(String city, String country, String locationName, String category, String destinationID) {
         this.city = city;
         this.country = country;
         this.locationName = locationName;

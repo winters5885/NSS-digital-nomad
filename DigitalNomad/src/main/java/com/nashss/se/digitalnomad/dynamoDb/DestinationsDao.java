@@ -1,9 +1,11 @@
 package com.nashss.se.digitalnomad.dynamoDb;
 
-import com.nashss.se.digitalnomad.Exceptions.CategoryNotFoundException;
 import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
+
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -28,13 +30,14 @@ public class DestinationsDao {
      * @param category The category to look up destinations by
      * @return The corresponding destination if found
      */
-    public Destination getDestination(String category) {
-        Destination destination = dynamoDbMapper.load(Destination.class, category);
-        if (null == destination) {
-            throw new CategoryNotFoundException(
-                    String.format("Could not find destination in '%s'", category));
-        }
+    public List<Destination> getDestinations(String category) {
 
-        return destination;
+        Destination destination = new Destination();
+        destination.setCategory(category);
+
+        DynamoDBQueryExpression<Destination> queryExpression = new DynamoDBQueryExpression<Destination>()
+                .withHashKeyValues(destination);
+
+        return dynamoDbMapper.query(Destination.class, queryExpression);
     }
 }
