@@ -38,7 +38,6 @@ public class GetDestinationsActivity {
      * <p>
      * It then returns the destinations.
      * <p>
-     * If the destinations do not exist, this should throw a DestinationsNotFoundException.
      *
      * @param getDestinationsRequest request object containing the destination category
      * @return GetDestinationsResult result object
