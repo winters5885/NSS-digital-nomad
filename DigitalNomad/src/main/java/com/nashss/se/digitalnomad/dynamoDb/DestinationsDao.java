@@ -1,16 +1,14 @@
 package com.nashss.se.digitalnomad.dynamoDb;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
 import com.nashss.se.digitalnomad.Exceptions.CategoryNotFoundException;
 import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBScanExpression;
-import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedScanList;
-import com.amazonaws.services.dynamodbv2.model.AttributeValue;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+
 import javax.inject.Inject;
 
 public class DestinationsDao {
@@ -35,14 +33,14 @@ public class DestinationsDao {
      * @return The corresponding destination if found
      */
     public List<Destination> getDestinations(String category) {
-        Map<String, AttributeValue> valueMap = new HashMap<>();
 
-        valueMap.put(":category", new AttributeValue().withS(category));
+        Destination destination = new Destination();
+        destination.setCategory(category);
 
-        DynamoDBScanExpression scanExpression = new DynamoDBScanExpression()
-                .withFilterExpression(":category = category")
-                .withExpressionAttributeValues(valueMap);
-        PaginatedScanList<Destination> destinationList = dynamoDbMapper.scan(Destination.class, scanExpression);
+        DynamoDBQueryExpression<Destination> queryExpression = new DynamoDBQueryExpression<Destination>()
+                .withHashKeyValues(destination);
+
+        PaginatedQueryList<Destination> destinationList = dynamoDbMapper.query(Destination.class, queryExpression);
 
         if (destinationList.isEmpty()) {
             throw new CategoryNotFoundException(

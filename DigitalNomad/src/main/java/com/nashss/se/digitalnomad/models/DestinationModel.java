@@ -8,13 +8,7 @@ public class DestinationModel {
     private String destinationID;
 
     /**
-     * Empty constructor for Category POJO.
-     */
-    public DestinationModel() {
-    }
-
-    /**
-     * Non-Empty constructor for Category POJO.
+     * Non-Empty constructor for DestinationModel.
      * @param city city parameter
      * @param country country parameter
      * @param locationName locationName parameter
@@ -47,28 +41,6 @@ public class DestinationModel {
 
     public String getDestinationID() {
         return destinationID;
-    }
-
-
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public void setLocationName(String locationName) {
-        this.locationName = locationName;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    public void setDestinationID(String destinationID) {
-        this.destinationID = destinationID;
     }
 
 
