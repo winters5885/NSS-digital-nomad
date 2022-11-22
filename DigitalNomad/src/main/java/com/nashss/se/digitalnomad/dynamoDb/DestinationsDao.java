@@ -40,13 +40,6 @@ public class DestinationsDao {
         DynamoDBQueryExpression<Destination> queryExpression = new DynamoDBQueryExpression<Destination>()
                 .withHashKeyValues(destination);
 
-        PaginatedQueryList<Destination> destinationList = dynamoDbMapper.query(Destination.class, queryExpression);
-
-        if (destinationList.isEmpty()) {
-            throw new CategoryNotFoundException(
-                    String.format("Could not find destination in '%s'", category));
-        }
-
-        return destinationList;
+        return dynamoDbMapper.query(Destination.class, queryExpression);
     }
 }
