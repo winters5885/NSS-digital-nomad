@@ -1,18 +1,12 @@
 package com.nashss.se.digitalnomad.activityTest;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
-import com.nashss.se.digitalnomad.activity.GetCategoriesActivity;
 import com.nashss.se.digitalnomad.activity.GetDestinationsActivity;
 import com.nashss.se.digitalnomad.activity.requests.GetDestinationsRequest;
-import com.nashss.se.digitalnomad.activity.results.GetCategoriesResult;
 import com.nashss.se.digitalnomad.activity.results.GetDestinationsResult;
-import com.nashss.se.digitalnomad.converters.ModelConverter;
-import com.nashss.se.digitalnomad.dynamoDb.CategoryDao;
+
 import com.nashss.se.digitalnomad.dynamoDb.DestinationsDao;
-import com.nashss.se.digitalnomad.dynamoDb.models.Category;
 import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
-import com.nashss.se.digitalnomad.models.DestinationModel;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -21,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
