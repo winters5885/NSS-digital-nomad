@@ -55,6 +55,17 @@ export default class DigitalNomadClient extends BindingClass {
         }
     }
 
+    async getDestinationResultsList(category, errorCallback) {
+        try {
+            const response = await this.client.get(`/destinations/${category}`);
+            console.log("this is from the destinations list: ", response.data.destinationList);
+            console.log("this is from the response dot data: ", response.data);
+            return response.data.destinationList;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
      /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.

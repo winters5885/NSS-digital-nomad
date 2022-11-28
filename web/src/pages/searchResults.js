@@ -6,7 +6,7 @@ import DataStore from '../util/DataStore';
 class SearchResults extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['populateResultsList', 'displayCategory','mount'], this);
+        this.bindClassMethods(['displayCategory', 'populateResultsList', 'mount'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
     }
@@ -28,17 +28,29 @@ class SearchResults extends BindingClass {
     //    }
     //    document.getElementById("category").innerHTML = categoryDisplayed.join("");
         //Use category from query to set value
-        var categoryChosen = "Beaches";
+        const urlParams = new URLSearchParams(window.location.search);
+
+        var categoryChosen = urlParams.get('categoryId');
         document.getElementById("category").innerHTML = categoryChosen;
     }
 
     async populateResultsList() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryIdFromURL = urlParams.get('categoryId');
 
-        var destinations = ["Thailand, Koh Lanta", "Kenya, Diani Beach", "Australia, Byron"];
+        const jsonList = await this.client.getDestinationResultsList(categoryIdFromURL);
+
+        console.log("this is my json list: ", jsonList);
+
+        //var destinations = ["Thailand, Koh Lanta", "Kenya, Diani Beach", "Australia, Byron"];
+
         var destinationResults = [];
 
-        for (var i = 0; i < destinations.length; i++) {
-            destinationResults.push("<li>" + destinations[i] + "</li>");
+        for (var i = 0; i < jsonList.length; i++) {
+            var item = JSON.stringify(jsonList[i]);
+            var countryItem = item.valueOf("country");
+            var country = JSON.parse(countryItem);
+            destinationResults.push("<li>" + item + "</li>");
      }
      document.getElementById("resultsList").innerHTML = destinationResults.join("");
 
