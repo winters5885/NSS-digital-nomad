@@ -51,5 +51,4 @@ public class GetCategoriesActivityTest {
         assertEquals(3, result.getCategoriesList().size());
         assertEquals(testString , result.getCategoriesList().toString());
     }
-
 }

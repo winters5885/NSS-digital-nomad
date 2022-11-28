@@ -165,7 +165,7 @@ Resources:
             Method: get
 
 
-  GetCDestinationsLambda:
+  GetDestinationsLambda:
     Type: AWS::Serverless::Function
     Properties:
       Role: !GetAtt AccessDynamoDBTablesRole.Arn
@@ -182,7 +182,7 @@ Resources:
         DigitalNomad:
           Type: Api
           Properties:
-            Path: /{category}/destinations
+            Path: /destinations/{category}
             Method: get
 
   #-----------------------------------------------------------------

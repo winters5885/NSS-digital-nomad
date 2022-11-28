@@ -28,6 +28,7 @@ module.exports = {
   },
   entry: {
     searchCategories: path.resolve(__dirname, `src`, `pages`, `searchCategories.js`),
+    searchResults: path.resolve(__dirname, `src`, `pages`, `searchResults.js`),
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),

@@ -1,7 +1,6 @@
 package com.nashss.se.digitalnomad.activity.requests;
 
 public class GetDestinationsRequest {
-
     private final String city;
     private final String country;
     private final String locationName;
