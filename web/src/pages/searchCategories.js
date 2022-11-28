@@ -42,11 +42,8 @@ class SearchCategories extends BindingClass {
 
     async submit() {
         document.getElementById('theButton').innerText = 'Loading...';
-
-        //this.dataStore.set()
-
-        window.location.href = '/results.html';
-
+        var categoryId = document.getElementById("categoryList").value;
+        window.location.href = '/results.html?categoryId=' + categoryId + '';
 
     }
 
