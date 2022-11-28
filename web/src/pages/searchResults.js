@@ -44,15 +44,34 @@ class SearchResults extends BindingClass {
 
         //var destinations = ["Thailand, Koh Lanta", "Kenya, Diani Beach", "Australia, Byron"];
 
-        var destinationResults = [];
+        //var destinationResults = [];
 
-        for (var i = 0; i < jsonList.length; i++) {
-            var item = JSON.stringify(jsonList[i]);
-            var countryItem = item.valueOf("country");
-            var country = JSON.parse(countryItem);
-            destinationResults.push("<li>" + item + "</li>");
-     }
-     document.getElementById("resultsList").innerHTML = destinationResults.join("");
+        if (jsonList == null) {
+            return;
+        }
+
+        let destinationHtml = '';
+        let destination;
+        for (destination of jsonList) {
+
+
+            destinationHtml += `
+
+                <li class="destination">
+                    <span class="locationName">${destination.locationName}</span>
+                    in
+                    <span class="cityName">${destination.city}</span>
+                    ,
+                    <span class="countryName">${destination.country}</span>
+                </li>
+                `;
+        }
+    
+
+
+            //destinationResults.push("<li>" + item + "</li>");
+     
+     document.getElementById("resultsList").innerHTML = destinationHtml; //destinationResults.join("");
 
     }
 
