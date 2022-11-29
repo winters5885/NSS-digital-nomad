@@ -21,27 +21,29 @@ class SearchResults extends BindingClass {
 
     async displayCategory() {
         const urlParams = new URLSearchParams(window.location.search);
+        var categoryList = await this.client.getCategoriesList();
 
         var categoryChosen = urlParams.get('categoryId');
-        document.getElementById("category").innerHTML = categoryChosen;
+        
+        if (!categoryList.includes(categoryChosen)) {
+            document.getElementById("category").innerHTML = "Not a valid category.";
+        } else {
+            document.getElementById("category").innerHTML = categoryChosen;
+        }
     }
 
     async populateResultsList() {
         const urlParams = new URLSearchParams(window.location.search);
         const categoryIdFromURL = urlParams.get('categoryId');
-
+        
         const jsonList = await this.client.getDestinationResultsList(categoryIdFromURL);
 
-        var destinationResults = [];
-
         for (var i = 0; i < jsonList.length; i++) {
-            var destinationToString = JSON.stringify(jsonList[i]);
-            var destination = JSON.parse(destinationToString);
-            destinationResults.push("<li>" + destination + "</li>");
+             var destination = jsonList[i];
 
             if (destination.city != null) {
-            document.getElementById("resultsList").innerHTML += "<br>"+ destination.city + ", " + 
-            destination.country +"</br>";
+                document.getElementById("resultsList").innerHTML += "<br>"+ destination.city + ", " + 
+                destination.country +"</br>";
             }
             else if (destination.locationName != null) {
                 document.getElementById("resultsList").innerHTML += "<br>" + destination.locationName + ", " + 
