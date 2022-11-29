@@ -49,14 +49,6 @@ class SearchResults extends BindingClass {
             }
      }
     }
-
-    
-    
-    
-    
-    
-
-
 }
 
 const main = async () => {
