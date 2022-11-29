@@ -38,7 +38,6 @@ export default class DigitalNomadClient extends BindingClass {
      */
      async getIdentity(errorCallback) {
         try {
-            // TODO auth?
             const data = {'username': 'Nashville Software'};
             return data;
         } catch(error) {
@@ -50,6 +49,15 @@ export default class DigitalNomadClient extends BindingClass {
         try {
             const response = await this.client.get(`categories`);
             return response.data.categoriesList;
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
+    async getDestinationResultsList(category, errorCallback) {
+        try {
+            const response = await this.client.get(`/destinations/${category}`);
+            return response.data.destinationList;
         } catch (error) {
             this.handleError(error, errorCallback)
         }

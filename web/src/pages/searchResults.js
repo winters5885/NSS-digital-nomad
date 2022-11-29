@@ -6,7 +6,7 @@ import DataStore from '../util/DataStore';
 class SearchResults extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['populateResultsList', 'displayCategory','mount'], this);
+        this.bindClassMethods(['displayCategory', 'populateResultsList', 'mount'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
     }
@@ -20,37 +20,40 @@ class SearchResults extends BindingClass {
     }
 
     async displayCategory() {
-    //    var categoryChosen = ["Beaches"];
-    //    var categoryDisplayed = [];
+        const urlParams = new URLSearchParams(window.location.search);
+        var categoryList = await this.client.getCategoriesList();
 
-    //    for (var i = 0; i < categoryChosen.length; i++){
-    //     categoryDisplayed.push("<p>" + categoryChosen[i] + "</p>");
-    //    }
-    //    document.getElementById("category").innerHTML = categoryDisplayed.join("");
-        //Use category from query to set value
-        var categoryChosen = "Beaches";
-        document.getElementById("category").innerHTML = categoryChosen;
+        var categoryChosen = urlParams.get('categoryId');
+        
+        if (!categoryList.includes(categoryChosen)) {
+            document.getElementById("category").innerHTML = "Not a valid category.";
+        } else {
+            document.getElementById("category").innerHTML = categoryChosen;
+        }
     }
 
     async populateResultsList() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryIdFromURL = urlParams.get('categoryId');
+        
+        const jsonList = await this.client.getDestinationResultsList(categoryIdFromURL);
 
-        var destinations = ["Thailand, Koh Lanta", "Kenya, Diani Beach", "Australia, Byron"];
-        var destinationResults = [];
+        if (jsonList.length == 0) {
+            document.getElementById("resultsList").innerHTML = "Return list is empty."
+        }
+        for (var i = 0; i < jsonList.length; i++) {
+             var destination = jsonList[i];
 
-        for (var i = 0; i < destinations.length; i++) {
-            destinationResults.push("<li>" + destinations[i] + "</li>");
+            if (destination.city != null) {
+                document.getElementById("resultsList").innerHTML += "<br>"+ destination.city + ", " + 
+                destination.country +"</br>";
+            }
+            else if (destination.locationName != null) {
+                document.getElementById("resultsList").innerHTML += "<br>" + destination.locationName + ", " + 
+                destination.country + "</br>";
+            }
      }
-     document.getElementById("resultsList").innerHTML = destinationResults.join("");
-
     }
-
-    
-    
-    
-    
-    
-
-
 }
 
 const main = async () => {
