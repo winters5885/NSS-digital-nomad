@@ -20,49 +20,40 @@ class SearchResults extends BindingClass {
     }
 
     async displayCategory() {
-    //    var categoryChosen = ["Beaches"];
-    //    var categoryDisplayed = [];
-
-    //    for (var i = 0; i < categoryChosen.length; i++){
-    //     categoryDisplayed.push("<p>" + categoryChosen[i] + "</p>");
-    //    }
-    //    document.getElementById("category").innerHTML = categoryDisplayed.join("");
-        //Use category from query to set value
         const urlParams = new URLSearchParams(window.location.search);
+        var categoryList = await this.client.getCategoriesList();
 
         var categoryChosen = urlParams.get('categoryId');
-        document.getElementById("category").innerHTML = categoryChosen;
+        
+        if (!categoryList.includes(categoryChosen)) {
+            document.getElementById("category").innerHTML = "Not a valid category.";
+        } else {
+            document.getElementById("category").innerHTML = categoryChosen;
+        }
     }
 
     async populateResultsList() {
         const urlParams = new URLSearchParams(window.location.search);
         const categoryIdFromURL = urlParams.get('categoryId');
-
+        
         const jsonList = await this.client.getDestinationResultsList(categoryIdFromURL);
 
-        console.log("this is my json list: ", jsonList);
-
-        //var destinations = ["Thailand, Koh Lanta", "Kenya, Diani Beach", "Australia, Byron"];
-
-        var destinationResults = [];
-
+        if (jsonList.length == 0) {
+            document.getElementById("resultsList").innerHTML = "Return list is empty."
+        }
         for (var i = 0; i < jsonList.length; i++) {
-            var item = JSON.stringify(jsonList[i]);
-            var countryItem = item.valueOf("country");
-            var country = JSON.parse(countryItem);
-            destinationResults.push("<li>" + item + "</li>");
+             var destination = jsonList[i];
+
+            if (destination.city != null) {
+                document.getElementById("resultsList").innerHTML += "<br>"+ destination.city + ", " + 
+                destination.country +"</br>";
+            }
+            else if (destination.locationName != null) {
+                document.getElementById("resultsList").innerHTML += "<br>" + destination.locationName + ", " + 
+                destination.country + "</br>";
+            }
      }
-     document.getElementById("resultsList").innerHTML = destinationResults.join("");
-
     }
-
-    
-    
-    
-    
-    
-
-
 }
 
 const main = async () => {
