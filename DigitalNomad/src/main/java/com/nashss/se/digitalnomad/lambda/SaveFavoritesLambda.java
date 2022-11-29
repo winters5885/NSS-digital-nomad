@@ -10,14 +10,11 @@ public class SaveFavoritesLambda extends LambdaActivityRunner<SaveFavoritesReque
 
     @Override
     public LambdaResponse handleRequest(LambdaRequest<SaveFavoritesRequest> input, Context context) {
-        return super.runActivity(() -> input.fromBody((path, query) ->
-                SaveFavoritesRequest.builder()
-                                .withUserId(path.get("userId"))
-                                .withFavoriteDestinations(path.get(favoriteDestinations))
-                                .build()), (request, serviceComponent) ->
+        return super.runActivity(() -> input.fromBody(SaveFavoritesRequest.class),
+                (request, serviceComponent) ->
                 serviceComponent.provideSaveFavoritesActivity().handleRequest(request)
         );
     }
 }
-//create playlist
+
 

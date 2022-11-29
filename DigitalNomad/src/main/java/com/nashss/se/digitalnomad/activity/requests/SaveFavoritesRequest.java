@@ -22,7 +22,7 @@ public class SaveFavoritesRequest {
 
     @Override
     public String toString() {
-        return "GetDestinationsRequest{" +
+        return "SaveFavoritesRequest{" +
                 "userId='" + userId + '\'' +
                 ", favoriteDestinations='" + favoriteDestinations + '\'' +
                 '}';
@@ -48,6 +48,7 @@ public class SaveFavoritesRequest {
         }
 
         public SaveFavoritesRequest build() {
+
             return new SaveFavoritesRequest(userId, favoriteDestinations);
         }
     }

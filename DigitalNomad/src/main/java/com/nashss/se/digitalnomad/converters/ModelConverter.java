@@ -1,6 +1,7 @@
 package com.nashss.se.digitalnomad.converters;
 
 import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
+import com.nashss.se.digitalnomad.dynamoDb.models.Favorite;
 import com.nashss.se.digitalnomad.models.DestinationModel;
 
 import java.util.ArrayList;
@@ -36,4 +37,11 @@ public class ModelConverter {
 
         return destinationModels;
     }
+
+    public Favorite toFavoriteModel(Favorite favorite) {
+        return FavoriteModel.builder()
+                .withDestinationList(favoriteModel)
+                .build();
+    }
+
 }
