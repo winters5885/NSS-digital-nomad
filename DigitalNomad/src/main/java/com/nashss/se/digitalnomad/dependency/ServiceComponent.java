@@ -4,6 +4,7 @@ import com.nashss.se.digitalnomad.activity.GetCategoriesActivity;
 
 import com.nashss.se.digitalnomad.activity.GetDestinationsActivity;
 
+import com.nashss.se.digitalnomad.activity.SaveFavoritesActivity;
 import dagger.Component;
 
 import javax.inject.Singleton;
@@ -50,5 +51,7 @@ public interface ServiceComponent {
      * @return UpdatePlaylistActivity
      */
     //UpdatePlaylistActivity provideUpdatePlaylistActivity();
+
+    SaveFavoritesActivity provideSaveFavoritesActivity();
 
 }
