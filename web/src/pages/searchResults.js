@@ -38,6 +38,9 @@ class SearchResults extends BindingClass {
         
         const jsonList = await this.client.getDestinationResultsList(categoryIdFromURL);
 
+        if (jsonList.length == 0) {
+            document.getElementById("resultsList").innerHTML = "Return list is empty."
+        }
         for (var i = 0; i < jsonList.length; i++) {
              var destination = jsonList[i];
 
