@@ -44,7 +44,7 @@ public class SaveFavoritesRequest {
         private List<String> favoriteDestinations;
 
         public Builder withUserId(String userId) {
-            this.userId = userId;
+            this.userId = UUID.randomUUID().toString();
             return this;
         }
 
