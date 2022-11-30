@@ -1,6 +1,7 @@
 package com.nashss.se.digitalnomad.activity.requests;
 
 import java.util.List;
+import java.util.UUID;
 
 public class SaveFavoritesRequest {
     private final String userId;
@@ -9,11 +10,10 @@ public class SaveFavoritesRequest {
     /**
      * Instantiates a new SaveFavoritesRequest object.
      *
-     * @param userId the User's ID.
-     * @param favoriteDestinations A list of favorited Destinations.
+     * @param favoriteDestinations A list of favorite Destinations.
      */
-    public SaveFavoritesRequest(String userId, List<String> favoriteDestinations) {
-        this.userId = userId;
+    public SaveFavoritesRequest(List<String> favoriteDestinations) {
+        this.userId = UUID.randomUUID().toString();
         this.favoriteDestinations = favoriteDestinations;
     }
 
@@ -55,7 +55,7 @@ public class SaveFavoritesRequest {
 
         public SaveFavoritesRequest build() {
 
-            return new SaveFavoritesRequest(userId, favoriteDestinations);
+            return new SaveFavoritesRequest(favoriteDestinations);
         }
     }
 }

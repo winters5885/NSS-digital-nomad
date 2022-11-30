@@ -21,16 +21,9 @@ public class FavoritesDao {
     }
 
     /**
-     * Returns the {@link Playlist} corresponding to the specified id.
-     *
-     * @param id the Playlist ID
-     * @return the stored Playlist, or null if none was found.
-     */
-
-    /**
-     * Saves (creates or updates) the given playlist.
+     * Saves (creates or updates) the given favorites.
      * @param favorite The playlist to save
-     * @return The Playlist object that was saved
+     * @return The favorite object that was saved
      */
     public Favorite saveFavorites(Favorite favorite) {
         this.dynamoDbMapper.save(favorite);
