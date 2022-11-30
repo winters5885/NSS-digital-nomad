@@ -50,7 +50,7 @@ public class CityCrawler {
             }
         }
 
-        serializedDestinations = objectMapper.writeValueAsString(cityList);
+        serializedDestinations = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(cityList);
         jsonObj.writeJsonToFile("CityDestinations", serializedDestinations);
 
         List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>(){});

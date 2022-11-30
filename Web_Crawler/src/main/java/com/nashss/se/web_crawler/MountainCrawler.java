@@ -52,7 +52,7 @@ public class MountainCrawler {
             mountainList.add(mountainDest);
         }
 
-        serializedDestinations = objectMapper.writeValueAsString(mountainList);
+        serializedDestinations = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(mountainList);
         jsonObj.writeJsonToFile("mountainDestinations", serializedDestinations);
 
         List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>() {

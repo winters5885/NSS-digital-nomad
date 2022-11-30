@@ -1,1 +1,67 @@
-[{"city":"Amsterdam","country":"Netherlands","locationName":null,"category":"most_walkable","destinationID":"642c2245-ee9a-4032-8ab9-55530592dd40"},{"city":"Antigua","country":"Guatemala","locationName":null,"category":"most_walkable","destinationID":"0ac6a190-4608-46f9-b40e-124ece27d967"},{"city":"Edinburgh","country":"Scotland","locationName":null,"category":"most_walkable","destinationID":"f87b65ed-7b05-41b7-bf83-712fb4b8b027"},{"city":"Munich","country":"Germany","locationName":null,"category":"most_walkable","destinationID":"48b1b99d-bf15-4211-855f-1534a27abaa5"},{"city":"Montreal","country":"Canada","locationName":null,"category":"most_walkable","destinationID":"f31e186e-b73f-442f-8214-f5046b754270"},{"city":"New York City","country":"New York","locationName":null,"category":"most_walkable","destinationID":"9f5d37c9-a057-4ed4-a086-0788bb76c363"},{"city":"Venice","country":"Italy","locationName":null,"category":"most_walkable","destinationID":"862a4167-fb1d-4896-9c3b-9ad640fa869b"},{"city":"Florence","country":"Italy","locationName":null,"category":"most_walkable","destinationID":"4e12702a-080a-4fa0-8cc2-17f3e9c54a24"},{"city":"Paris","country":"France","locationName":null,"category":"most_walkable","destinationID":"5f9fde95-b227-4872-88ed-4595269d970a"},{"city":"Marrakech","country":"Morocco","locationName":null,"category":"most_walkable","destinationID":"3bcc68a1-e80c-441a-beab-088863109ec8"},{"city":"Melbourne","country":"Australia","locationName":null,"category":"most_walkable","destinationID":"8f54b776-e423-4807-9cb8-c2355f340bfc"}]
+[ {
+  "city" : "Amsterdam",
+  "country" : "Netherlands",
+  "locationName" : null,
+  "category" : "most walkable",
+  "destinationID" : "3ea48508-addb-42f8-aeaf-6ba1acdde79b"
+}, {
+  "city" : "Antigua",
+  "country" : "Guatemala",
+  "locationName" : null,
+  "category" : "most walkable",
+  "destinationID" : "8be520bb-792f-474c-b181-a0151fef336c"
+}, {
+  "city" : "Edinburgh",
+  "country" : "Scotland",
+  "locationName" : null,
+  "category" : "most walkable",
+  "destinationID" : "601b2e9e-da9c-4b25-96af-a4b0dd5a1f5b"
+}, {
+  "city" : "Munich",
+  "country" : "Germany",
+  "locationName" : null,
+  "category" : "most walkable",
+  "destinationID" : "0a5f9c88-cb5d-40fc-899a-e3dc4e033d21"
+}, {
+  "city" : "Montreal",
+  "country" : "Canada",
+  "locationName" : null,
+  "category" : "most walkable",
+  "destinationID" : "5993e904-8ead-4368-9e5c-69ab4a3e3865"
+}, {
+  "city" : "New York City",
+  "country" : "New York",
+  "locationName" : null,
+  "category" : "most walkable",
+  "destinationID" : "60677bb1-5510-42c6-99d4-0a0562fe6c66"
+}, {
+  "city" : "Venice",
+  "country" : "Italy",
+  "locationName" : null,
+  "category" : "most walkable",
+  "destinationID" : "328da63b-d765-4951-845f-ade6d298c175"
+}, {
+  "city" : "Florence",
+  "country" : "Italy",
+  "locationName" : null,
+  "category" : "most walkable",
+  "destinationID" : "4c40cd3c-32a8-434d-aec5-68a11b027457"
+}, {
+  "city" : "Paris",
+  "country" : "France",
+  "locationName" : null,
+  "category" : "most walkable",
+  "destinationID" : "ca2332d3-7514-49a8-a88a-1ff5a7018be5"
+}, {
+  "city" : "Marrakech",
+  "country" : "Morocco",
+  "locationName" : null,
+  "category" : "most walkable",
+  "destinationID" : "ae417c66-8781-48a4-a2a4-e23fadd6c769"
+}, {
+  "city" : "Melbourne",
+  "country" : "Australia",
+  "locationName" : null,
+  "category" : "most walkable",
+  "destinationID" : "5feead2e-494f-454e-8d2c-253861b604b7"
+} ]

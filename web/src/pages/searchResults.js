@@ -37,11 +37,30 @@ class SearchResults extends BindingClass {
         const categoryIdFromURL = urlParams.get('categoryId');
         
         const jsonList = await this.client.getDestinationResultsList(categoryIdFromURL);
-
+        
         if (jsonList.length == 0) {
             document.getElementById("resultsList").innerHTML = "Return list is empty."
         }
+
         for (var i = 0; i < jsonList.length; i++) {
+            // Start of new code
+            var checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = 'favoriteCheckbox';
+            checkbox.name = 'favorite';
+            checkbox.value = 'favorite';
+
+            var label = document.createElement('label')
+            label.htmlFor = 'favorite';
+            label.appendChild(document.createTextNode('Favorite'));
+
+            var br = document.createElement('br');
+
+            var container = document.getElementById('resultsList');
+            container.appendChild(checkbox);
+            container.appendChild(br);
+            // End of new code
+
              var destination = jsonList[i];
 
             if (destination.city != null) {
@@ -52,7 +71,13 @@ class SearchResults extends BindingClass {
                 document.getElementById("resultsList").innerHTML += "<br>" + destination.locationName + ", " + 
                 destination.country + "</br>";
             }
-     }
+        }
+    }
+
+    async saveFavorites() {
+        document.getElementById('favoritesButton');
+        window.location.href = '/results.html?categoryId=' + categoryId + '';
+    
     }
 }
 

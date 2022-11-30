@@ -50,7 +50,7 @@ public class NightlifeCrawler {
             }
         }
 
-        serializedDestinations = objectMapper.writeValueAsString(nightLifeList);
+        serializedDestinations = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(nightLifeList);
         jsonObj.writeJsonToFile("nightlifeDestination", serializedDestinations);
 
         List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>() {

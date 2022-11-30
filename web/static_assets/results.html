@@ -14,10 +14,29 @@
   </div> 
     
   </div>
-  <div class = "card"> 
-    <ul id="resultsList">
-    </ul>
-  </div>
+  <div class = "card">
+    <div class="relative">
+      <button class="js-clear">Clear <span></span>Checked</button>
+    </div>
+    <div class="button">
+      <button type="saveFavorites" id="favoritesButton">Save Favorites</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th align="left">Location </th>
+          <th align="left">Country</th>
+          <th align="left"><input id="checkboxSelectAll" type="checkbox" class="js-select-all" />
+          </th>
+          <th align="left">Select All</th>
+        </tr>
+      </thead>
+    </table>
+
+    <table class="locations-table">
+      <tbody>
+        <ul id="resultsList"></ul>
+      </tbody>
+    </table>
   
 </body>
 </html>
