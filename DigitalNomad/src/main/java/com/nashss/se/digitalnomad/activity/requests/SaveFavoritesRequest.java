@@ -6,6 +6,12 @@ public class SaveFavoritesRequest {
     private final String userId;
     private final List<String> favoriteDestinations;
 
+    /**
+     * Instantiates a new SaveFavoritesRequest object.
+     *
+     * @param userId the User's ID.
+     * @param favoriteDestinations A list of favorited Destinations.
+     */
     public SaveFavoritesRequest(String userId, List<String> favoriteDestinations) {
         this.userId = userId;
         this.favoriteDestinations = favoriteDestinations;

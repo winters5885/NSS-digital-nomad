@@ -1,13 +1,10 @@
 package com.nashss.se.digitalnomad.dynamoDbTest;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 import com.nashss.se.digitalnomad.dynamoDb.FavoritesDao;
-import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
 import com.nashss.se.digitalnomad.dynamoDb.models.Favorite;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
@@ -15,9 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 public class FavoritesDaoTest {
 
