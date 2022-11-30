@@ -40,13 +40,7 @@ public class SaveFavoritesRequest {
     }
 
     public static class Builder {
-        private String userId;
         private List<String> favoriteDestinations;
-
-        public Builder withUserId(String userId) {
-            this.userId = UUID.randomUUID().toString();
-            return this;
-        }
 
         public Builder withFavoriteDestinations(List<String> favoriteDestinations) {
             this.favoriteDestinations = favoriteDestinations;
