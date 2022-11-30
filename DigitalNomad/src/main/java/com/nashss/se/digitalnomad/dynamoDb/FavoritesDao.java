@@ -3,8 +3,11 @@ package com.nashss.se.digitalnomad.dynamoDb;
 import com.nashss.se.digitalnomad.dynamoDb.models.Favorite;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 
+import java.util.List;
 import javax.inject.Inject;
+
 
 public class FavoritesDao {
 
@@ -28,5 +31,20 @@ public class FavoritesDao {
     public Favorite saveFavorites(Favorite favorite) {
         this.dynamoDbMapper.save(favorite);
         return favorite;
+    }
+
+    /**
+     * Saves (creates or updates) the given favorites.
+     * @param userId The playlist to save
+     * @return The favorite object that was saved
+     */
+    public List<Favorite> getFavorites(String userId) {
+        Favorite favorite = new Favorite();
+        favorite.setUserId(userId);
+
+        DynamoDBQueryExpression<Favorite> queryExpression = new DynamoDBQueryExpression<Favorite>()
+                .withHashKeyValues(favorite);
+
+        return dynamoDbMapper.query(Favorite.class, queryExpression);
     }
 }
