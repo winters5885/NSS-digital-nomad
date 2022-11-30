@@ -40,7 +40,7 @@ public class SaveFavoritesActivityTest {
 
         Favorite favorite = new Favorite(userId, favoriteDestinations);
 
-        SaveFavoritesRequest saveFavoritesRequest = new SaveFavoritesRequest(userId, favoriteDestinations);
+        SaveFavoritesRequest saveFavoritesRequest = new SaveFavoritesRequest(favoriteDestinations);
 
         when(favoritesDao.saveFavorites(favorite)).thenReturn(favorite);
 
@@ -49,7 +49,6 @@ public class SaveFavoritesActivityTest {
 
 
         //THEN
-        assertEquals(userId, result.getFavoriteModel().getUserId());
         assertEquals(favoriteDestinations, result.getFavoriteModel().getDestinations());
 
     }
