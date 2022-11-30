@@ -4,15 +4,14 @@ import com.nashss.se.digitalnomad.activity.requests.SaveFavoritesRequest;
 import com.nashss.se.digitalnomad.activity.results.SaveFavoritesResult;
 import com.nashss.se.digitalnomad.converters.ModelConverter;
 import com.nashss.se.digitalnomad.dynamoDb.FavoritesDao;
-import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
+
 import com.nashss.se.digitalnomad.dynamoDb.models.Favorite;
-import com.nashss.se.digitalnomad.models.DestinationModel;
+import com.nashss.se.digitalnomad.models.FavoriteModel;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
-import java.util.List;
-
 
 /**
  * Implementation of the GetDestinationsActivity for Digital Nomad's GetDestinations API.
@@ -45,11 +44,17 @@ public class SaveFavoritesActivity {
      */
     public SaveFavoritesResult handleRequest(final SaveFavoritesRequest saveFavoritesRequest) {
         log.info("Inside SaveFavoritesResult handleRequest");
-        Favorite favorite = favoritesDao.saveFavorites(saveFavoritesRequest.getUserId(),
-                saveFavoritesRequest.getFavoriteDestinations());
-        FavoriteModel favoriteModel = new ModelConverter().toFavoriteModel(favorite);
+        Favorite newFavorite = new Favorite();
+        newFavorite.setUserId(saveFavoritesRequest.getUserId());
+        newFavorite.setDestinations(saveFavoritesRequest.getFavoriteDestinations());
 
-        return favoriteModel;
+        favoritesDao.saveFavorites(newFavorite);
+
+        FavoriteModel favoriteModel = new ModelConverter().toFavoriteModel(newFavorite);
+
+        return SaveFavoritesResult.builder()
+                .withFavoriteModel(favoriteModel)
+                .build();
     }
 }
 

@@ -3,6 +3,7 @@ package com.nashss.se.digitalnomad.converters;
 import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
 import com.nashss.se.digitalnomad.dynamoDb.models.Favorite;
 import com.nashss.se.digitalnomad.models.DestinationModel;
+import com.nashss.se.digitalnomad.models.FavoriteModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,13 +35,18 @@ public class ModelConverter {
         for (Destination dest : destinations) {
             destinationModels.add(toDestinationModel(dest));
         }
-
         return destinationModels;
     }
 
-    public Favorite toFavoriteModel(Favorite favorite) {
+    /**
+     * Converts a favorite to a FavoriteModel.
+     * @param favorite The Favorites to convert to FavoriteModel
+     * @return The converted favorite of FavoriteModel
+     */
+    public FavoriteModel toFavoriteModel(Favorite favorite) {
         return FavoriteModel.builder()
-                .withDestinationList(favoriteModel)
+                .withUserId(favorite.getUserId())
+                .withDestinations(favorite.getDestinations())
                 .build();
     }
 
