@@ -44,25 +44,12 @@ public class FavoritesDaoTest {
 
         Favorite favorite = new Favorite(userId, favoriteDestinations);
 
-        when(dynamoDBMapper.save(eq(Favorite.class)).thenReturn(favorite);
-
-
-//
-//
-//        ArgumentCaptor<DynamoDBQueryExpression> queryExpressionArgumentCaptor =
-//                ArgumentCaptor.forClass(DynamoDBQueryExpression.class);
 
         // WHEN
        Favorite result = favoritesDao.saveFavorites(favorite);
 
         // THEN
-//        verify(dynamoDBMapper).query(eq(Destination.class), queryExpressionArgumentCaptor.capture());
-//        DynamoDBQueryExpression queryExpression = queryExpressionArgumentCaptor.getValue();
-//
-//        verify(dynamoDBMapper).query(Destination.class, queryExpression);
-
-
-        verify(dynamoDBMapper).save(eq(Favorite.class));
-//        assertEquals(queryResult, destinations, "Expected method to return the results of the query");
+        verify(dynamoDBMapper).save(favorite);
+        assertEquals(favorite, result);
     }
 }
