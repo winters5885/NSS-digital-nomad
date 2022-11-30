@@ -6,12 +6,13 @@ import DataStore from '../util/DataStore';
 class SearchResults extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['displayCategory', 'populateResultsList', 'mount'], this);
+        this.bindClassMethods(['displayCategory','populateResultsList','submit','mount'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
     }
 
     mount() {
+        document.getElementById('favoritesButton').addEventListener('click', this.submit);
         this.header.addHeaderToPage();
         this.header.loadData();
         this.client = new DigitalNomadClient();
@@ -74,9 +75,9 @@ class SearchResults extends BindingClass {
         }
     }
 
-    async saveFavorites() {
-        document.getElementById('favoritesButton');
-        window.location.href = '/results.html?categoryId=' + categoryId + '';
+    async submit() {
+        document.getElementById('favoritesButton').innerText = 'Loading...';
+        window.location.href = '/favorites.html';
     
     }
 }
