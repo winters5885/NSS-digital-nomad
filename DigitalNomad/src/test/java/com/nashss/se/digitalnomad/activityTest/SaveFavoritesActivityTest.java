@@ -1,16 +1,10 @@
 package com.nashss.se.digitalnomad.activityTest;
 
-import com.nashss.se.digitalnomad.activity.GetDestinationsActivity;
 import com.nashss.se.digitalnomad.activity.SaveFavoritesActivity;
-import com.nashss.se.digitalnomad.activity.requests.GetDestinationsRequest;
 import com.nashss.se.digitalnomad.activity.requests.SaveFavoritesRequest;
-import com.nashss.se.digitalnomad.activity.results.GetDestinationsResult;
 import com.nashss.se.digitalnomad.activity.results.SaveFavoritesResult;
-import com.nashss.se.digitalnomad.dynamoDb.DestinationsDao;
 import com.nashss.se.digitalnomad.dynamoDb.FavoritesDao;
-import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
 import com.nashss.se.digitalnomad.dynamoDb.models.Favorite;
-import com.nashss.se.digitalnomad.models.FavoriteModel;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
