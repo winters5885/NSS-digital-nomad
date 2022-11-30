@@ -31,16 +31,16 @@ public class SaveFavoritesActivityTest {
     @Test
     public void handleRequest_validRequest_returnsValidSaveFavoritesActivity() {
         //GIVEN
-        String userId = "testUser";
         List<String> favoriteDestinations = new ArrayList<>();
         String destination1 = "destination1";
         String destination2 = "destination2";
         favoriteDestinations.add(destination1);
         favoriteDestinations.add(destination2);
 
-        Favorite favorite = new Favorite(userId, favoriteDestinations);
-
         SaveFavoritesRequest saveFavoritesRequest = new SaveFavoritesRequest(favoriteDestinations);
+        String gatheredUserID = saveFavoritesRequest.getUserId();
+        Favorite favorite = new Favorite(gatheredUserID, favoriteDestinations);
+
 
         when(favoritesDao.saveFavorites(favorite)).thenReturn(favorite);
 
@@ -49,6 +49,7 @@ public class SaveFavoritesActivityTest {
 
 
         //THEN
+        assertEquals(gatheredUserID, result.getFavoriteModel().getUserId());
         assertEquals(favoriteDestinations, result.getFavoriteModel().getDestinations());
 
     }
