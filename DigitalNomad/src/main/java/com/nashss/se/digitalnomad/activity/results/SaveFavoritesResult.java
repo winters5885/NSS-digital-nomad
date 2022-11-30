@@ -5,7 +5,7 @@ import com.nashss.se.digitalnomad.models.FavoriteModel;
 public class SaveFavoritesResult {
     private final FavoriteModel favoriteModel;
 
-    private SaveFavoritesResult(FavoriteModel favoriteModel) {
+    public SaveFavoritesResult(FavoriteModel favoriteModel) {
         this.favoriteModel = favoriteModel;
     }
 

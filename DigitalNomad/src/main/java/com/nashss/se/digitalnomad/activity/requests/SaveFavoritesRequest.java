@@ -6,7 +6,7 @@ public class SaveFavoritesRequest {
     private final String userId;
     private final List<String> favoriteDestinations;
 
-    private SaveFavoritesRequest(String userId, List<String> favoriteDestinations) {
+    public SaveFavoritesRequest(String userId, List<String> favoriteDestinations) {
         this.userId = userId;
         this.favoriteDestinations = favoriteDestinations;
     }
