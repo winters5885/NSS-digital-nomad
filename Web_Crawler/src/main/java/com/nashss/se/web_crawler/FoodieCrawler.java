@@ -53,8 +53,8 @@ public class FoodieCrawler {
             foodieList.add(foodieDestination);
         }
 
-        serializedDestinations = objectMapper.writeValueAsString(foodieList);
-        jsonObj.writeJsonToFile("FoodieDestination", serializedDestinations);
+        serializedDestinations = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(foodieList);
+        jsonObj.writeJsonToFile("FoodieDestinations", serializedDestinations);
 
         List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>(){});
 

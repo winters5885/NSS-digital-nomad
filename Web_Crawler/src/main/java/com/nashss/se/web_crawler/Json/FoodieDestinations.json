@@ -1,0 +1,79 @@
+[ {
+  "city" : " Mendoza",
+  "country" : " Argentina",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "a5b5dd86-13b9-48f6-95c0-7efdddab6510"
+}, {
+  "city" : " Paris",
+  "country" : " France",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "b4c6e30c-f022-4e9a-9cab-5d187061d8c6"
+}, {
+  "city" : " Tuscany",
+  "country" : " Italy",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "0d65b013-3b2f-4960-be7b-97940d270afb"
+}, {
+  "city" : " San Sebastian",
+  "country" : " Spain",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "14e6d3e9-bb5e-494c-a0c3-b8da3e57374c"
+}, {
+  "city" : " Bordeaux",
+  "country" : " France",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "093b9f06-fac0-4e23-9b02-5ea69476259f"
+}, {
+  "city" : " New York City",
+  "country" : " New York, USA",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "2dead68c-24a4-4390-b4a7-2eca30b2d5ac"
+}, {
+  "city" : " Tokyo",
+  "country" : " Japan",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "0472f660-9889-4219-b324-1280de974c37"
+}, {
+  "city" : " Bangkok",
+  "country" : " Thailand",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "c4fbdc6b-25fe-457c-a3af-6b5243d6969c"
+}, {
+  "city" : " London",
+  "country" : " England",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "fd918b32-900b-4c14-923b-3d7e5fd73f63"
+}, {
+  "city" : " Melbourne",
+  "country" : " Australia",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "2888a21e-7e8b-49f5-adde-c4d36873b17a"
+}, {
+  "city" : " Stellenbosch",
+  "country" : " South Africa",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "2b6a429d-a37a-4d5a-b502-fa0c33ad87e2"
+}, {
+  "city" : " Bologna",
+  "country" : " Italy",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "a75137d5-f744-477c-8aee-3bbcffbcd8f1"
+}, {
+  "city" : " Mexico City",
+  "country" : " Mexico",
+  "locationName" : null,
+  "category" : "best food",
+  "destinationID" : "d4afb84e-d4f6-45e1-aa83-e8789395a46f"
+} ]

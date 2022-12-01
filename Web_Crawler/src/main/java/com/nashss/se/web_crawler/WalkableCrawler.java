@@ -49,7 +49,7 @@ public class WalkableCrawler {
             walkableList.add(walkableDestination);
         }
 
-        serializedDestinations = objectMapper.writeValueAsString(walkableList);
+        serializedDestinations = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(walkableList);
         jsonObj.writeJsonToFile("walkableDestinations", serializedDestinations);
 
         List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>() {

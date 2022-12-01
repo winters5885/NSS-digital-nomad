@@ -6,7 +6,7 @@ import DataStore from '../util/DataStore';
 class SearchResults extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['displayCategory', 'populateResultsList', 'mount'], this);
+        this.bindClassMethods(['displayCategory','populateResultsList','mount'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
     }
@@ -37,12 +37,14 @@ class SearchResults extends BindingClass {
         const categoryIdFromURL = urlParams.get('categoryId');
         
         const jsonList = await this.client.getDestinationResultsList(categoryIdFromURL);
-
+        
         if (jsonList.length == 0) {
             document.getElementById("resultsList").innerHTML = "Return list is empty."
         }
+
         for (var i = 0; i < jsonList.length; i++) {
-             var destination = jsonList[i];
+        
+            var destination = jsonList[i];
 
             if (destination.city != null) {
                 document.getElementById("resultsList").innerHTML += "<br>"+ destination.city + ", " + 
@@ -52,7 +54,42 @@ class SearchResults extends BindingClass {
                 document.getElementById("resultsList").innerHTML += "<br>" + destination.locationName + ", " + 
                 destination.country + "</br>";
             }
-     }
+
+            var checkbox = document.createElement('input');
+            checkbox.className = 'container';
+            checkbox.type = 'checkbox';
+            checkbox.id = 'favoriteCheckbox' + i;
+            checkbox.name = 'favorite';
+            checkbox.value = destination.destinationID;
+
+            var label = document.createElement('label')
+            label.htmlFor = 'favorite';
+            label.appendChild(document.createTextNode('Favorite'));
+
+            var br = document.createElement('br');
+
+            var container = document.getElementById('resultsList');
+            container.appendChild(checkbox);
+            container.appendChild(br);
+        }
+
+        var favoritesList = [];
+
+        var favoritesButton = document.getElementById('favoritesButton');
+        favoritesButton.addEventListener('click', () => {
+
+            for (var i = 0; i < jsonList.length; i++) {
+                var checkbox = document.getElementById('favoriteCheckbox' + i);
+
+                if(checkbox.checked) {
+                    //console.log("Checkbox value: ", checkbox.value);
+                    favoritesList.push(checkbox.value);
+                }
+            }
+        });
+
+        console.log("Favorites List: ", favoritesList);
+
     }
 }
 

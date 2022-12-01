@@ -50,7 +50,7 @@ public class MostPopularCitiesCrawler {
             mostPopularList.add(popularDestination);
         }
 
-        serializedDestinations = objectMapper.writeValueAsString(mostPopularList);
+        serializedDestinations = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(mostPopularList);
         jsonObj.writeJsonToFile("mostPopularDestinations", serializedDestinations);
 
         List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>() {

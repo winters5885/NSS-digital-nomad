@@ -47,7 +47,7 @@ public class BeachCrawler {
             }
         }
 
-        serializedDestinations = objectMapper.writeValueAsString(destinationList);
+        serializedDestinations = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(destinationList);
         jsonObj.writeJsonToFile("beachDestinations", serializedDestinations);
 
         List<DestinationModel> deserializedDestObjects = objectMapper.readValue(serializedDestinations, new TypeReference<List<DestinationModel>>() {
