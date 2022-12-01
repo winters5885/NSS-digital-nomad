@@ -3,53 +3,53 @@
   "country" : "Thailand",
   "locationName" : null,
   "category" : "nightlife",
-  "destinationID" : "be339bad-1498-449d-9252-80fccecd73aa"
+  "destinationID" : "a0238188-01d0-4801-8218-594dd73cc611"
 }, {
   "city" : " Barcelona",
   "country" : "Spain",
   "locationName" : null,
   "category" : "nightlife",
-  "destinationID" : "a77ac3ae-0104-419d-aae9-08e6afc14cd8"
+  "destinationID" : "f1664621-67c1-46fb-8bd4-2d88a36da8ef"
 }, {
   "city" : " Rome",
   "country" : "Italy",
   "locationName" : null,
   "category" : "nightlife",
-  "destinationID" : "352adf7e-13ce-4901-b6ef-b47940d8d800"
+  "destinationID" : "f418ba42-ae37-4ff4-aafc-00cd4c91b9ad"
 }, {
   "city" : " Prague",
   "country" : "Czechia",
   "locationName" : null,
   "category" : "nightlife",
-  "destinationID" : "b1426676-2f97-42a4-9f8e-9e7c032b420a"
+  "destinationID" : "40e9a7c8-698e-4059-8f30-aa7345d18eb6"
 }, {
   "city" : " Miami",
   "country" : "Florida",
   "locationName" : null,
   "category" : "nightlife",
-  "destinationID" : "401252dc-8df1-40bb-ab23-b02cb624050a"
+  "destinationID" : "e5fd9366-7a3c-462b-8723-0c33e9a75c5b"
 }, {
   "city" : " Sydney",
   "country" : "Australia",
   "locationName" : null,
   "category" : "nightlife",
-  "destinationID" : "b571829c-ce0c-43d1-87a2-6c1b218b24cf"
+  "destinationID" : "523e99cc-74fc-4d8f-a529-5430e33eb461"
 }, {
   "city" : " Ios",
   "country" : "Greece",
   "locationName" : null,
   "category" : "nightlife",
-  "destinationID" : "15add6cb-dc66-4a27-9458-0b66d8a6764c"
+  "destinationID" : "08f09aca-da1f-4825-84f9-94a438d0848b"
 }, {
   "city" : " Bali (Kuta)",
   "country" : "Indonesia",
   "locationName" : null,
   "category" : "nightlife",
-  "destinationID" : "f3a747a7-df92-446c-9b48-cfd832caa9aa"
+  "destinationID" : "12d43e42-b648-4e39-a8d4-14877a1543d5"
 }, {
   "city" : " Florianopolis",
   "country" : "Brazil",
   "locationName" : null,
   "category" : "nightlife",
-  "destinationID" : "28aa305b-15ee-4a58-878f-79181b1f1cee"
+  "destinationID" : "d1077b98-cf8d-4b99-8cd4-4201212edfc2"
 } ]

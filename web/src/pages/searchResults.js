@@ -6,13 +6,12 @@ import DataStore from '../util/DataStore';
 class SearchResults extends BindingClass {
     constructor() {
         super();
-        this.bindClassMethods(['displayCategory','populateResultsList','submit','mount'], this);
+        this.bindClassMethods(['displayCategory','populateResultsList','mount'], this);
         this.dataStore = new DataStore();
         this.header = new Header(this.dataStore);
     }
 
     mount() {
-        document.getElementById('favoritesButton').addEventListener('click', this.submit);
         this.header.addHeaderToPage();
         this.header.loadData();
         this.client = new DigitalNomadClient();
@@ -44,12 +43,24 @@ class SearchResults extends BindingClass {
         }
 
         for (var i = 0; i < jsonList.length; i++) {
-            // Start of new code
+        
+            var destination = jsonList[i];
+
+            if (destination.city != null) {
+                document.getElementById("resultsList").innerHTML += "<br>"+ destination.city + ", " + 
+                destination.country +"</br>";
+            }
+            else if (destination.locationName != null) {
+                document.getElementById("resultsList").innerHTML += "<br>" + destination.locationName + ", " + 
+                destination.country + "</br>";
+            }
+
             var checkbox = document.createElement('input');
+            checkbox.className = 'container';
             checkbox.type = 'checkbox';
-            checkbox.id = 'favoriteCheckbox';
+            checkbox.id = 'favoriteCheckbox' + i;
             checkbox.name = 'favorite';
-            checkbox.value = 'favorite';
+            checkbox.value = destination.destinationID;
 
             var label = document.createElement('label')
             label.htmlFor = 'favorite';
@@ -60,25 +71,25 @@ class SearchResults extends BindingClass {
             var container = document.getElementById('resultsList');
             container.appendChild(checkbox);
             container.appendChild(br);
-            // End of new code
-
-             var destination = jsonList[i];
-
-            if (destination.city != null) {
-                document.getElementById("resultsList").innerHTML += "<br>"+ destination.city + ", " + 
-                destination.country +"</br>";
-            }
-            else if (destination.locationName != null) {
-                document.getElementById("resultsList").innerHTML += "<br>" + destination.locationName + ", " + 
-                destination.country + "</br>";
-            }
         }
-    }
 
-    async submit() {
-        document.getElementById('favoritesButton').innerText = 'Loading...';
-        window.location.href = '/favorites.html';
-    
+        var favoritesList = [];
+
+        var favoritesButton = document.getElementById('favoritesButton');
+        favoritesButton.addEventListener('click', () => {
+
+            for (var i = 0; i < jsonList.length; i++) {
+                var checkbox = document.getElementById('favoriteCheckbox' + i);
+
+                if(checkbox.checked) {
+                    //console.log("Checkbox value: ", checkbox.value);
+                    favoritesList.push(checkbox.value);
+                }
+            }
+        });
+
+        console.log("Favorites List: ", favoritesList);
+
     }
 }
 

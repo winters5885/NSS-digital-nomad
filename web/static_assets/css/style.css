@@ -41,6 +41,21 @@ button {
   font-weight: bold;
 }
 
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    height: 50px;
+    width: 30px;
+}
+
 .save-favorites-button {
   background-color: var(--tertiary-color);
   border: 2px;
