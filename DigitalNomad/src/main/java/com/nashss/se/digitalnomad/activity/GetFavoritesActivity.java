@@ -4,6 +4,7 @@ import com.nashss.se.digitalnomad.activity.requests.GetFavoritesRequest;
 import com.nashss.se.digitalnomad.activity.results.GetFavoritesResult;
 import com.nashss.se.digitalnomad.converters.ModelConverter;
 import com.nashss.se.digitalnomad.dynamoDb.FavoritesDao;
+import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
 import com.nashss.se.digitalnomad.dynamoDb.models.Favorite;
 
 import com.nashss.se.digitalnomad.models.FavoriteModel;
@@ -45,11 +46,11 @@ public class GetFavoritesActivity {
      */
     public GetFavoritesResult handleRequest(final GetFavoritesRequest getFavoritesRequest) {
         log.info("Inside GetFavoritesResult handleRequest");
-        List<Favorite> favorites = favoritesDao.getFavorites(getFavoritesRequest.getUserId());
-        List<FavoriteModel> favoritesModels = new ModelConverter().toFavoriteModelList(favorites);
+        List<Destination> favorites = favoritesDao.getFavorites(getFavoritesRequest.getUserId());
+        //List<FavoriteModel> favoritesModels = new ModelConverter().toFavoriteModelList(favorites);
 
         return GetFavoritesResult.builder()
-                .withFavoriteModel(favoritesModels)
+                //.withFavoriteModel(favoritesModels)
                 .build();
     }
 }

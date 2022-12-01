@@ -243,6 +243,13 @@ Resources:
           KeyType: "RANGE"
       BillingMode: "PAY_PER_REQUEST"
       TableName: "destinations"
+      GlobalSecondaryIndexes:
+        - IndexName: "DestinationsGSIIndex"
+          KeySchema:
+            - AttributeName: "destinationId"
+              KeyType: "HASH"
+          Projection:
+            ProjectionType: "ALL"
 
   CategoriesTable:
     Type: AWS::DynamoDB::Table

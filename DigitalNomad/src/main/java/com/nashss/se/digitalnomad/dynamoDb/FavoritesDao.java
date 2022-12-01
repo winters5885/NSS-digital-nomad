@@ -1,10 +1,13 @@
 package com.nashss.se.digitalnomad.dynamoDb;
 
+import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
+import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
 import com.nashss.se.digitalnomad.dynamoDb.models.Favorite;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 
@@ -38,13 +41,41 @@ public class FavoritesDao {
      * @param userId The playlist to save
      * @return The favorite object that was saved
      */
-    public List<Favorite> getFavorites(String userId) {
+    public List<Destination> getFavorites(String userId) {
         Favorite favorite = new Favorite();
         favorite.setUserId(userId);
 
         DynamoDBQueryExpression<Favorite> queryExpression = new DynamoDBQueryExpression<Favorite>()
                 .withHashKeyValues(favorite);
 
-        return dynamoDbMapper.query(Favorite.class, queryExpression);
+        PaginatedQueryList userFavorites = dynamoDbMapper.query(Favorite.class, queryExpression);
+
+        List<Favorite> convertedList = new ArrayList<>(userFavorites);
+
+        List<Destination> returnedDestinations = new ArrayList<>();
+
+        for (Favorite savedFavorite : convertedList) {
+            List<String> destinationIds = savedFavorite.getDestinations();
+            for (String particularDestinationId : destinationIds) {
+                Destination destination = new Destination();
+                destination.setDestinationID(particularDestinationId);
+                Destination destinationFromGSI = dynamoDbMapper.load(Destination.class, destination);
+                returnedDestinations.add(destinationFromGSI);
+            }
+        }
+
+        return returnedDestinations;
+
+//        public void main() {
+//            getFavorites("test");
+//        }
+
+
+        //query the favorites table to get the list of favorites for a particular userId   X
+        //once we have the list, for each destinationID, we query the destinationsGSI and get all the
+        // relevant destination information and put into another list of destinations
+        //return the list of destinations
+
+        //GSI name is : DestinationsGSIIndex
     }
 }
