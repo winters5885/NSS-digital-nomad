@@ -1,29 +1,29 @@
 package com.nashss.se.digitalnomad.activity.results;
 
-import com.nashss.se.digitalnomad.models.FavoriteModel;
+import com.nashss.se.digitalnomad.models.DestinationModel;
 
 import java.util.List;
 
 public class GetFavoritesResult {
-    private final List<FavoriteModel> favoriteModels;
+    private final List<DestinationModel> destinationModels;
 
     /**
      * Instantiates a new SaveFavoritesResult object.
      *
-     * @param favoriteModels The favorite model list.
+     * @param destinationModels The favorite model list.
      */
-    public GetFavoritesResult(List<FavoriteModel> favoriteModels) {
-        this.favoriteModels = favoriteModels;
+    public GetFavoritesResult(List<DestinationModel> destinationModels) {
+        this.destinationModels = destinationModels;
     }
 
-    public List<FavoriteModel> getFavoriteModels() {
-        return favoriteModels;
+    public List<DestinationModel> getDestinationModels() {
+        return destinationModels;
     }
 
     @Override
     public String toString() {
         return "GetFavoritesResult{" +
-                "favoriteModels=" + favoriteModels +
+                "destinationModels=" + destinationModels +
                 '}';
     }
 
@@ -33,15 +33,15 @@ public class GetFavoritesResult {
     }
 
     public static class Builder {
-        private List<FavoriteModel> favoriteModels;
+        private List<DestinationModel> destinationModels;
 
-        public Builder withFavoriteModel(List<FavoriteModel> favoriteModels) {
-            this.favoriteModels = favoriteModels;
+        public Builder withFavoriteModel(List<DestinationModel> destinationModels) {
+            this.destinationModels = destinationModels;
             return this;
         }
 
         public GetFavoritesResult build() {
-            return new GetFavoritesResult(favoriteModels);
+            return new GetFavoritesResult(destinationModels);
         }
     }
 }

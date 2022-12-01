@@ -49,17 +49,4 @@ public class ModelConverter {
                 .withDestinations(favorite.getDestinations())
                 .build();
     }
-
-    /**
-     * Converts a favorite to a FavoriteModel.
-     * @param favorites The Favorites to convert to List of FavoriteModel
-     * @return The converted favorites to a list of FavoriteModel
-     */
-    public List<FavoriteModel> toFavoriteModelList(List<Favorite> favorites) {
-        List<FavoriteModel> favoriteModels = new ArrayList<>();
-        for (Favorite fav : favorites) {
-            favoriteModels.add(toFavoriteModel(fav));
-        }
-        return favoriteModels;
-    }
 }

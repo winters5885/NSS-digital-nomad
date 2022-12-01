@@ -5,9 +5,8 @@ import com.nashss.se.digitalnomad.activity.results.GetFavoritesResult;
 import com.nashss.se.digitalnomad.converters.ModelConverter;
 import com.nashss.se.digitalnomad.dynamoDb.FavoritesDao;
 import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
-import com.nashss.se.digitalnomad.dynamoDb.models.Favorite;
 
-import com.nashss.se.digitalnomad.models.FavoriteModel;
+import com.nashss.se.digitalnomad.models.DestinationModel;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -36,21 +35,21 @@ public class GetFavoritesActivity {
     }
 
     /**
-     * This method handles the incoming request by retrieving the destinations from the database.
+     * This method handles the incoming request by retrieving a user's favorite destinations from the database.
      * <p>
      * It then returns the destinations.
      * <p>
      *
-     * @param getFavoritesRequest request object containing the destination category
-     * @return GetDestinationsResult result object
+     * @param getFavoritesRequest request object containing the destinations request
+     * @return GetFavoritesResult result object
      */
     public GetFavoritesResult handleRequest(final GetFavoritesRequest getFavoritesRequest) {
         log.info("Inside GetFavoritesResult handleRequest");
         List<Destination> favorites = favoritesDao.getFavorites(getFavoritesRequest.getUserId());
-        //List<FavoriteModel> favoritesModels = new ModelConverter().toFavoriteModelList(favorites);
+        List<DestinationModel> destinationModels = new ModelConverter().toDestinationModelList(favorites);
 
         return GetFavoritesResult.builder()
-                //.withFavoriteModel(favoritesModels)
+                .withFavoriteModel(destinationModels)
                 .build();
     }
 }

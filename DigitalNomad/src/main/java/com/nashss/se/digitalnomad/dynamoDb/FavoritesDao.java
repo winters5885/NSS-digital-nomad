@@ -1,15 +1,20 @@
 package com.nashss.se.digitalnomad.dynamoDb;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
 import com.nashss.se.digitalnomad.dynamoDb.models.Destination;
 import com.nashss.se.digitalnomad.dynamoDb.models.Favorite;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBQueryExpression;
+import com.amazonaws.services.dynamodbv2.datamodeling.PaginatedQueryList;
+import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.inject.Inject;
+
+import static com.nashss.se.digitalnomad.dynamoDb.models.Destination.DESTINATION_GSI_INDEX;
 
 
 public class FavoritesDao {
@@ -48,7 +53,7 @@ public class FavoritesDao {
         DynamoDBQueryExpression<Favorite> queryExpression = new DynamoDBQueryExpression<Favorite>()
                 .withHashKeyValues(favorite);
 
-        PaginatedQueryList userFavorites = dynamoDbMapper.query(Favorite.class, queryExpression);
+        PaginatedQueryList<Favorite> userFavorites = dynamoDbMapper.query(Favorite.class, queryExpression);
 
         List<Favorite> convertedList = new ArrayList<>(userFavorites);
 
@@ -57,25 +62,27 @@ public class FavoritesDao {
         for (Favorite savedFavorite : convertedList) {
             List<String> destinationIds = savedFavorite.getDestinations();
             for (String particularDestinationId : destinationIds) {
-                Destination destination = new Destination();
-                destination.setDestinationID(particularDestinationId);
-                Destination destinationFromGSI = dynamoDbMapper.load(Destination.class, destination);
-                returnedDestinations.add(destinationFromGSI);
+                Map<String, AttributeValue> valueMap = new HashMap<>();
+                valueMap.put(":destinationId", new AttributeValue().withS(particularDestinationId));
+
+                DynamoDBQueryExpression<Destination> queryExpression1 =
+                        new DynamoDBQueryExpression<Destination>()
+                                .withIndexName(DESTINATION_GSI_INDEX)
+                                .withConsistentRead(false)
+                                .withKeyConditionExpression("destinationId = :destinationId")
+                        .withExpressionAttributeValues(valueMap);
+
+                PaginatedQueryList<Destination> returnDestinations =
+                        dynamoDbMapper.query(Destination.class, queryExpression1);
+
+                List<Destination> anotherConvertedList = new ArrayList<>(returnDestinations);
+                for (Destination finalDestination : anotherConvertedList) {
+                    returnedDestinations.add(finalDestination);
+                }
+
             }
         }
 
         return returnedDestinations;
-
-//        public void main() {
-//            getFavorites("test");
-//        }
-
-
-        //query the favorites table to get the list of favorites for a particular userId   X
-        //once we have the list, for each destinationID, we query the destinationsGSI and get all the
-        // relevant destination information and put into another list of destinations
-        //return the list of destinations
-
-        //GSI name is : DestinationsGSIIndex
     }
 }
