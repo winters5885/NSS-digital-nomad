@@ -185,6 +185,47 @@ Resources:
             Path: /destinations/{category}
             Method: get
 
+
+  SaveFavoritesLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessDynamoDBTablesRole.Arn
+      CodeUri: DigitalNomad
+      Handler: com.nashss.se.digitalnomad.lambda.SaveFavoritesLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        DigitalNomad:
+          Type: Api
+          Properties:
+            Path: /favorites
+            Method: post
+
+  GetFavoritesLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Role: !GetAtt AccessDynamoDBTablesRole.Arn
+      CodeUri: DigitalNomad
+      Handler: com.nashss.se.digitalnomad.lambda.GetFavoritesLambda::handleRequest
+      Runtime: java11
+      Architectures:
+        - x86_64
+      MemorySize: 512
+      Environment:
+        Variables:
+          JAVA_TOOL_OPTIONS: -XX:+TieredCompilation -XX:TieredStopAtLevel=1
+      Events:
+        DigitalNomad:
+          Type: Api
+          Properties:
+            Path: /favorites/{userId}
+            Method: get
+
   #-----------------------------------------------------------------
   
   DestinationsTable:
@@ -202,6 +243,13 @@ Resources:
           KeyType: "RANGE"
       BillingMode: "PAY_PER_REQUEST"
       TableName: "destinations"
+      GlobalSecondaryIndexes:
+        - IndexName: "DestinationsGSIIndex"
+          KeySchema:
+            - AttributeName: "destinationId"
+              KeyType: "HASH"
+          Projection:
+            ProjectionType: "ALL"
 
   CategoriesTable:
     Type: AWS::DynamoDB::Table

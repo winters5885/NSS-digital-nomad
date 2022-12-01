@@ -2,6 +2,7 @@ package com.nashss.se.digitalnomad.dynamoDb.models;
 
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexHashKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
 
@@ -10,6 +11,9 @@ import java.util.Objects;
 
 @DynamoDBTable(tableName = "destinations")
 public class Destination implements Serializable {
+
+    public static final String DESTINATION_GSI_INDEX = "DestinationsGSIIndex";
+
     private String city;
     private String country;
     private String locationName;
@@ -80,6 +84,7 @@ public class Destination implements Serializable {
     }
 
     @DynamoDBRangeKey(attributeName = "destinationId")
+    @DynamoDBIndexHashKey(globalSecondaryIndexName = DESTINATION_GSI_INDEX, attributeName = "destinationId")
     public String getDestinationID() {
         return destinationID;
     }
