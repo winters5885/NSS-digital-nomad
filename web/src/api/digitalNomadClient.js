@@ -63,6 +63,15 @@ export default class DigitalNomadClient extends BindingClass {
         }
     }
 
+    async postFavorites(favoritesList, errorCallback) {
+        try {
+            const response = await this.client.post('/favorites');
+            return response.data.favoriteModel
+        } catch (error) {
+            this.handleError(error, errorCallback)
+        }
+    }
+
      /**
      * Helper method to log the error and run any error functions.
      * @param error The error received from the server.

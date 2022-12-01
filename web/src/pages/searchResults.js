@@ -82,10 +82,12 @@ class SearchResults extends BindingClass {
                 var checkbox = document.getElementById('favoriteCheckbox' + i);
 
                 if(checkbox.checked) {
-                    //console.log("Checkbox value: ", checkbox.value);
                     favoritesList.push(checkbox.value);
                 }
             }
+
+            this.client.postFavorites(favoritesList)
+
         });
 
         console.log("Favorites List: ", favoritesList);
