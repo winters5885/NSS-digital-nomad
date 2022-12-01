@@ -49,5 +49,4 @@ public class ModelConverter {
                 .withDestinations(favorite.getDestinations())
                 .build();
     }
-
 }
