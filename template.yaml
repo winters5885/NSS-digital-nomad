@@ -143,6 +143,63 @@ Resources:
                     - ':'
                     - !Ref 'AWS::AccountId'
                     - ':table/album_tracks'
+        - PolicyName: 'destinations'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: dynamodb:*
+                Resource:
+                  Fn::Join:
+                    - ''
+                    - - 'arn:aws:dynamodb:'
+                      - !Ref 'AWS::Region'
+                      - ':'
+                      - !Ref 'AWS::AccountId'
+                      - ':table/destinations'
+        - PolicyName: 'categories'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: dynamodb:*
+                Resource:
+                  Fn::Join:
+                    - ''
+                    - - 'arn:aws:dynamodb:'
+                      - !Ref 'AWS::Region'
+                      - ':'
+                      - !Ref 'AWS::AccountId'
+                      - ':table/categories'
+        - PolicyName: 'favorites'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: dynamodb:*
+                Resource:
+                  Fn::Join:
+                    - ''
+                    - - 'arn:aws:dynamodb:'
+                      - !Ref 'AWS::Region'
+                      - ':'
+                      - !Ref 'AWS::AccountId'
+                      - ':table/favorites'
+        - PolicyName: 'DestinationsGSIIndex'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: dynamodb:*
+                Resource:
+                  Fn::Join:
+                    - ''
+                    - - 'arn:aws:dynamodb:'
+                      - !Ref 'AWS::Region'
+                      - ':'
+                      - !Ref 'AWS::AccountId'
+                      - ':table/destinations/index/DestinationsGSIIndex'
+
 
   GetCategoriesLambda:
     Type: AWS::Serverless::Function

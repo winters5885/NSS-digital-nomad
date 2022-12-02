@@ -23,6 +23,11 @@ class DisplayFavorites extends BindingClass {
         const userIdFromURL = urlParams.get('userId');
         console.log("userIdFromURL: " + userIdFromURL);
 
+
+        document.getElementById("theURL").innerHTML += "<br>" + "http://localhost:8000/favorites.html?userId=" +
+                        userIdFromURL + "</br>";
+
+
         const jsonList = await this.client.getFavorites(userIdFromURL);
         console.log("jsonList: " + jsonList);
 
