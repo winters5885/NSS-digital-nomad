@@ -76,7 +76,7 @@ class SearchResults extends BindingClass {
         var favoriteDestinations = [];
 
         var favoritesButton = document.getElementById('favoritesButton');
-        favoritesButton.addEventListener('click', () => {
+        favoritesButton.addEventListener('click', async () => {
 
             for (var i = 0; i < jsonList.length; i++) {
                 var checkbox = document.getElementById('favoriteCheckbox' + i);
@@ -86,11 +86,12 @@ class SearchResults extends BindingClass {
                 }
             }
 
-            this.client.postFavorites(favoriteDestinations)
+            const favoritesResults = await this.client.postFavorites(favoriteDestinations);
+            
+            var userId = favoritesResults.userId;
+            
+            window.location.href = '/favorites.html?userId=' + userId + '';
         });
-
-        console.log("Favorites List: ", favoriteDestinations);
-
     }
 }
 

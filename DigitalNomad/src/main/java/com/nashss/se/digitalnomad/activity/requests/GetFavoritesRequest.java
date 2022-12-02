@@ -1,6 +1,9 @@
 package com.nashss.se.digitalnomad.activity.requests;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 
+@JsonDeserialize(builder = GetFavoritesRequest.Builder.class)
 public class GetFavoritesRequest {
     private final String userId;
 
@@ -29,6 +32,7 @@ public class GetFavoritesRequest {
         return new GetFavoritesRequest.Builder();
     }
 
+    @JsonPOJOBuilder
     public static class Builder {
         private String userId;
 

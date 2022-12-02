@@ -15,6 +15,34 @@ class DisplayFavorites extends BindingClass {
         this.header.addHeaderToPage();
         this.header.loadData();
         this.client = new DigitalNomadClient();
+        this.getFavorites();
+    }
+
+    async getFavorites() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const userIdFromURL = urlParams.get('userId');
+        console.log("userIdFromURL: " + userIdFromURL);
+
+        const jsonList = await this.client.getFavorites(userIdFromURL);
+        console.log("jsonList: " + jsonList);
+
+        if (jsonList.length == 0) {
+            document.getElementById("favoritesList").innerHTML = "Return list is empty."
+        }
+
+        for (var i = 0; i < jsonList.length; i++) {
+        
+            var destination = jsonList[i];
+
+            if (destination.city != null) {
+                document.getElementById("favoritesList").innerHTML += "<br>"+ destination.city + ", " + 
+                destination.country +"</br>";
+            }
+            else if (destination.locationName != null) {
+                document.getElementById("favoritesList").innerHTML += "<br>" + destination.locationName + ", " + 
+                destination.country + "</br>";
+            }
+        }
     }
 }
 

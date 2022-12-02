@@ -29,6 +29,7 @@ module.exports = {
   entry: {
     searchCategories: path.resolve(__dirname, `src`, `pages`, `searchCategories.js`),
     searchResults: path.resolve(__dirname, `src`, `pages`, `searchResults.js`),
+    displayFavorites: path.resolve(__dirname, `src`, `pages`, `displayFavorites.js`),
   },
   output: {
     path: path.resolve(__dirname, 'build', 'assets'),
