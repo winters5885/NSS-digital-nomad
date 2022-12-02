@@ -73,7 +73,7 @@ class SearchResults extends BindingClass {
             container.appendChild(br);
         }
 
-        var favoritesList = [];
+        var favoriteDestinations = [];
 
         var favoritesButton = document.getElementById('favoritesButton');
         favoritesButton.addEventListener('click', () => {
@@ -82,15 +82,15 @@ class SearchResults extends BindingClass {
                 var checkbox = document.getElementById('favoriteCheckbox' + i);
 
                 if(checkbox.checked) {
-                    favoritesList.push(checkbox.value);
+                    favoriteDestinations.push(checkbox.value);
                 }
             }
 
-            this.client.postFavorites(favoritesList)
+            this.client.postFavorites(favoriteDestinations)
 
         });
 
-        console.log("Favorites List: ", favoritesList);
+        console.log("Favorites List: ", favoriteDestinations);
 
     }
 }
