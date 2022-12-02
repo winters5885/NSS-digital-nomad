@@ -185,6 +185,20 @@ Resources:
                       - ':'
                       - !Ref 'AWS::AccountId'
                       - ':table/favorites'
+        - PolicyName: 'DestinationsGSIIndex'
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action: dynamodb:*
+                Resource:
+                  Fn::Join:
+                    - ''
+                    - - 'arn:aws:dynamodb:'
+                      - !Ref 'AWS::Region'
+                      - ':'
+                      - !Ref 'AWS::AccountId'
+                      - ':table/destinations/index/DestinationsGSIIndex'
 
 
   GetCategoriesLambda:
