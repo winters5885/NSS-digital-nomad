@@ -1,8 +1,12 @@
 package com.nashss.se.digitalnomad.activity.requests;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
+
 import java.util.List;
 import java.util.UUID;
 
+@JsonDeserialize(builder = SaveFavoritesRequest.Builder.class)
 public class SaveFavoritesRequest {
     private final String userId;
     private final List<String> favoriteDestinations;
@@ -39,6 +43,7 @@ public class SaveFavoritesRequest {
         return new SaveFavoritesRequest.Builder();
     }
 
+    @JsonPOJOBuilder
     public static class Builder {
         private List<String> favoriteDestinations;
 
