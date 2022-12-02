@@ -63,9 +63,12 @@ export default class DigitalNomadClient extends BindingClass {
         }
     }
 
-    async postFavorites(favoritesList, errorCallback) {
+    async postFavorites(favoriteDestinations, errorCallback) {
         try {
-            return this.client.post(`/favorites`, favoritesList);
+            const response = await this.client.post('favorites', {
+                favoriteDestinations: favoriteDestinations
+            });
+            return response.data.favoriteModel
         } catch (error) {
             this.handleError(error, errorCallback)
         }
