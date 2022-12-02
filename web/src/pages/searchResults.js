@@ -86,7 +86,7 @@ class SearchResults extends BindingClass {
                 }
             }
 
-            this.client.postFavorites(favoritesList)
+            this.client.postFavorites(favoritesList);
 
         });
 
