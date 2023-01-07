@@ -22,9 +22,9 @@ public class FavoritesDao {
     private final DynamoDBMapper dynamoDbMapper;
 
     /**
-     * Instantiates a PlaylistDao object.
+     * Instantiates a FavoritesDao object.
      *
-     * @param dynamoDbMapper the {@link DynamoDBMapper} used to interact with the playlists table
+     * @param dynamoDbMapper the {@link DynamoDBMapper} used to interact with the favorites table
      */
     @Inject
     public FavoritesDao(DynamoDBMapper dynamoDbMapper) {
@@ -33,7 +33,7 @@ public class FavoritesDao {
 
     /**
      * Saves (creates or updates) the given favorites.
-     * @param favorite The playlist to save
+     * @param favorite The destination to save
      * @return The favorite object that was saved
      */
     public Favorite saveFavorites(Favorite favorite) {
@@ -43,7 +43,7 @@ public class FavoritesDao {
 
     /**
      * Saves (creates or updates) the given favorites.
-     * @param userId The playlist to save
+     * @param userId The favorite to save
      * @return The favorite object that was saved
      */
     public List<Destination> getFavorites(String userId) {

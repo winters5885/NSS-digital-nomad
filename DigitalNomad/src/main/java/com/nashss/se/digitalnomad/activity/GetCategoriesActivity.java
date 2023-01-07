@@ -12,18 +12,18 @@ import java.util.List;
 import javax.inject.Inject;
 
 /**
- * Implementation of the GetPlaylistActivity for the MusicPlaylistService's GetPlaylist API.
+ * Implementation of the GetCategoriesActivity for Digital Nomad's GetCategories API.
  *
- * This API allows the customer to get one of their saved playlists.
+ * This API allows the customer to get their saved categories.
  */
 public class GetCategoriesActivity {
     private final Logger log = LogManager.getLogger();
     private final CategoryDao categoryDao;
 
     /**
-     * Instantiates a new GetPlaylistActivity object.
+     * Instantiates a new GetCategoriesActivity object.
      *
-     * @param categoryDao PlaylistDao to access the playlist table.
+     * @param categoryDao CategoryDao to access the categories table.
      */
     @Inject
     public GetCategoriesActivity(CategoryDao categoryDao) {
@@ -31,11 +31,11 @@ public class GetCategoriesActivity {
     }
 
     /**
-     * This method handles the incoming request by retrieving the playlist from the database.
+     * This method handles the incoming request by retrieving the categories from the database.
      * <p>
-     * It then returns the playlist.
+     * It then returns the categories.
      * <p>
-     * If the playlist does not exist, this should throw a PlaylistNotFoundException.
+     * If the category does not exist, this should throw a CategoryNotFoundException.
      *
      * @return GetCategoriesResult result object
      */

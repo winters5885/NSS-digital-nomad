@@ -1,7 +1,7 @@
 package com.nashss.se.digitalnomad.Exceptions;
 
 /**
- * Exception to throw when a given AlbumTrack ASIN and track number is not found
+ * Exception to throw when a given Category ASIN is not found
  * in the database.
  */
 public class CategoryNotFoundException extends RuntimeException {

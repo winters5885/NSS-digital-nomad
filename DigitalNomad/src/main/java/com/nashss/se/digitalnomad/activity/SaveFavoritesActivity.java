@@ -29,7 +29,6 @@ public class SaveFavoritesActivity {
      */
     @Inject
     public SaveFavoritesActivity(FavoritesDao favoritesDao) {
-
         this.favoritesDao = favoritesDao;
     }
 
