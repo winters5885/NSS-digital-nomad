@@ -20,9 +20,6 @@ export default class Header extends BindingClass {
      * @returns {Promise<void>}
      */
     async clientLoaded() {
-        // TODO auth?
-        //const identity = await this.client.getIdentity();
-        //this.dataStore.set('username', identity.username);
         this.dataStore.set('username', 'Nashville Software School');
     }
 

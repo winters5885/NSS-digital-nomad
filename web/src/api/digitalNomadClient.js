@@ -2,7 +2,7 @@ import axios from "axios";
 import BindingClass from "../util/bindingClass";
 
 /**
- * Client to call the MusicPlaylistService.
+ * Client to call the DigitalNomadService.
  *
  * This could be a great place to explore Mixins. Currently the client is being loaded multiple times on each page,
  * which we could avoid using inheritance or Mixins.
