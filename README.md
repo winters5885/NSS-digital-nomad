@@ -1,11 +1,11 @@
-# Unit 5 Project Intro
+# Project Digital Nomad
 
 Welcome to the Unit 5 Project. This project is a starting point that you'll be making extensive changes to as you design and build your own application. The code provided here is a starting point meant to remind you of patterns that we've been using, as well as show you a few new patterns that you might find useful. This document has 2 main sections:
 
 - Deliverables
 - Infrastructure
 
-> **NOTE:** There's a lot to this project, so we've split out the more tactical "how to" guidance into a [separate README](./README-SETUP.md) that you'll want to review and follow the included instructions for after you read through this one.
+> **NOTE:** There's a lot to this project, so we've split out the more tactical "how to" guidance into a [separate README](README-SETUP.md) that you'll want to review and follow the included instructions for after you read through this one.
 
 ## Deliverables
 
@@ -26,7 +26,7 @@ These are the required deliverables/reviews that you and your team will need to 
 
 ## Technical Learning Objectives
 
-This project is very open-ended and you/your team will be doing a lot of creative thinking to decide what you want to build. That said, there are several technical learning objectives that each team must meet. You should review the [Technical Learning Objectives](./resources/technical-objectives.md) as you familiarize yourself with the project. As part of the team reflection/retrospective you'll fill out this document with your team to document how you met the different objectives.
+This project is very open-ended and you/your team will be doing a lot of creative thinking to decide what you want to build. That said, there are several technical learning objectives that each team must meet. You should review the [Technical Learning Objectives](resources/technical-objectives.md) as you familiarize yourself with the project. As part of the team reflection/retrospective you'll fill out this document with your team to document how you met the different objectives.
 
 ## Project Starter Infrastructure
 
@@ -42,7 +42,7 @@ Unlike our unit projects in the past, this project will have two code bases.
 
 [One code base](./MusicPlaylistServiceLambda) will be for your Lambda service code, similar to what we’ve seen previously. This will contain code that designs and runs your service APIs, as well as packages to interact with and test your service.
 
-The [second code base](./web) will contain code for your website:
+The [second code base](web) will contain code for your website:
 
 * HTML: The content of your web pages
 * CSS: The styling and formatting of your web pages
@@ -54,7 +54,7 @@ _Both of these should be considered starting points/example code. You will end u
 
 ### Deploying
 
-We'll be using GitHub Actions to deploy the code to AWS. One of the first tasks that you'll do as a team is to configure the repository for this. Once that's completed your code should build and deploy as described in the [next README](./README-SETUP.md).
+We'll be using GitHub Actions to deploy the code to AWS. One of the first tasks that you'll do as a team is to configure the repository for this. Once that's completed your code should build and deploy as described in the [next README](README-SETUP.md).
 
 ### AWS Resources
 
@@ -62,7 +62,7 @@ Each team has one AWS account they will share to deploy their website and servic
 
 ### Your website!
 
-To access your website, you'll need to build it first. The [next README](./README-SETUP.md) has instructions on the different ways we'll be doing this.
+To access your website, you'll need to build it first. The [next README](README-SETUP.md) has instructions on the different ways we'll be doing this.
 
 ## How Your Website Works
 
@@ -81,4 +81,4 @@ Two important things to call out:
 
 ## Project Setup
 
-This document has provided an overview of the project as a whole. For more specifics on how to configure the project and your GitHub repo/AWS account, continue by reading [README-SETUP.md](./README-SETUP.md).
+This document has provided an overview of the project as a whole. For more specifics on how to configure the project and your GitHub repo/AWS account, continue by reading [README-SETUP.md](README-SETUP.md).
