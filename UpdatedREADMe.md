@@ -66,6 +66,29 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
+### Context
+This project was a mid-stone group project completed at the Nashville Software School. 
+Our Cohort was split into teams of four and given four weeks to design, build, and finish our application. 
+Following the SCRUM methodology we created our design and conducted two sprints.
+We split responsibilities throughout the project. During the first sprint I worked on the front end design to create the basic
+layout of our webpage, designed the first dropdown menu, buttons, and added logic to connect
+the front and back end through our API. During the second sprint I moved to the back end and added functionality
+to save and retrieve favorite destinations using DynamoDB. I also contributed in the writing of unit tests for our JAVA classes.
+
+### Project Description
+Digital Nomad is a service that provides customers with a user experience that makes choosing where to travel easy.
+Customers are provided travel category options to choose from and then 
+a curated list of travel destinations is displayed. Customers can select and save favorite destinations
+into DynamoDB. Once saved, Digital Nomad provides the customer with a unique URL that they can bookmark and return to 
+view their saved list in the future. 
+
+### What I learned
+Through this project I learned how to connect the front and back ends through a custom API. I learned how easy it is
+to over commit or under commit on sprint planning goals. Some features, especially in the beginning phases, took much longer
+than we expected, while others were completed faster as my team gained experience. I learned how to collaborate and work as a team
+on a project from start to finish. As a team worked through challenges and frustrations, shared moments of success, 
+and finished strong together! 
+
 Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -75,19 +98,21 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 ### Built With
 
 * ![Java](https://badges.aleen42.com/src/java.svg)
+* ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)
+* ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+* ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+* ![AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+* ![AWS DynamoDB](https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=for-the-badge&logo=Amazon%20DynamoDB&logoColor=white)
+* ![AWS Lambda](https://img.shields.io/badge/AWS%20Lambda-FF9900.svg?style=for-the-badge&logo=AWS-Lambda&logoColor=white)
+* ![Amazon API Gateway](https://img.shields.io/badge/Amazon%20API%20Gateway-FF4F8B.svg?style=for-the-badge&logo=Amazon-API-Gateway&logoColor=white)
+* ![Amazon S3](https://img.shields.io/badge/Amazon%20S3-569A31.svg?style=for-the-badge&logo=Amazon-S3&logoColor=white)
 * ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 * ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-* ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-* ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-* ![](https://badges.aleen42.com/src/idea.svg)
-* ![](https://badges.aleen42.com/src/visual_studio_code.svg)
-* ![AWS DynamoDB](https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=for-the-badge&logo=Amazon%20DynamoDB&logoColor=white)
-* ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)
-* ![AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
-* ![](https://img.shields.io/badge/AWS%20Lambda-FF9900.svg?style=for-the-badge&logo=AWS-Lambda&logoColor=white)
+* ![IntelliJ](https://badges.aleen42.com/src/idea.svg)
+* ![VS Code](https://badges.aleen42.com/src/visual_studio_code.svg)
 * ![Docker](https://badges.aleen42.com/src/docker.svg)
-* ![](https://img.shields.io/badge/Amazon%20API%20Gateway-FF4F8B.svg?style=for-the-badge&logo=Amazon-API-Gateway&logoColor=white)
-* ![](https://img.shields.io/badge/Amazon%20S3-569A31.svg?style=for-the-badge&logo=Amazon-S3&logoColor=white)
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
