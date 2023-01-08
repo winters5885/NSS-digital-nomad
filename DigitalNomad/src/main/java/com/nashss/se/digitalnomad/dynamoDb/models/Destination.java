@@ -26,7 +26,7 @@ public class Destination implements Serializable {
     public Destination() {}
 
     /**
-     *  Constructor with parameters for Category POJO.
+     *  Constructor with parameters for Destination POJO.
      * @param city for city name
      * @param country for country
      * @param locationName for specific location information (Eiffel tower)

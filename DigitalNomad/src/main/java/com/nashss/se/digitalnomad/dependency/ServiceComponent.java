@@ -12,33 +12,33 @@ import dagger.Component;
 import javax.inject.Singleton;
 
 /**
- * Dagger component for providing dependency injection in the Music Playlist Service.
+ * Dagger component for providing dependency injection in the Digital Nomad Service.
  */
 @Singleton
 @Component(modules = {DynamoDBModule.class})
 public interface ServiceComponent {
     /**
      * Provides the relevant activity.
-     * @return GetPlaylistActivity
+     * @return GetCategoriesActivity
      */
     GetCategoriesActivity provideGetCategoriesActivity();
 
     /**
      * Provides the relevant activity.
-     * @return GetPlaylistSongsActivity
+     * @return GetDestinationsActivity
      */
     GetDestinationsActivity provideGetDestinationsActivity();
 
     /**
      * Provides the relevant activity.
-     * @return UpdatePlaylistActivity
+     * @return SaveFavoritesActivity
      */
 
     SaveFavoritesActivity provideSaveFavoritesActivity();
 
     /**
      * Provides the relevant activity.
-     * @return UpdatePlaylistActivity
+     * @return GetFavoritesActivity
      */
 
     GetFavoritesActivity provideGetFavoritesActivity();

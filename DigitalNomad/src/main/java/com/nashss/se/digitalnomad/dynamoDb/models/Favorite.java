@@ -14,13 +14,13 @@ public class Favorite {
     private List<String> destinations;
 
     /**
-     * Empty constructor for Category POJO.
+     * Empty constructor for Favorite POJO.
      */
     public Favorite() {
     }
 
     /**
-     * Constructor with parameters for Category POJO.
+     * Constructor with parameters for Favorite POJO.
      * @param userId for user ID
      * @param destinations A set of destinations for this specific Favorite instance
      */

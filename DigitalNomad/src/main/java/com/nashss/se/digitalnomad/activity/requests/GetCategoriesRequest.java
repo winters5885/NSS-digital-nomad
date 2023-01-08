@@ -6,12 +6,12 @@ public class GetCategoriesRequest {
 
     }
 
-    /*
+
     @Override
     public String toString() {
-        return "GetCategoriesRequest{"'\'' + '}';
+        return "GetCategoriesRequest" + "{'\"' +' '}";
     }
-     */
+
 
     //CHECKSTYLE:OFF:Builder
     public static Builder builder() {
@@ -19,12 +19,11 @@ public class GetCategoriesRequest {
     }
 
     public static class Builder {
-        /*
+
         public Builder withId(String id) {
-            this.id = id;
             return this;
         }
-         */
+
 
         public GetCategoriesRequest build() {
             return new GetCategoriesRequest();

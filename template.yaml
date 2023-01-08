@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  Music Playlist Service
+  Digital Nomad Service
 
 Parameters:
   S3Bucket:
@@ -115,34 +115,6 @@ Resources:
                 - logs:PutLogEvents
                 - cloudwatch:PutMetricData
               Resource: '*'
-        - PolicyName: 'AccessPlaylistsTable'
-          PolicyDocument:
-            Version: '2012-10-17'
-            Statement:
-            - Effect: Allow
-              Action: dynamodb:*
-              Resource: 
-                Fn::Join:
-                  - ''
-                  - - 'arn:aws:dynamodb:'
-                    - !Ref 'AWS::Region'
-                    - ':'
-                    - !Ref 'AWS::AccountId'
-                    - ':table/playlists'
-        - PolicyName: 'AccessAlbumTracksTable'
-          PolicyDocument:
-            Version: '2012-10-17'
-            Statement:
-            - Effect: Allow
-              Action: dynamodb:*
-              Resource: 
-                Fn::Join:
-                  - ''
-                  - - 'arn:aws:dynamodb:'
-                    - !Ref 'AWS::Region'
-                    - ':'
-                    - !Ref 'AWS::AccountId'
-                    - ':table/album_tracks'
         - PolicyName: 'destinations'
           PolicyDocument:
             Version: '2012-10-17'
