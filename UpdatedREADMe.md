@@ -133,7 +133,7 @@ brew install node
 ```
 
 ### Installation
-1. Clone the repo
+1. Clone the repo:
    ```sh
    git clone https://github.com/winters5885/NSS-digital-nomad.git
    ```
