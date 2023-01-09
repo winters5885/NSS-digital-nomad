@@ -95,10 +95,10 @@ and finished strong together!
 * ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=for-the-badge&logo=JavaScript&logoColor=black)
 * ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 * ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-* ![AWS](https://img.shields.io/badge/Amazon_AWS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+* [![AWS CloudFormation][AWS CloudFormation]][CloudFormation-url]
 * ![AWS DynamoDB](https://img.shields.io/badge/Amazon%20DynamoDB-4053D6?style=for-the-badge&logo=Amazon%20DynamoDB&logoColor=white)
 * ![AWS Lambda](https://img.shields.io/badge/AWS%20Lambda-FF9900.svg?style=for-the-badge&logo=AWS-Lambda&logoColor=white)
-* ![Amazon API Gateway](https://img.shields.io/badge/Amazon%20API%20Gateway-FF4F8B.svg?style=for-the-badge&logo=Amazon-API-Gateway&logoColor=white)
+* [![API Gateway][API Gateway]][Gateway-url]
 * ![Amazon S3](https://img.shields.io/badge/Amazon%20S3-569A31.svg?style=for-the-badge&logo=Amazon-S3&logoColor=white)
 * ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
 * ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
@@ -120,7 +120,10 @@ Please follow the instructions below to set up a copy of Digital Nomad and run l
 
 ### Prerequisites
 
-You may need to install NodeJS before you can run the `npm` commands below.
+1. Create or use an existing Amazon AWS account.
+2. Install the latest version of AWS CLI. [Link to documentation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+3. Install the latest version of AWS SAM CLI. [Link to documentation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/install-sam-cli.html)
+4. You may need to install NodeJS before you can run the `npm` commands below.
 
 - On Windows / WSL:
 ```shell
@@ -132,7 +135,7 @@ sudo apt-get install -y nodejs
 brew install node
 ```
 
-### Installation
+### Instructions to Run Locally
 1. Clone the repo:
    ```sh
    git clone https://github.com/winters5885/NSS-digital-nomad.git
@@ -229,4 +232,8 @@ Project Link: [https://github.com/winters5885/NSS-digital-nomad](https://github.
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
 [JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+[JQuery-url]: https://jquery.com
+[AWS CloudFormation]: https://img.shields.io/badge/AWS_CloudFormation-red?style=for-the-badge
+[Cloudformation-url]: https://aws.amazon.com/cloudformation/
+[API Gateway]: https://img.shields.io/badge/AWS_API_Gateway-black?style=for-the-badge&logo=amazonapigateway&logoColor=FF4F8B
+[Gateway-url]: https://aws.amazon.com/api-gateway/
