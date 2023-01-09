@@ -86,10 +86,7 @@ than we expected, while others were completed faster as my team gained experienc
 on a project from start to finish. As a team worked through challenges and frustrations, shared moments of success, 
 and finished strong together! 
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 ### Built With
@@ -118,32 +115,38 @@ Here's a blank template to get started: To avoid retyping too much info. Do a se
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+Please follow the instructions below to set up a copy of Digital Nomad and run locally.
+
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+You may need to install NodeJS before you can run the `npm` commands below.
+
+- On Windows / WSL:
+```shell
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
+sudo apt-get install -y nodejs
+```
+- On macOS:
+```shell
+brew install node
+```
 
 ### Installation
+1. Clone the repo
+   ```sh
+   git clone https://github.com/winters5885/NSS-digital-nomad.git
+   ```
+2. Run the Lambda service (backend):
+    - Build the Java code: `sam build`
+    - Run the local API: `sam local start-api --warm-containers LAZY`
+3. Run a local web server (frontend):
+    - CD into the web directory: `cd web`
+    - Install dependencies : `npm install`
+    - Run the local server: `npm run run-local`
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
+After doing all of this, you will have a server running on port `8000` - you can access it by going to [http://localhost:8000](http://localhost:8000) in your browser.
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -177,9 +180,9 @@ See the [open issues](https://github.com/github_username/repo_name/issues) for a
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Steve Winters - steve.winters85@gmail.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/winters5885/NSS-digital-nomad](https://github.com/winters5885/NSS-digital-nomad)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
