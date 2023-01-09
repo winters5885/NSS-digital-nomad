@@ -17,10 +17,14 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">project_title</h3>
+<h3 align="center">Digital Nomad</h3>
 
   <p align="center">
-    project_description
+    Digital Nomad is a service that provides customers with a user experience that makes 
+    choosing where to travel easy. Customers are provided travel category options to choose 
+from and then a curated list of travel destinations is displayed. Customers can select and 
+save favorite destinations into DynamoDB. Once saved, Digital Nomad provides the customer 
+with a unique URL that they can bookmark and return to view their saved list in the future.
     <br />
     <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
     <br />
@@ -74,13 +78,6 @@ We split responsibilities throughout the project. During the first sprint I work
 layout of our webpage, designed the first dropdown menu, buttons, and added logic to connect
 the front and back end through our API. During the second sprint I moved to the back end and added functionality
 to save and retrieve favorite destinations using DynamoDB. I also contributed in the writing of unit tests for our JAVA classes.
-
-### Project Description
-Digital Nomad is a service that provides customers with a user experience that makes choosing where to travel easy.
-Customers are provided travel category options to choose from and then 
-a curated list of travel destinations is displayed. Customers can select and save favorite destinations
-into DynamoDB. Once saved, Digital Nomad provides the customer with a unique URL that they can bookmark and return to 
-view their saved list in the future. 
 
 ### What I learned
 Through this project I learned how to connect the front and back ends through a custom API. I learned how easy it is
