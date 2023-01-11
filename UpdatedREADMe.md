@@ -14,7 +14,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">Digital Nomad</h3>
@@ -143,10 +143,12 @@ brew install node
 2. Run the Lambda service (backend):
     - Build the Java code: `sam build`
     - Run the local API: `sam local start-api --warm-containers LAZY`
+   
 3. Run a local web server (frontend):
     - CD into the web directory: `cd web`
     - Install dependencies : `npm install`
     - Run the local server: `npm run run-local`
+4. Run the main method in each of the classes under the Web_Crawler directory to populate the tables.
 
 After doing all of this, you will have a server running on port `8000` - you can access it by going to [http://localhost:8000](http://localhost:8000) in your browser.
 
@@ -157,6 +159,8 @@ After doing all of this, you will have a server running on port `8000` - you can
 
 <!-- USAGE EXAMPLES -->
 ## Usage
+![image](https://user-images.githubusercontent.com/66507929/211700499-1f9afd5b-990a-4d31-ada1-3e6f7f689b67.png)
+
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
