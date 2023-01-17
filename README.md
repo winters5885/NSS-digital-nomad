@@ -14,7 +14,7 @@
 <br />
 <div align="center">
 
-<h3 align="center">![Logo](https://user-images.githubusercontent.com/66507929/212093234-5523c56d-408f-4bcf-b4c1-aa592a97e343.png)</h3>
+![Logo](https://user-images.githubusercontent.com/66507929/212093234-5523c56d-408f-4bcf-b4c1-aa592a97e343.png)
   <p align="center">
     Digital Nomad is a service that provides customers with a user experience that makes 
     choosing where to travel easy. Customers are provided travel category options to choose 
