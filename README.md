@@ -53,7 +53,6 @@ with a unique URL that they can bookmark and return to view their saved list in 
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
@@ -65,18 +64,19 @@ with a unique URL that they can bookmark and return to view their saved list in 
 
 ### Context
 This project was a mid-stone group project completed at the Nashville Software School. 
-Our Cohort was split into teams of four and given four weeks to design, build, and finish our application. 
+Our Cohort was split into teams of four and given four weeks to design, build, and finish our cloud-native web-application. 
 Following the SCRUM methodology we created our design and conducted two sprints.
 We split responsibilities throughout the project. During the first sprint I worked on the front end design to create the basic
 layout of our webpage, designed the first dropdown menu, buttons, and added logic to connect
-the front and back end through our API. During the second sprint I moved to the back end and added functionality
+the front and back end through to our API. During the second sprint I moved to the back end and added functionality
 to save and retrieve favorite destinations using DynamoDB. I also contributed in the writing of unit tests for our JAVA classes.
 
 ### What I learned
-Through this project I learned how to connect the front and back ends through a custom API. I learned how easy it is
+Through this project I learned how to connect the front and back ends through a custom API. This was a highlight for our whole team, 
+we all cheered together as we witnessed our database populate tables on the front end for the first time! I learned how easy it is
 to over commit or under commit on sprint planning goals. Some features, especially in the beginning phases, took much longer
-than we expected, while others were completed faster as my team gained experience. I learned how to collaborate and work as a team
-on a project from start to finish. As a team worked through challenges and frustrations, shared moments of success, 
+than we expected, while others were completed faster as my team and I gained experience. I learned how to collaborate and work as a team
+on a project from start to finish. As a team, worked through challenges and frustrations, shared moments of success, 
 and finished strong together! 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -162,21 +162,6 @@ After doing all of this, you will have a server running on port `8000` - you can
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ROADMAP -->
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-    - [ ] Nested Feature
-
-See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- CONTACT -->
