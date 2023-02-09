@@ -103,6 +103,11 @@ and finished strong together!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## View This Project
+
+[![Youtube Video](resources/images/youtube.PNG)](https://www.youtube.com/embed/dHkNxV84Lhk)
+
+<p>View this project: <a href="https://youtu.be/dHkNxV84Lhk"><b>here<b></a>.</p>
 
 
 <!-- GETTING STARTED -->
